@@ -73,28 +73,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmPlaceOrder.Designer.vb">
+    <Compile Include="Forms\frmPlaceOrder.Designer.vb">
       <DependentUpon>frmPlaceOrder.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPlaceOrder.vb">
+    <Compile Include="Forms\frmPlaceOrder.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegistration.Designer.vb">
+    <Compile Include="Forms\frmRegistration.Designer.vb">
       <DependentUpon>frmRegistration.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmRegistration.vb">
+    <Compile Include="Forms\frmRegistration.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSearch.Designer.vb">
+    <Compile Include="Forms\frmSearch.Designer.vb">
       <DependentUpon>frmSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmSearch.vb">
+    <Compile Include="Forms\frmSearch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStart.vb">
+    <Compile Include="Forms\frmStart.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStart.Designer.vb">
+    <Compile Include="Forms\frmStart.Designer.vb">
       <DependentUpon>frmStart.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -115,16 +115,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmPlaceOrder.resx">
+    <EmbeddedResource Include="Forms\frmPlaceOrder.resx">
       <DependentUpon>frmPlaceOrder.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistration.resx">
+    <EmbeddedResource Include="Forms\frmRegistration.resx">
       <DependentUpon>frmRegistration.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSearch.resx">
+    <EmbeddedResource Include="Forms\frmSearch.resx">
       <DependentUpon>frmSearch.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStart.resx">
+    <EmbeddedResource Include="Forms\frmStart.resx">
       <DependentUpon>frmStart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
