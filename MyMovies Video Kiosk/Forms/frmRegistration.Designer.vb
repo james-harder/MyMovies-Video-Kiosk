@@ -41,13 +41,13 @@ Partial Class frmRegistration
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.tbExpiry = New System.Windows.Forms.MaskedTextBox()
+        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
+        Me.cboState = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'btnSubmit
@@ -89,7 +89,7 @@ Partial Class frmRegistration
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(36, 42)
+        Me.Label2.Location = New System.Drawing.Point(21, 42)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(60, 13)
         Me.Label2.TabIndex = 4
@@ -98,7 +98,7 @@ Partial Class frmRegistration
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(35, 68)
+        Me.Label6.Location = New System.Drawing.Point(20, 68)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(61, 13)
         Me.Label6.TabIndex = 8
@@ -107,7 +107,7 @@ Partial Class frmRegistration
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(36, 120)
+        Me.Label7.Location = New System.Drawing.Point(21, 120)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(27, 13)
         Me.Label7.TabIndex = 9
@@ -116,7 +116,7 @@ Partial Class frmRegistration
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(187, 146)
+        Me.Label8.Location = New System.Drawing.Point(146, 146)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(25, 13)
         Me.Label8.TabIndex = 10
@@ -125,7 +125,7 @@ Partial Class frmRegistration
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(36, 198)
+        Me.Label9.Location = New System.Drawing.Point(21, 198)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(35, 13)
         Me.Label9.TabIndex = 11
@@ -134,7 +134,7 @@ Partial Class frmRegistration
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(187, 224)
+        Me.Label10.Location = New System.Drawing.Point(214, 224)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(56, 13)
         Me.Label10.TabIndex = 12
@@ -143,7 +143,7 @@ Partial Class frmRegistration
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(187, 172)
+        Me.Label11.Location = New System.Drawing.Point(214, 172)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(33, 13)
         Me.Label11.TabIndex = 13
@@ -152,7 +152,7 @@ Partial Class frmRegistration
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(35, 146)
+        Me.Label12.Location = New System.Drawing.Point(20, 146)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(35, 13)
         Me.Label12.TabIndex = 14
@@ -161,7 +161,7 @@ Partial Class frmRegistration
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(35, 94)
+        Me.Label13.Location = New System.Drawing.Point(20, 94)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(48, 13)
         Me.Label13.TabIndex = 15
@@ -170,7 +170,7 @@ Partial Class frmRegistration
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(36, 172)
+        Me.Label14.Location = New System.Drawing.Point(21, 172)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(41, 13)
         Me.Label14.TabIndex = 16
@@ -179,7 +179,7 @@ Partial Class frmRegistration
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(35, 224)
+        Me.Label15.Location = New System.Drawing.Point(20, 224)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(62, 13)
         Me.Label15.TabIndex = 17
@@ -187,93 +187,101 @@ Partial Class frmRegistration
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(102, 39)
+        Me.TextBox1.Location = New System.Drawing.Point(87, 39)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(118, 20)
         Me.TextBox1.TabIndex = 18
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(102, 65)
+        Me.TextBox2.Location = New System.Drawing.Point(87, 65)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(118, 20)
         Me.TextBox2.TabIndex = 19
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(102, 91)
+        Me.TextBox3.Location = New System.Drawing.Point(87, 91)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(197, 20)
         Me.TextBox3.TabIndex = 20
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(102, 117)
+        Me.TextBox4.Location = New System.Drawing.Point(87, 117)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(118, 20)
         Me.TextBox4.TabIndex = 21
         '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(102, 143)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(72, 20)
-        Me.TextBox5.TabIndex = 22
-        '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(102, 169)
+        Me.TextBox6.Location = New System.Drawing.Point(87, 169)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(72, 20)
         Me.TextBox6.TabIndex = 23
         '
         'TextBox7
         '
-        Me.TextBox7.Location = New System.Drawing.Point(102, 195)
+        Me.TextBox7.Location = New System.Drawing.Point(87, 195)
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(72, 20)
         Me.TextBox7.TabIndex = 24
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(249, 143)
+        Me.TextBox8.Location = New System.Drawing.Point(194, 143)
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(72, 20)
+        Me.TextBox8.Size = New System.Drawing.Size(62, 20)
         Me.TextBox8.TabIndex = 25
         '
-        'TextBox9
+        'tbExpiry
         '
-        Me.TextBox9.Location = New System.Drawing.Point(249, 169)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(72, 20)
-        Me.TextBox9.TabIndex = 26
+        Me.tbExpiry.Location = New System.Drawing.Point(276, 221)
+        Me.tbExpiry.Mask = "00/0000"
+        Me.tbExpiry.Name = "tbExpiry"
+        Me.tbExpiry.Size = New System.Drawing.Size(48, 20)
+        Me.tbExpiry.TabIndex = 28
+        Me.tbExpiry.ValidatingType = GetType(Date)
         '
-        'TextBox10
+        'MaskedTextBox1
         '
-        Me.TextBox10.Location = New System.Drawing.Point(249, 221)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(72, 20)
-        Me.TextBox10.TabIndex = 28
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(276, 169)
+        Me.MaskedTextBox1.Mask = "00/00/0000"
+        Me.MaskedTextBox1.Name = "MaskedTextBox1"
+        Me.MaskedTextBox1.Size = New System.Drawing.Size(63, 20)
+        Me.MaskedTextBox1.TabIndex = 29
+        Me.MaskedTextBox1.ValidatingType = GetType(Date)
         '
-        'TextBox11
+        'MaskedTextBox2
         '
-        Me.TextBox11.Location = New System.Drawing.Point(102, 221)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(72, 20)
-        Me.TextBox11.TabIndex = 27
+        Me.MaskedTextBox2.Location = New System.Drawing.Point(88, 221)
+        Me.MaskedTextBox2.Mask = "0000 0000 0000 0000"
+        Me.MaskedTextBox2.Name = "MaskedTextBox2"
+        Me.MaskedTextBox2.Size = New System.Drawing.Size(109, 20)
+        Me.MaskedTextBox2.TabIndex = 30
+        Me.MaskedTextBox2.ValidatingType = GetType(Date)
+        '
+        'cboState
+        '
+        Me.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboState.FormattingEnabled = True
+        Me.cboState.Location = New System.Drawing.Point(87, 143)
+        Me.cboState.Name = "cboState"
+        Me.cboState.Size = New System.Drawing.Size(39, 21)
+        Me.cboState.TabIndex = 31
         '
         'frmRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(350, 300)
-        Me.Controls.Add(Me.TextBox10)
-        Me.Controls.Add(Me.TextBox11)
-        Me.Controls.Add(Me.TextBox9)
+        Me.Controls.Add(Me.cboState)
+        Me.Controls.Add(Me.MaskedTextBox2)
+        Me.Controls.Add(Me.MaskedTextBox1)
+        Me.Controls.Add(Me.tbExpiry)
         Me.Controls.Add(Me.TextBox8)
         Me.Controls.Add(Me.TextBox7)
         Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox5)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.TextBox2)
@@ -321,11 +329,11 @@ Partial Class frmRegistration
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox5 As TextBox
     Friend WithEvents TextBox6 As TextBox
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents tbExpiry As MaskedTextBox
+    Friend WithEvents MaskedTextBox1 As MaskedTextBox
+    Friend WithEvents MaskedTextBox2 As MaskedTextBox
+    Friend WithEvents cboState As ComboBox
 End Class

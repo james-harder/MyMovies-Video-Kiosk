@@ -16,6 +16,4 @@
         ParentForm.Show()
         Close()
     End Sub
-
-
 End Class

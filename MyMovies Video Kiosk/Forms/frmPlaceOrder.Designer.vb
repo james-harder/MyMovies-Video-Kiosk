@@ -31,10 +31,10 @@ Partial Class frmPlaceOrder
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btnPlaceOrder = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.tbCreditCard = New System.Windows.Forms.TextBox()
-        Me.tbSecurityCode = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.tbExpiry = New System.Windows.Forms.TextBox()
+        Me.tbSecurityCode = New System.Windows.Forms.MaskedTextBox()
+        Me.tbExpiry = New System.Windows.Forms.MaskedTextBox()
+        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         Me.SuspendLayout()
         '
         'lstItems
@@ -91,7 +91,7 @@ Partial Class frmPlaceOrder
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(33, 251)
+        Me.Label6.Location = New System.Drawing.Point(33, 225)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(64, 13)
         Me.Label6.TabIndex = 6
@@ -115,45 +115,50 @@ Partial Class frmPlaceOrder
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'tbCreditCard
-        '
-        Me.tbCreditCard.Location = New System.Drawing.Point(103, 196)
-        Me.tbCreditCard.Name = "tbCreditCard"
-        Me.tbCreditCard.Size = New System.Drawing.Size(100, 20)
-        Me.tbCreditCard.TabIndex = 9
-        '
-        'tbSecurityCode
-        '
-        Me.tbSecurityCode.Location = New System.Drawing.Point(103, 222)
-        Me.tbSecurityCode.Name = "tbSecurityCode"
-        Me.tbSecurityCode.Size = New System.Drawing.Size(34, 20)
-        Me.tbSecurityCode.TabIndex = 12
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(19, 225)
+        Me.Label7.Location = New System.Drawing.Point(19, 251)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(76, 13)
         Me.Label7.TabIndex = 11
         Me.Label7.Text = "Security Code:"
         '
+        'tbSecurityCode
+        '
+        Me.tbSecurityCode.Location = New System.Drawing.Point(103, 248)
+        Me.tbSecurityCode.Mask = "000"
+        Me.tbSecurityCode.Name = "tbSecurityCode"
+        Me.tbSecurityCode.Size = New System.Drawing.Size(24, 20)
+        Me.tbSecurityCode.TabIndex = 14
+        Me.tbSecurityCode.ValidatingType = GetType(Integer)
+        '
         'tbExpiry
         '
-        Me.tbExpiry.Location = New System.Drawing.Point(103, 248)
+        Me.tbExpiry.Location = New System.Drawing.Point(103, 222)
+        Me.tbExpiry.Mask = "00/0000"
         Me.tbExpiry.Name = "tbExpiry"
-        Me.tbExpiry.Size = New System.Drawing.Size(34, 20)
-        Me.tbExpiry.TabIndex = 13
+        Me.tbExpiry.Size = New System.Drawing.Size(48, 20)
+        Me.tbExpiry.TabIndex = 15
+        Me.tbExpiry.ValidatingType = GetType(Date)
+        '
+        'MaskedTextBox1
+        '
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(103, 196)
+        Me.MaskedTextBox1.Mask = "0000 0000 0000 0000"
+        Me.MaskedTextBox1.Name = "MaskedTextBox1"
+        Me.MaskedTextBox1.Size = New System.Drawing.Size(112, 20)
+        Me.MaskedTextBox1.TabIndex = 16
         '
         'frmPlaceOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(350, 300)
+        Me.Controls.Add(Me.MaskedTextBox1)
         Me.Controls.Add(Me.tbExpiry)
         Me.Controls.Add(Me.tbSecurityCode)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.tbCreditCard)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnPlaceOrder)
         Me.Controls.Add(Me.Label6)
@@ -181,8 +186,8 @@ Partial Class frmPlaceOrder
     Friend WithEvents Label6 As Label
     Friend WithEvents btnPlaceOrder As Button
     Friend WithEvents btnCancel As Button
-    Friend WithEvents tbCreditCard As TextBox
-    Friend WithEvents tbSecurityCode As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents tbExpiry As TextBox
+    Friend WithEvents tbSecurityCode As MaskedTextBox
+    Friend WithEvents tbExpiry As MaskedTextBox
+    Friend WithEvents MaskedTextBox1 As MaskedTextBox
 End Class
