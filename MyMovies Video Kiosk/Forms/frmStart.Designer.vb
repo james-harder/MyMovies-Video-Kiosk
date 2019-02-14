@@ -40,9 +40,10 @@ Partial Class frmStart
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(121, 9)
+        Me.Label1.Location = New System.Drawing.Point(161, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(119, 13)
+        Me.Label1.Size = New System.Drawing.Size(153, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Welcome To MyMovies"
         '
@@ -51,35 +52,40 @@ Partial Class frmStart
         Me.GroupBox1.Controls.Add(Me.btnSubmit)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(32, 28)
+        Me.GroupBox1.Location = New System.Drawing.Point(43, 34)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(288, 100)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(384, 123)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registered Customer"
         '
         'btnSubmit
         '
-        Me.btnSubmit.Location = New System.Drawing.Point(106, 55)
+        Me.btnSubmit.Location = New System.Drawing.Point(140, 68)
+        Me.btnSubmit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSubmit.Name = "btnSubmit"
-        Me.btnSubmit.Size = New System.Drawing.Size(75, 23)
+        Me.btnSubmit.Size = New System.Drawing.Size(100, 28)
         Me.btnSubmit.TabIndex = 2
         Me.btnSubmit.Text = "Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(94, 29)
+        Me.TextBox1.Location = New System.Drawing.Point(125, 36)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(132, 22)
         Me.TextBox1.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(20, 32)
+        Me.Label2.Location = New System.Drawing.Point(27, 39)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 13)
+        Me.Label2.Size = New System.Drawing.Size(89, 17)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Customer ID:"
         '
@@ -89,9 +95,11 @@ Partial Class frmStart
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.btnSearch)
         Me.GroupBox2.Controls.Add(Me.btnRegister)
-        Me.GroupBox2.Location = New System.Drawing.Point(32, 156)
+        Me.GroupBox2.Location = New System.Drawing.Point(43, 192)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(288, 100)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(384, 123)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "New Customer"
@@ -99,58 +107,64 @@ Partial Class frmStart
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(20, 59)
+        Me.Label4.Location = New System.Drawing.Point(27, 73)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(154, 13)
+        Me.Label4.Size = New System.Drawing.Size(204, 17)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Continue Without Registration: "
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(20, 30)
+        Me.Label3.Location = New System.Drawing.Point(27, 37)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 13)
+        Me.Label3.Size = New System.Drawing.Size(90, 17)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "To Register: "
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(186, 54)
+        Me.btnSearch.Location = New System.Drawing.Point(248, 66)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(75, 23)
+        Me.btnSearch.Size = New System.Drawing.Size(100, 28)
         Me.btnSearch.TabIndex = 1
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(186, 25)
+        Me.btnRegister.Location = New System.Drawing.Point(248, 31)
+        Me.btnRegister.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(75, 23)
+        Me.btnRegister.Size = New System.Drawing.Size(100, 28)
         Me.btnRegister.TabIndex = 0
         Me.btnRegister.Text = "Register"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(138, 266)
+        Me.btnExit.Location = New System.Drawing.Point(184, 327)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.Size = New System.Drawing.Size(100, 28)
         Me.btnExit.TabIndex = 3
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'frmStart
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(350, 300)
+        Me.ClientSize = New System.Drawing.Size(467, 369)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmStart"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.GroupBox1.ResumeLayout(False)
