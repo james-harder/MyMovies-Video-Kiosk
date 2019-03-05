@@ -32,9 +32,11 @@ Partial Class frmPlaceOrder
         Me.btnPlaceOrder = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.tbSecurityCode = New System.Windows.Forms.MaskedTextBox()
-        Me.tbExpiry = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.txtExpiry = New System.Windows.Forms.MaskedTextBox()
+        Me.txtCreditCard = New System.Windows.Forms.TextBox()
+        Me.txtSecurityCode = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cboCardCarrier = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lstItems
@@ -66,7 +68,7 @@ Partial Class frmPlaceOrder
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(221, 200)
+        Me.Label3.Location = New System.Drawing.Point(221, 173)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(34, 13)
         Me.Label3.TabIndex = 3
@@ -75,14 +77,14 @@ Partial Class frmPlaceOrder
         'Label4
         '
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label4.Location = New System.Drawing.Point(258, 196)
+        Me.Label4.Location = New System.Drawing.Point(258, 169)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 20)
         Me.Label4.TabIndex = 4
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(35, 199)
+        Me.Label5.Location = New System.Drawing.Point(35, 202)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(62, 14)
         Me.Label5.TabIndex = 5
@@ -91,7 +93,7 @@ Partial Class frmPlaceOrder
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(33, 225)
+        Me.Label6.Location = New System.Drawing.Point(33, 226)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(64, 13)
         Me.Label6.TabIndex = 6
@@ -99,7 +101,7 @@ Partial Class frmPlaceOrder
         '
         'btnPlaceOrder
         '
-        Me.btnPlaceOrder.Location = New System.Drawing.Point(236, 236)
+        Me.btnPlaceOrder.Location = New System.Drawing.Point(236, 217)
         Me.btnPlaceOrder.Name = "btnPlaceOrder"
         Me.btnPlaceOrder.Size = New System.Drawing.Size(75, 23)
         Me.btnPlaceOrder.TabIndex = 7
@@ -108,7 +110,7 @@ Partial Class frmPlaceOrder
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(236, 265)
+        Me.btnCancel.Location = New System.Drawing.Point(236, 246)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 8
@@ -118,46 +120,65 @@ Partial Class frmPlaceOrder
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(19, 251)
+        Me.Label7.Location = New System.Drawing.Point(19, 252)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(76, 13)
         Me.Label7.TabIndex = 11
         Me.Label7.Text = "Security Code:"
         '
-        'tbSecurityCode
+        'txtExpiry
         '
-        Me.tbSecurityCode.Location = New System.Drawing.Point(103, 248)
-        Me.tbSecurityCode.Mask = "000"
-        Me.tbSecurityCode.Name = "tbSecurityCode"
-        Me.tbSecurityCode.Size = New System.Drawing.Size(24, 20)
-        Me.tbSecurityCode.TabIndex = 14
-        Me.tbSecurityCode.ValidatingType = GetType(Integer)
+        Me.txtExpiry.Location = New System.Drawing.Point(103, 223)
+        Me.txtExpiry.Mask = "00/00"
+        Me.txtExpiry.Name = "txtExpiry"
+        Me.txtExpiry.Size = New System.Drawing.Size(35, 20)
+        Me.txtExpiry.TabIndex = 15
+        Me.txtExpiry.ValidatingType = GetType(Date)
         '
-        'tbExpiry
+        'txtCreditCard
         '
-        Me.tbExpiry.Location = New System.Drawing.Point(103, 222)
-        Me.tbExpiry.Mask = "00/0000"
-        Me.tbExpiry.Name = "tbExpiry"
-        Me.tbExpiry.Size = New System.Drawing.Size(48, 20)
-        Me.tbExpiry.TabIndex = 15
-        Me.tbExpiry.ValidatingType = GetType(Date)
+        Me.txtCreditCard.Location = New System.Drawing.Point(103, 197)
+        Me.txtCreditCard.MaxLength = 16
+        Me.txtCreditCard.Name = "txtCreditCard"
+        Me.txtCreditCard.Size = New System.Drawing.Size(112, 20)
+        Me.txtCreditCard.TabIndex = 16
         '
-        'MaskedTextBox1
+        'txtSecurityCode
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(103, 196)
-        Me.MaskedTextBox1.Mask = "0000 0000 0000 0000"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(112, 20)
-        Me.MaskedTextBox1.TabIndex = 16
+        Me.txtSecurityCode.Location = New System.Drawing.Point(103, 249)
+        Me.txtSecurityCode.MaxLength = 4
+        Me.txtSecurityCode.Name = "txtSecurityCode"
+        Me.txtSecurityCode.Size = New System.Drawing.Size(35, 20)
+        Me.txtSecurityCode.TabIndex = 17
+        '
+        'Label8
+        '
+        Me.Label8.Location = New System.Drawing.Point(35, 173)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(62, 14)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "Card Type:"
+        '
+        'cboCardCarrier
+        '
+        Me.cboCardCarrier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboCardCarrier.FormattingEnabled = True
+        Me.cboCardCarrier.Items.AddRange(New Object() {"Visa", "Mastercard", "American Express"})
+        Me.cboCardCarrier.Location = New System.Drawing.Point(103, 170)
+        Me.cboCardCarrier.Name = "cboCardCarrier"
+        Me.cboCardCarrier.Size = New System.Drawing.Size(112, 21)
+        Me.cboCardCarrier.TabIndex = 19
         '
         'frmPlaceOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(350, 300)
-        Me.Controls.Add(Me.MaskedTextBox1)
-        Me.Controls.Add(Me.tbExpiry)
-        Me.Controls.Add(Me.tbSecurityCode)
+        Me.Controls.Add(Me.cboCardCarrier)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.txtSecurityCode)
+        Me.Controls.Add(Me.txtCreditCard)
+        Me.Controls.Add(Me.txtExpiry)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnPlaceOrder)
@@ -187,7 +208,9 @@ Partial Class frmPlaceOrder
     Friend WithEvents btnPlaceOrder As Button
     Friend WithEvents btnCancel As Button
     Friend WithEvents Label7 As Label
-    Friend WithEvents tbSecurityCode As MaskedTextBox
-    Friend WithEvents tbExpiry As MaskedTextBox
-    Friend WithEvents MaskedTextBox1 As MaskedTextBox
+    Friend WithEvents txtExpiry As MaskedTextBox
+    Friend WithEvents txtCreditCard As TextBox
+    Friend WithEvents txtSecurityCode As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents cboCardCarrier As ComboBox
 End Class

@@ -113,6 +113,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Program.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\frmPlaceOrder.resx">
