@@ -25,7 +25,7 @@ Partial Class frmSearch
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.tbSearch = New System.Windows.Forms.TextBox()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnPlaceOrder = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -61,12 +61,12 @@ Partial Class frmSearch
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Browse By:"
         '
-        'tbSearch
+        'txtSearch
         '
-        Me.tbSearch.Location = New System.Drawing.Point(88, 51)
-        Me.tbSearch.Name = "tbSearch"
-        Me.tbSearch.Size = New System.Drawing.Size(161, 20)
-        Me.tbSearch.TabIndex = 3
+        Me.txtSearch.Location = New System.Drawing.Point(88, 51)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(161, 20)
+        Me.txtSearch.TabIndex = 3
         '
         'btnSearch
         '
@@ -132,7 +132,7 @@ Partial Class frmSearch
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnPlaceOrder)
         Me.Controls.Add(Me.btnSearch)
-        Me.Controls.Add(Me.tbSearch)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -148,7 +148,7 @@ Partial Class frmSearch
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents tbSearch As TextBox
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents btnSearch As Button
     Friend WithEvents btnPlaceOrder As Button
     Friend WithEvents btnExit As Button
