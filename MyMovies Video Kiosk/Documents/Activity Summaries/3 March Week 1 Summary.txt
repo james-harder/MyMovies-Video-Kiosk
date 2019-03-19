@@ -1,0 +1,9 @@
+﻿3/4/2019
+|	Activity	|	Member	|	Hours	|	Total	|
+-----------------------------------------------------
+| UI/UX Design	| Alexis	| 1 Hour	| 1 Hour	|
+| UI/UX Code	| Alexis	| 2 Hours	| 2 Hours	|
+| UI/UX Art		| Alexis	| .5 Hours	| .5 Hours	|
+-----------------------------------------------------
+
+Total Time: 3.5 Hours

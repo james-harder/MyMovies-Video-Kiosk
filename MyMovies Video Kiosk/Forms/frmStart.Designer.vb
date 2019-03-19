@@ -41,9 +41,10 @@ Partial Class frmStart
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(121, 9)
+        Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(54, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(119, 13)
+        Me.Label1.Size = New System.Drawing.Size(239, 30)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Welcome To MyMovies"
         '
@@ -52,7 +53,8 @@ Partial Class frmStart
         Me.GroupBox1.Controls.Add(Me.btnSubmit)
         Me.GroupBox1.Controls.Add(Me.txtUsername)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(32, 28)
+        Me.GroupBox1.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(32, 44)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(288, 100)
         Me.GroupBox1.TabIndex = 1
@@ -72,7 +74,7 @@ Partial Class frmStart
         '
         Me.txtUsername.Location = New System.Drawing.Point(94, 29)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsername.Size = New System.Drawing.Size(100, 22)
         Me.txtUsername.TabIndex = 1
         '
         'Label2
@@ -80,7 +82,7 @@ Partial Class frmStart
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(20, 32)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 13)
+        Me.Label2.Size = New System.Drawing.Size(73, 13)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Customer ID:"
         '
@@ -90,6 +92,7 @@ Partial Class frmStart
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.btnSearch)
         Me.GroupBox2.Controls.Add(Me.btnRegister)
+        Me.GroupBox2.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(32, 156)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(288, 100)
@@ -102,7 +105,7 @@ Partial Class frmStart
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(20, 59)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(154, 13)
+        Me.Label4.Size = New System.Drawing.Size(173, 13)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Continue Without Registration: "
         '
@@ -111,13 +114,13 @@ Partial Class frmStart
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(20, 30)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 13)
+        Me.Label3.Size = New System.Drawing.Size(69, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "To Register: "
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(186, 54)
+        Me.btnSearch.Location = New System.Drawing.Point(199, 54)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(75, 23)
         Me.btnSearch.TabIndex = 1
@@ -126,7 +129,7 @@ Partial Class frmStart
         '
         'btnRegister
         '
-        Me.btnRegister.Location = New System.Drawing.Point(186, 25)
+        Me.btnRegister.Location = New System.Drawing.Point(199, 25)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(75, 23)
         Me.btnRegister.TabIndex = 0
@@ -135,6 +138,7 @@ Partial Class frmStart
         '
         'btnExit
         '
+        Me.btnExit.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.Location = New System.Drawing.Point(138, 266)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)

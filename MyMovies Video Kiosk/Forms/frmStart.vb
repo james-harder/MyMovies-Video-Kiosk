@@ -4,8 +4,7 @@
         Dim p As Integer
         If (Integer.TryParse(txtUsername.Text, p)) Then
             UserID = p
-            frmSearch.Show()
-            Hide()
+            Search.Show()
         Else
             MessageBox.Show("User ID incorrectly formatted.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtUsername.Text = String.Empty
@@ -20,8 +19,7 @@
         SubmitUser()
     End Sub
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
-        Dim registration As New frmRegistration(Me) 'Pass parent (frmStart) to frmRegistration
-        registration.Show()
+        Registration.Show(Me)   'Shows form, sets its parent to this form
         Hide()
     End Sub
     Private Sub txtUsername_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUsername.KeyPress
@@ -35,6 +33,9 @@
         If (result = DialogResult.No) Then
             e.Cancel = True
         End If
+    End Sub
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        Search.Show()
     End Sub
 #End Region
 End Class

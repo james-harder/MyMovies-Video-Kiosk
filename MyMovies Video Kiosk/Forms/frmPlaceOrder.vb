@@ -3,15 +3,14 @@
         cboCardCarrier.SelectedIndex = 0
     End Sub
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        frmSearch.Show()
+        Search.Show()
         Close()
     End Sub
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
         'If (Customer.Exists)
         '   Place Order
         'Else
-        Dim registration As New frmRegistration(Me) 'Pass parent (frmPlaceOrder) to frmRegistration
-        registration.Show()
+        Registration.Show(Me) 'Pass parent (frmPlaceOrder) to frmRegistration
         Hide()
         'End If
     End Sub
