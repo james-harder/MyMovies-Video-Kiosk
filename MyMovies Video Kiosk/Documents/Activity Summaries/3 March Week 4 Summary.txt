@@ -1,9 +1,0 @@
-3/18/2019
-|	Activity		|	Member	|	Hours	|	Total	|
----------------------------------------------------------
-| Project Meeting	| Alexis	| 2 Hour	|			|
-|					| Ernest	| 2 Hour	|			|
-|					| James		| 2 Hour	| 6 Hours	|
----------------------------------------------------------
-
-Total Time: 6 Hours

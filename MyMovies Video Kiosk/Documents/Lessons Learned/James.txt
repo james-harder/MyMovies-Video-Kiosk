@@ -1,1 +1,4 @@
-﻿
+﻿3/24/2019
+-Using Github to collaborate with team members
+-Working with multiple projects in one solution
+	-Administrator module created as a seperate project
