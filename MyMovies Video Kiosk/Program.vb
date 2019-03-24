@@ -18,7 +18,7 @@
     End Property
     Public ReadOnly Property Registration() As frmRegistration
         Get
-            If (_Registration Is Nothing Or _Registration.IsDisposed) Then
+            If (_Registration Is Nothing OrElse _Registration.IsDisposed) Then
                 _Registration = New frmRegistration()
             End If
             Return _Registration
@@ -26,7 +26,7 @@
     End Property
     Public ReadOnly Property PlaceOrder() As frmPlaceOrder
         Get
-            If (_PlaceOrder Is Nothing Or _PlaceOrder.IsDisposed) Then
+            If (_PlaceOrder Is Nothing OrElse _PlaceOrder.IsDisposed) Then
                 _PlaceOrder = New frmPlaceOrder()
             End If
             Return _PlaceOrder

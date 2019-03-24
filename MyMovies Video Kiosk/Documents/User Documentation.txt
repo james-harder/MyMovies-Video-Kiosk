@@ -1,1 +1,20 @@
-﻿
+﻿User Documentation|
+------------------|
+
+1. Purpose
+	[PlaceHolder]
+2. Key Functionalities
+	[PlaceHolder]
+3. User Roles
+	1. Customer
+	2. Administrator
+4. Presentation
+	[How to run the application]
+5. How To Use
+	1. Start
+	2. Search
+	3. Register
+	4. Place Order
+	5. Insert Movie (Administrator)
+	6. Update/Delete Movie (Administrator)
+	
