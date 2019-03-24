@@ -1,5 +1,16 @@
 Meeting March 24, 2019 10:00 AM|
--------------------------------
+-------------------------------|
 
+Decided to use the MyMovies Kiosk project outline rather than a custom project.
+Ernest took responsibility for the Team Charter (1.3)
+Alexis took responsibility for User Documentation (1.1)
+James took responsibility for Application Design Documentation (1.2)
 
+Discussed current UI implementation
+Updated Activity Summary for March Week 4
+James created new project for administrator module
 
+Established interest in utilizing Entity Framework for integrated information save/query
+Decided to include movie reel border with color themes for each separate form
+
+Discussed Github practices
