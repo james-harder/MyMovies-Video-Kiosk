@@ -1,1 +1,8 @@
-﻿
+﻿1.3 Team Charter 
+ 
+This section will elaborate on the role and responsibilities of each member of the group. 
+As a team our roles and responsibilities are multiple in function. The following 
+activities are from the initail first meeting.
+James is an designer and has taken the responsibility to complete the flowcharts and window form
+Alexis is the administrator she was implimented the users interface and the navigation
+between forms.
