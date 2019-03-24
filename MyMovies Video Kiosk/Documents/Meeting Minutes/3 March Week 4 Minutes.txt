@@ -1,5 +1,6 @@
 Meeting March 24, 2019 10:00 AM|
 <<<<<<< HEAD
+<<<<<<< HEAD
 -------------------------------|
 
 Decided to use the MyMovies Kiosk project outline rather than a custom project.
@@ -15,6 +16,10 @@ Established interest in utilizing Entity Framework for integrated information sa
 Decided to include movie reel border with color themes for each separate form
 
 Discussed Github practices
+=======
+-------------------------------
+
+>>>>>>> parent of a722874... Revert "Added Meeting Minutes"
 =======
 -------------------------------
 
