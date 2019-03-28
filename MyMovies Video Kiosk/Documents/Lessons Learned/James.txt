@@ -2,3 +2,8 @@
 -Using Github to collaborate with team members
 -Working with multiple projects in one solution
 	-Administrator module created as a seperate project
+
+Notes for application Documentation:
+-create package diagram for each form (ch6)
+-create Design Class (or ER) diagram for database (ch6)
+-DFD (chapter online b)
