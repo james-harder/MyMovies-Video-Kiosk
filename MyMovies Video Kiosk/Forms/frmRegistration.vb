@@ -13,5 +13,6 @@
 
     Public Overloads Sub Show(parent As Form)
         ParentForm = parent
+        MyBase.Show()
     End Sub
 End Class
