@@ -1,1 +1,5 @@
-﻿
+﻿Lessons Learned - Alexis	|
+----------------------------|
+
+- How to productively overload existing form functions
+- How to collaborate on a basic level using github and source control
