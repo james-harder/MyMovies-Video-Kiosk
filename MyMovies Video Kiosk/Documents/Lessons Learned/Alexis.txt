@@ -1,6 +1,5 @@
-﻿Need to create:
+﻿Lessons Learned - Alexis	|
+----------------------------|
 
-1) Activity Diagram
-2) DFD
-3) UML Class diagram
-4) User stories?
+- How to productively overload existing form functions
+- How to collaborate on a basic level using github and source control

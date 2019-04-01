@@ -154,7 +154,6 @@
     <Content Include="Documents\Activity Summaries\3 March Week 1 Summary.txt" />
     <Content Include="Documents\Activity Summaries\2 February Week 4 Summary.txt" />
     <Content Include="Documents\Activity Summaries\3 March Week 3 Summary.txt" />
-    <Content Include="Documents\Application Design Documentation.txt" />
     <Content Include="Documents\Issues-Questions.txt" />
     <Content Include="Documents\Lessons Learned\Alexis.txt" />
     <Content Include="Documents\Lessons Learned\Ernest.txt" />
@@ -163,6 +162,14 @@
     <Content Include="Documents\Team Charter.txt" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Documents\User Documentation.txt" />
+    <Content Include="Images\Film Reel Blue.png" />
+    <Content Include="Images\Film Reel Green.png" />
+    <Content Include="Images\Film Reel Orange.png" />
+    <Content Include="Images\Film Reel Red.png" />
+    <None Include="Resources\Film Reel Red.png" />
+    <None Include="Resources\Film Reel Orange.png" />
+    <None Include="Resources\Film Reel Green.png" />
+    <None Include="Resources\Film Reel Blue.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Documents\Meeting Minutes\" />

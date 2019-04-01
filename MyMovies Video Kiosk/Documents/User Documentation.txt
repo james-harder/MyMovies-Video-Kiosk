@@ -2,20 +2,28 @@
 ------------------|
 
 1. Purpose
-	[PlaceHolder]
+	The purpose of this application is to give customers a way to interface with our database to place movie orders on demand.
 2. Key Functionalities
-	[PlaceHolder]
+	a. Register account
+	b. Search available movies
+	c. Place order for any number of movies
 3. User Roles
 	1. Customer
 	2. Administrator
-	3. Others??
 4. Presentation
 	[How to run the application]
 5. How To Use
 	1. Start
+		The start form presents users with three main options: Login via customer ID, Register as a new customer, 
+		and Search without registering. The user may also exit the application on this form.
 	2. Search
+		The search form allows the user to search available movies by query string and to browse the movies by
+		various criteria. The user may place an order by selected an item in the listbox and clicking "Place Order".
 	3. Register
+		The register form allows the user to create a new account by filling in all pertinent information. The user
+		may back out at any time and return directly to the form from whence they came.
 	4. Place Order
+		The place order form allows the user to place the order given their basic purchase information.
 	5. Insert Movie (Administrator)
 	6. Update/Delete Movie (Administrator)
 	
