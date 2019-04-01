@@ -1,1 +1,6 @@
-﻿
+﻿Need to create:
+
+1) Activity Diagram
+2) DFD
+3) UML Class diagram
+4) User stories?
