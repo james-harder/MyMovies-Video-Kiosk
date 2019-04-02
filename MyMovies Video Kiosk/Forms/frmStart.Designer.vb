@@ -97,7 +97,7 @@ Partial Class frmStart
         Me.GroupBox2.Controls.Add(Me.btnSearch)
         Me.GroupBox2.Controls.Add(Me.btnRegister)
         Me.GroupBox2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(416, 178)
+        Me.GroupBox2.Location = New System.Drawing.Point(410, 178)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(309, 100)
         Me.GroupBox2.TabIndex = 2
@@ -158,7 +158,7 @@ Partial Class frmStart
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(314, 221)
+        Me.Label5.Location = New System.Drawing.Point(308, 219)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(77, 25)
         Me.Label5.TabIndex = 4

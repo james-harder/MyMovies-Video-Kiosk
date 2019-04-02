@@ -5,6 +5,8 @@
         If (Integer.TryParse(txtUsername.Text, p)) Then
             UserID = p
             Search.Show()
+            RemoveHandler FormClosing, AddressOf frmStart_FormClosing
+            Close()
         Else
             MessageBox.Show("User ID incorrectly formatted.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtUsername.Text = String.Empty
