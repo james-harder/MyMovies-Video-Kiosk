@@ -1,8 +1,28 @@
-﻿1.3 Team Charter 
+MYMovies Video Kiosk
+Team Charter
+As a team our roles and responsibilities are multiple in function.
+
+Administrator
+Name | Alexis Landreth
+Position | Programmer
+Responsibility | Time keeper administered | user interface | and navigation
+1st Meeting | Sunday March 17th, 2019
  
-This section will elaborate on the role and responsibilities of each member of the group. 
-As a team our roles and responsibilities are multiple in function. The following 
-activities are from the initail first meeting.
-James is an designer and has taken the responsibility to complete the flowcharts and window form
-Alexis is the administrator she was implimented the users interface and the navigation
-between forms.
+User Interface Designer
+Name | James Harder
+Position | Programmer
+Responsibility | Completing the flow chart | Window form |  
+1st Meeting | Sunday March 17th, 2019
+ 
+Tester
+Name | Tristan Jones
+Position | Programmer
+Responsibility | Tester |   |  
+1st Meeting | Sunday March 17th, 2019 Pass
+
+Team Charter
+Name | Ernest Robinson
+Position | Team charter Organizer
+Responsibility | Created team charter | dated agility of | team members plan
+1st Meeting | Sunday March 17, 2019
+  |   |   |   |  
