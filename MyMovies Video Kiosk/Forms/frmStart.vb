@@ -5,8 +5,7 @@
         If (Integer.TryParse(txtUsername.Text, p)) Then
             UserID = p
             Search.Show()
-            RemoveHandler FormClosing, AddressOf frmStart_FormClosing
-            Close()
+            Hide()
         Else
             MessageBox.Show("User ID incorrectly formatted.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtUsername.Text = String.Empty
@@ -38,6 +37,19 @@
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Search.Show()
+        Hide()
     End Sub
+    Private Sub frmStart_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If (e.KeyCode = Keys.F11) Then
+            ResizeAllForms()
+        End If
+    End Sub
+    Private Sub frmStart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Not Equals(Start) Then
+            RemoveHandler FormClosing, AddressOf frmStart_FormClosing
+            Start.Show()
+            Close()
+        End If
+    End Sub 'Close startup form, replace with frmStart tracked by Program.vb
 #End Region
 End Class

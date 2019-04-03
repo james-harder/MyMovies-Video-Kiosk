@@ -37,6 +37,7 @@ Partial Class frmSearch
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(300, 101)
@@ -47,6 +48,7 @@ Partial Class frmSearch
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(32, 175)
@@ -57,6 +59,7 @@ Partial Class frmSearch
         '
         'Label3
         '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(32, 210)
@@ -67,6 +70,7 @@ Partial Class frmSearch
         '
         'txtSearch
         '
+        Me.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSearch.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearch.Location = New System.Drawing.Point(115, 175)
         Me.txtSearch.Name = "txtSearch"
@@ -75,6 +79,7 @@ Partial Class frmSearch
         '
         'btnSearch
         '
+        Me.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnSearch.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSearch.Location = New System.Drawing.Point(177, 237)
         Me.btnSearch.Name = "btnSearch"
@@ -85,6 +90,7 @@ Partial Class frmSearch
         '
         'btnPlaceOrder
         '
+        Me.btnPlaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnPlaceOrder.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPlaceOrder.Location = New System.Drawing.Point(623, 319)
         Me.btnPlaceOrder.Name = "btnPlaceOrder"
@@ -95,6 +101,7 @@ Partial Class frmSearch
         '
         'btnReturn
         '
+        Me.btnReturn.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnReturn.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReturn.Location = New System.Drawing.Point(319, 319)
         Me.btnReturn.Name = "btnReturn"
@@ -105,6 +112,7 @@ Partial Class frmSearch
         '
         'cboBrowseBy
         '
+        Me.cboBrowseBy.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.cboBrowseBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBrowseBy.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboBrowseBy.FormattingEnabled = True
@@ -115,6 +123,7 @@ Partial Class frmSearch
         '
         'lstResults
         '
+        Me.lstResults.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lstResults.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstResults.FormattingEnabled = True
         Me.lstResults.Location = New System.Drawing.Point(319, 179)
@@ -124,6 +133,7 @@ Partial Class frmSearch
         '
         'Label4
         '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(316, 159)
@@ -136,6 +146,7 @@ Partial Class frmSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.BackgroundImage = Global.MyMovies_Video_Kiosk.My.Resources.Resources.Film_Reel_Orange
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 470)
@@ -152,6 +163,7 @@ Partial Class frmSearch
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Name = "frmSearch"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmSearch"

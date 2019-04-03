@@ -3,3 +3,4 @@
 
 - How to productively overload existing form functions
 - How to collaborate on a basic level using github and source control
+- How to add and remove event handlers during runtime

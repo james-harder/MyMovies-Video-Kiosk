@@ -53,6 +53,7 @@ Partial Class frmRegistration
         '
         'btnSubmit
         '
+        Me.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnSubmit.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSubmit.Location = New System.Drawing.Point(643, 299)
         Me.btnSubmit.Name = "btnSubmit"
@@ -63,6 +64,7 @@ Partial Class frmRegistration
         '
         'btnClear
         '
+        Me.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnClear.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.Location = New System.Drawing.Point(554, 299)
         Me.btnClear.Name = "btnClear"
@@ -73,6 +75,7 @@ Partial Class frmRegistration
         '
         'btnCancel
         '
+        Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnCancel.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.Location = New System.Drawing.Point(465, 299)
         Me.btnCancel.Name = "btnCancel"
@@ -83,6 +86,7 @@ Partial Class frmRegistration
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(263, 100)
@@ -93,6 +97,7 @@ Partial Class frmRegistration
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(35, 167)
@@ -103,6 +108,7 @@ Partial Class frmRegistration
         '
         'Label6
         '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(35, 200)
@@ -113,6 +119,7 @@ Partial Class frmRegistration
         '
         'Label7
         '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(305, 200)
@@ -123,6 +130,7 @@ Partial Class frmRegistration
         '
         'Label8
         '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(305, 232)
@@ -133,6 +141,7 @@ Partial Class frmRegistration
         '
         'Label9
         '
+        Me.Label9.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(35, 299)
@@ -143,6 +152,7 @@ Partial Class frmRegistration
         '
         'Label10
         '
+        Me.Label10.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(305, 299)
@@ -153,6 +163,7 @@ Partial Class frmRegistration
         '
         'Label11
         '
+        Me.Label11.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(35, 233)
@@ -163,6 +174,7 @@ Partial Class frmRegistration
         '
         'Label12
         '
+        Me.Label12.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(516, 200)
@@ -173,6 +185,7 @@ Partial Class frmRegistration
         '
         'Label13
         '
+        Me.Label13.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(305, 167)
@@ -183,6 +196,7 @@ Partial Class frmRegistration
         '
         'Label14
         '
+        Me.Label14.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(35, 262)
@@ -193,6 +207,7 @@ Partial Class frmRegistration
         '
         'Label15
         '
+        Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(305, 262)
@@ -203,6 +218,7 @@ Partial Class frmRegistration
         '
         'TextBox1
         '
+        Me.TextBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox1.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.Location = New System.Drawing.Point(115, 167)
         Me.TextBox1.Name = "TextBox1"
@@ -211,6 +227,7 @@ Partial Class frmRegistration
         '
         'TextBox2
         '
+        Me.TextBox2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox2.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(115, 200)
         Me.TextBox2.Name = "TextBox2"
@@ -219,6 +236,7 @@ Partial Class frmRegistration
         '
         'TextBox3
         '
+        Me.TextBox3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox3.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox3.Location = New System.Drawing.Point(384, 167)
         Me.TextBox3.Name = "TextBox3"
@@ -227,6 +245,7 @@ Partial Class frmRegistration
         '
         'TextBox4
         '
+        Me.TextBox4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox4.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox4.Location = New System.Drawing.Point(384, 200)
         Me.TextBox4.Name = "TextBox4"
@@ -235,6 +254,7 @@ Partial Class frmRegistration
         '
         'TextBox6
         '
+        Me.TextBox6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox6.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox6.Location = New System.Drawing.Point(384, 233)
         Me.TextBox6.Name = "TextBox6"
@@ -243,6 +263,7 @@ Partial Class frmRegistration
         '
         'TextBox7
         '
+        Me.TextBox7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox7.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox7.Location = New System.Drawing.Point(115, 299)
         Me.TextBox7.Name = "TextBox7"
@@ -251,6 +272,7 @@ Partial Class frmRegistration
         '
         'TextBox8
         '
+        Me.TextBox8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.TextBox8.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox8.Location = New System.Drawing.Point(115, 265)
         Me.TextBox8.Name = "TextBox8"
@@ -259,6 +281,7 @@ Partial Class frmRegistration
         '
         'tbExpiry
         '
+        Me.tbExpiry.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.tbExpiry.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbExpiry.Location = New System.Drawing.Point(384, 299)
         Me.tbExpiry.Mask = "00/0000"
@@ -269,6 +292,7 @@ Partial Class frmRegistration
         '
         'MaskedTextBox1
         '
+        Me.MaskedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MaskedTextBox1.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MaskedTextBox1.Location = New System.Drawing.Point(115, 233)
         Me.MaskedTextBox1.Mask = "00/00/0000"
@@ -279,6 +303,7 @@ Partial Class frmRegistration
         '
         'MaskedTextBox2
         '
+        Me.MaskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MaskedTextBox2.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MaskedTextBox2.Location = New System.Drawing.Point(384, 265)
         Me.MaskedTextBox2.Mask = "0000 0000 0000 0000"
@@ -289,6 +314,7 @@ Partial Class frmRegistration
         '
         'cboState
         '
+        Me.cboState.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboState.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboState.FormattingEnabled = True
@@ -301,6 +327,7 @@ Partial Class frmRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(232, Byte), Integer), CType(CType(181, Byte), Integer))
         Me.BackgroundImage = Global.MyMovies_Video_Kiosk.My.Resources.Resources.Film_Reel_Green
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 470)
@@ -333,6 +360,7 @@ Partial Class frmRegistration
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Name = "frmRegistration"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistration"

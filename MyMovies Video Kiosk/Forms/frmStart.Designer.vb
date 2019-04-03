@@ -41,6 +41,7 @@ Partial Class frmStart
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(198, 100)
@@ -51,19 +52,23 @@ Partial Class frmStart
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GroupBox1.AutoSize = True
         Me.GroupBox1.Controls.Add(Me.btnSubmit)
         Me.GroupBox1.Controls.Add(Me.txtUsername)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(31, 178)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(253, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(253, 109)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registered Customer"
         '
         'btnSubmit
         '
+        Me.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnSubmit.AutoSize = True
         Me.btnSubmit.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSubmit.Location = New System.Drawing.Point(105, 58)
         Me.btnSubmit.Name = "btnSubmit"
@@ -74,6 +79,7 @@ Partial Class frmStart
         '
         'txtUsername
         '
+        Me.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtUsername.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.Location = New System.Drawing.Point(105, 30)
         Me.txtUsername.Name = "txtUsername"
@@ -82,6 +88,7 @@ Partial Class frmStart
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(20, 32)
@@ -92,6 +99,8 @@ Partial Class frmStart
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GroupBox2.AutoSize = True
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.btnSearch)
@@ -99,13 +108,14 @@ Partial Class frmStart
         Me.GroupBox2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(410, 178)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(309, 100)
+        Me.GroupBox2.Size = New System.Drawing.Size(309, 106)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "New Customer"
         '
         'Label4
         '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(20, 59)
@@ -116,6 +126,7 @@ Partial Class frmStart
         '
         'Label3
         '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(20, 30)
@@ -126,36 +137,43 @@ Partial Class frmStart
         '
         'btnSearch
         '
+        Me.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnSearch.AutoSize = True
         Me.btnSearch.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSearch.Location = New System.Drawing.Point(216, 55)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(75, 25)
+        Me.btnSearch.Size = New System.Drawing.Size(75, 27)
         Me.btnSearch.TabIndex = 1
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
         'btnRegister
         '
+        Me.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnRegister.AutoSize = True
         Me.btnRegister.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRegister.Location = New System.Drawing.Point(216, 24)
         Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(75, 25)
+        Me.btnRegister.Size = New System.Drawing.Size(75, 27)
         Me.btnRegister.TabIndex = 0
         Me.btnRegister.Text = "Register"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
         'btnExit
         '
+        Me.btnExit.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnExit.AutoSize = True
         Me.btnExit.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExit.Location = New System.Drawing.Point(663, 345)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(75, 24)
+        Me.btnExit.Size = New System.Drawing.Size(75, 27)
         Me.btnExit.TabIndex = 3
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'Label5
         '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(308, 219)
@@ -168,6 +186,8 @@ Partial Class frmStart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(252, Byte), Integer))
         Me.BackgroundImage = Global.MyMovies_Video_Kiosk.My.Resources.Resources.Film_Reel_Blue
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 470)
@@ -179,6 +199,7 @@ Partial Class frmStart
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Name = "frmStart"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.GroupBox1.ResumeLayout(False)

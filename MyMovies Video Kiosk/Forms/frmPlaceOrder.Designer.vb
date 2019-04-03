@@ -42,6 +42,7 @@ Partial Class frmPlaceOrder
         '
         'lstItems
         '
+        Me.lstItems.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lstItems.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstItems.FormattingEnabled = True
         Me.lstItems.Location = New System.Drawing.Point(48, 167)
@@ -51,6 +52,7 @@ Partial Class frmPlaceOrder
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(263, 99)
@@ -61,6 +63,7 @@ Partial Class frmPlaceOrder
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(45, 147)
@@ -71,6 +74,7 @@ Partial Class frmPlaceOrder
         '
         'Label3
         '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(600, 172)
@@ -81,6 +85,7 @@ Partial Class frmPlaceOrder
         '
         'Label4
         '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label4.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(645, 173)
@@ -90,6 +95,7 @@ Partial Class frmPlaceOrder
         '
         'Label5
         '
+        Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label5.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(393, 209)
         Me.Label5.Name = "Label5"
@@ -99,6 +105,7 @@ Partial Class frmPlaceOrder
         '
         'Label6
         '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(393, 249)
@@ -109,6 +116,7 @@ Partial Class frmPlaceOrder
         '
         'btnPlaceOrder
         '
+        Me.btnPlaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnPlaceOrder.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPlaceOrder.Location = New System.Drawing.Point(627, 313)
         Me.btnPlaceOrder.Name = "btnPlaceOrder"
@@ -119,6 +127,7 @@ Partial Class frmPlaceOrder
         '
         'btnCancel
         '
+        Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnCancel.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.Location = New System.Drawing.Point(525, 313)
         Me.btnCancel.Name = "btnCancel"
@@ -129,6 +138,7 @@ Partial Class frmPlaceOrder
         '
         'Label7
         '
+        Me.Label7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(548, 249)
@@ -139,6 +149,7 @@ Partial Class frmPlaceOrder
         '
         'txtExpiry
         '
+        Me.txtExpiry.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtExpiry.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtExpiry.Location = New System.Drawing.Point(475, 246)
         Me.txtExpiry.Mask = "00/00"
@@ -149,6 +160,7 @@ Partial Class frmPlaceOrder
         '
         'txtCreditCard
         '
+        Me.txtCreditCard.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtCreditCard.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCreditCard.Location = New System.Drawing.Point(475, 207)
         Me.txtCreditCard.MaxLength = 16
@@ -158,6 +170,7 @@ Partial Class frmPlaceOrder
         '
         'txtSecurityCode
         '
+        Me.txtSecurityCode.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSecurityCode.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSecurityCode.Location = New System.Drawing.Point(645, 246)
         Me.txtSecurityCode.MaxLength = 4
@@ -167,6 +180,7 @@ Partial Class frmPlaceOrder
         '
         'Label8
         '
+        Me.Label8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label8.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(393, 171)
         Me.Label8.Name = "Label8"
@@ -176,6 +190,7 @@ Partial Class frmPlaceOrder
         '
         'cboCardCarrier
         '
+        Me.cboCardCarrier.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.cboCardCarrier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCardCarrier.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCardCarrier.FormattingEnabled = True
@@ -189,6 +204,7 @@ Partial Class frmPlaceOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(197, Byte), Integer))
         Me.BackgroundImage = Global.MyMovies_Video_Kiosk.My.Resources.Resources.Film_Reel_Red
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 470)
@@ -208,8 +224,10 @@ Partial Class frmPlaceOrder
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lstItems)
         Me.DoubleBuffered = True
+        Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.Name = "frmPlaceOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmPlaceOrder"

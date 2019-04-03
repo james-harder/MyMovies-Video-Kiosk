@@ -4,7 +4,7 @@
     End Sub
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Search.Show()
-        Close()
+        Hide()
     End Sub
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
         'If (Customer.Exists)
@@ -31,5 +31,9 @@
         End If
     End Sub
 
-
+    Private Sub frmPlaceOrder_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        If (e.KeyCode = Keys.F11) Then
+            ResizeAllForms()
+        End If
+    End Sub
 End Class
