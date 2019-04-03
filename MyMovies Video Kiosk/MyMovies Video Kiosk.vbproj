@@ -139,6 +139,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Documents\Activity Diagram.vsdx" />
+    <None Include="Documents\UML Class Diagram.vsdx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -173,6 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Documents\Meeting Minutes\" />
+    <Folder Include="Documents\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
