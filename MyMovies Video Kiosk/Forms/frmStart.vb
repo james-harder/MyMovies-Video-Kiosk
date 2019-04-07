@@ -1,14 +1,26 @@
 ﻿Public Class frmStart
 #Region "Methods"
     Private Sub SubmitUser()
-        Dim p As Integer
-        If (Integer.TryParse(txtUsername.Text, p)) Then
-            UserID = p
+        'query database for username exist
+        'if user exists, query user for password, match password
+        'if password matches password, continue
+        'UserID = p
+        'If (txtUsername.Text In Customer) Then
+        '   If (txtPassword.Text Matches txtUsername.Text In Customer) Then
+        '       'Search.Show()
+        '       'Hide()
+        '   Else
+        '       'MessageBox.Show("Password is invalid")
+        '   End If
+        'Else
+        '   MessageBox.Show("Username does not exist.")
+        'End If
+        If (True) Then
             Search.Show()
             Hide()
         Else
             MessageBox.Show("User ID incorrectly formatted.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txtUsername.Text = String.Empty
+        txtUsername.Text = String.Empty
         End If
     End Sub
 #End Region
@@ -33,6 +45,9 @@
         result = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If (result = DialogResult.No) Then
             e.Cancel = True
+        Else
+            RemoveHandler Me.FormClosing, AddressOf frmStart_FormClosing
+            Application.Exit()
         End If
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -50,6 +65,7 @@
             Start.Show()
             Close()
         End If
+        txtPassword.UseSystemPasswordChar = True
     End Sub 'Close startup form, replace with frmStart tracked by Program.vb
 #End Region
 End Class
