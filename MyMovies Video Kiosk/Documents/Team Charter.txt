@@ -10,7 +10,7 @@ Team TEA-J Mission: 	 To achieve high quality platform for the most movie video 
 Team TEA-J Members 	  Tristan Jones Programmer/Tester
                       Ernest Robinson Team Charter Organizer
                       Alexis Landreth Programmer/ Administrator
-                      James Harder Programmer/Chart/UI Designer 
+                      James Harder Programmer/Chart/UI Designer
                       
 Period of Performance:
 Start Date: 		        March 24th, 2019
