@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBTestForm.Designer.vb">
+      <DependentUpon>DBTestForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DBTestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmInsertMovieInfo.Designer.vb">
       <DependentUpon>frmInsertMovieInfo.vb</DependentUpon>
     </Compile>
@@ -100,8 +106,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="MyMoviesDBDataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyMoviesDBDataSet1.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DBTestForm.resx">
+      <DependentUpon>DBTestForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInsertMovieInfo.resx">
       <DependentUpon>frmInsertMovieInfo.vb</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +140,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="MyMoviesDBDataSet1.xsc">
+      <DependentUpon>MyMoviesDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MyMoviesDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyMoviesDBDataSet1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MyMoviesDBDataSet1.xss">
+      <DependentUpon>MyMoviesDBDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
