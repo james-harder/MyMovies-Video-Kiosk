@@ -1,27 +1,93 @@
-MYMovies Video Kiosk
-Team Charter
-As a team our roles and responsibilities are multiple in function.
+                                                    TEAM CHARTER
+Project Name: 		      MyMovies-Video-Kiosk
+Team Name: 		         TEA-J
+Team TEA-J Purpose: 	 Serve customers to establish a customer base willing to return based on quality and service unmatched in the                             movie video industry.
+
+Team TEA-J Vison:	    To render a automated service capable of ease and navigation with no hidden layers of pages.
+
+Team TEA-J Mission: 	 To achieve high quality platform for the most movie video select and entertaining of all times past present and                         future
+
+Team TEA-J Members 	  Tristan Jones Programmer/Tester
+                      Ernest Robinson Team Charter Organizer
+                      Alexis Landreth Programmer/ Administrator
+                      James Harder Programmer/Chart/UI Designer
+                      
+Period of Performance:
+Start Date: 		        March 24th, 2019
+Completion Date: 	    April 26, 2019
+
+Interim Deliverables:  By March 29, 2019 
+
+General Requirements:  One-third of the final documents of each subsection
+                       Subsections 1.1 to 1.5
+Technical Requirements:Two of the six figures 
+                       Figure 9-1 to Figure 9-6) should be functional
+                       
+Final Deliverables     By April 26, 2019
+
+General Requirements:  Two-third of the final documents 
+Technical Requirements:Remaining four figures
+                       Figure 9-1 to Figure 9-6) should be functional.
+
+Team TEA-J roles and responsibilities are multiple in function.
 
 Administrator
-Name 			| Alexis Landreth
-Position 		| Programmer
-Responsibility 	| Time keeper administered | user interface | and navigation
-1st Meeting 	| Sunday March 17th, 2019
- 
+Name 			              Alexis Landreth 
+Position 		           Programmer
+Responsibility 		     Time keeper administered user interface and navigation
+1st Meeting 		        Sunday March 17th, 2019 established roles and responsibilities
+2nd Meeting           Sunday April 7th, 2019
+Lessons Learned:
+
 User Interface Designer
-Name 			| James Harder
-Position 		| Programmer
-Responsibility 	| Completing the flow chart | Window form |  
-1st Meeting 	| Sunday March 17th, 2019
- 
+Name 			              James Harder
+Position 		           Programmer
+Responsibility 		     Completing the flow chart Window form 
+1st Meeting 		        Sunday March 17th, 2019 established roles and responsibilities
+2nd Meeting           Sunday April 7th, 2019
+Lessons Learned:
+
 Tester
-Name 			| Tristan Jones
-Position 		| Programmer
-Responsibility 	| Tester |   |  
-1st Meeting 	| Sunday March 17th, 2019 Pass
+Name 			              Tristan Jones
+Position 		           Programmer
+Responsibility 	 	    Tester 
+1st Meeting 	 	       Sunday March 17th, 2019 Pass established roles and responsibilities
+2nd Meeting           Sunday April 7th, 2019
+Lessons Learned:
 
 Team Charter
-Name 			| Ernest Robinson
-Position 		| Team charter Organizer
-Responsibility 	| Created team charter | dated agility of | team members plan
-1st Meeting 	| Sunday March 17, 2019
+Name 			              Ernest Robinson
+Position 		           Team charter Organizer
+Responsibility 		     Created team charter dated agility of team members plan
+1st Meeting 		        Sunday March 17, 2019 established roles and responsibilities
+2nd Meeting           Sunday April 7th, 2019
+Lessons Learned:
+
+
+
+High-Level Design:        Functionality of the system
+                          I/O formats
+                          Operating requirements 
+                          Client approval regarding the functional specifications documentation 
+
+Low-Level Design:         Software modules used in high-level design
+                          Naming conventions for 
+                          variables  
+                          controls
+                          forms
+                          Standards 
+
+Construction:
+
+
+Integration and Testing:  Testing and validations
+                          Checked integration functionality 
+                          Integrate and test customer modules  
+
+
+User Acceptance Test:     Client's predefined acceptance criteria 
+                          System support to identify any issues or bugs and troubleshoot
+
+
+The Database Schema:       Using SQL Server database
+                           Movies database nine tables include
