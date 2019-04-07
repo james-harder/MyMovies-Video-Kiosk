@@ -25,6 +25,8 @@ Partial Class frmStart
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStart))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -53,24 +55,46 @@ Partial Class frmStart
         'GroupBox1
         '
         Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.GroupBox1.AutoSize = True
+        Me.GroupBox1.Controls.Add(Me.txtPassword)
+        Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.btnSubmit)
         Me.GroupBox1.Controls.Add(Me.txtUsername)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(31, 178)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(253, 109)
+        Me.GroupBox1.Size = New System.Drawing.Size(253, 121)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registered Customer"
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtPassword.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.Location = New System.Drawing.Point(105, 55)
+        Me.txtPassword.MaxLength = 8
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(100, 22)
+        Me.txtPassword.TabIndex = 4
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(20, 51)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(67, 17)
+        Me.Label6.TabIndex = 3
+        Me.Label6.Text = "Password:"
         '
         'btnSubmit
         '
         Me.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnSubmit.AutoSize = True
         Me.btnSubmit.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSubmit.Location = New System.Drawing.Point(105, 58)
+        Me.btnSubmit.Location = New System.Drawing.Point(105, 82)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(100, 27)
         Me.btnSubmit.TabIndex = 2
@@ -81,7 +105,8 @@ Partial Class frmStart
         '
         Me.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtUsername.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUsername.Location = New System.Drawing.Point(105, 30)
+        Me.txtUsername.Location = New System.Drawing.Point(105, 26)
+        Me.txtUsername.MaxLength = 8
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(100, 22)
         Me.txtUsername.TabIndex = 1
@@ -91,16 +116,15 @@ Partial Class frmStart
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(20, 32)
+        Me.Label2.Location = New System.Drawing.Point(20, 28)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 17)
+        Me.Label2.Size = New System.Drawing.Size(70, 17)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Customer ID:"
+        Me.Label2.Text = "Username:"
         '
         'GroupBox2
         '
         Me.GroupBox2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.GroupBox2.AutoSize = True
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.btnSearch)
@@ -108,7 +132,7 @@ Partial Class frmStart
         Me.GroupBox2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(410, 178)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(309, 106)
+        Me.GroupBox2.Size = New System.Drawing.Size(309, 121)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "New Customer"
@@ -118,7 +142,7 @@ Partial Class frmStart
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(20, 59)
+        Me.Label4.Location = New System.Drawing.Point(22, 71)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(189, 17)
         Me.Label4.TabIndex = 3
@@ -129,7 +153,7 @@ Partial Class frmStart
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(20, 30)
+        Me.Label3.Location = New System.Drawing.Point(22, 35)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(82, 17)
         Me.Label3.TabIndex = 2
@@ -140,7 +164,7 @@ Partial Class frmStart
         Me.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnSearch.AutoSize = True
         Me.btnSearch.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Location = New System.Drawing.Point(216, 55)
+        Me.btnSearch.Location = New System.Drawing.Point(218, 67)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(75, 27)
         Me.btnSearch.TabIndex = 1
@@ -152,7 +176,7 @@ Partial Class frmStart
         Me.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnRegister.AutoSize = True
         Me.btnRegister.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRegister.Location = New System.Drawing.Point(216, 24)
+        Me.btnRegister.Location = New System.Drawing.Point(218, 29)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(75, 27)
         Me.btnRegister.TabIndex = 0
@@ -176,7 +200,7 @@ Partial Class frmStart
         Me.Label5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(308, 219)
+        Me.Label5.Location = New System.Drawing.Point(306, 233)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(77, 25)
         Me.Label5.TabIndex = 4
@@ -223,4 +247,6 @@ Partial Class frmStart
     Friend WithEvents btnRegister As Button
     Friend WithEvents btnExit As Button
     Friend WithEvents Label5 As Label
+    Friend WithEvents txtPassword As TextBox
+    Friend WithEvents Label6 As Label
 End Class

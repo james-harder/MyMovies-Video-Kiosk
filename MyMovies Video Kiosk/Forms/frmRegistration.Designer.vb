@@ -199,7 +199,7 @@ Partial Class frmRegistration
         Me.Label14.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(35, 262)
+        Me.Label14.Location = New System.Drawing.Point(35, 267)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(47, 17)
         Me.Label14.TabIndex = 16
@@ -210,7 +210,7 @@ Partial Class frmRegistration
         Me.Label15.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(305, 262)
+        Me.Label15.Location = New System.Drawing.Point(305, 267)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(78, 17)
         Me.Label15.TabIndex = 17
