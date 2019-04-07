@@ -14,7 +14,7 @@ Team TEA-J Members 	  Tristan Jones Programmer/Tester
                       
 Period of Performance:
 Start Date: 		        March 24th, 2019
-Completion Date: 	    April 26, 2019
+Completion Date: 	        April 26, 2019
 
 Interim Deliverables:  By March 29, 2019 
 
