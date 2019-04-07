@@ -1,5 +1,5 @@
                                                     TEAM CHARTER
-Project Name: 		      MyMovies-Video-Kiosk
+Project Name: 		     MyMovies-Video-Kiosk
 Team Name: 		         TEA-J
 Team TEA-J Purpose: 	 Serve customers to establish a customer base willing to return based on quality and service unmatched in the                             movie video industry.
 
@@ -35,7 +35,7 @@ Administrator
 Name 			              Alexis Landreth 
 Position 		           Programmer
 Responsibility 		     Time keeper administered user interface and navigation
-1st Meeting 		        Sunday March 17th, 2019 established roles and responsibilities
+1st Meeting 		       Sunday March 17th, 2019 established roles and responsibilities
 2nd Meeting           Sunday April 7th, 2019
 Lessons Learned:
 
