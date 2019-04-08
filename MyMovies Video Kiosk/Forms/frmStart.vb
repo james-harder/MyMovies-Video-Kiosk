@@ -1,5 +1,11 @@
 ﻿Public Class frmStart
 
+#Region "Properties"
+
+
+
+#End Region
+
 #Region "Methods"
     Private Sub SubmitUser()
         'query database for username exist
@@ -53,8 +59,9 @@
 
     End Sub
 
-    'Handles txtUsername.KeyPress - if enter, call SubmitUser()
+    'Handles txtUsername.KeyPress
     Private Sub txtUsername_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUsername.KeyPress
+        'if enter is pressed, call SubmitUser()
 
         If (e.KeyChar = ChrW(Keys.Enter)) Then
             SubmitUser()
@@ -84,15 +91,18 @@
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
 
         'note to self - is this where the flicker occurs?
+        'show frmSearch
         Search.Show()
+
+        'Hides this form
         Hide()
 
     End Sub
 
     'Handles KeyDown event for this form
     Private Sub frmStart_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        'Toggles all forms to / from fullscreen when F11 is pressed
 
-        'resize all forms if Keys.F11 is pressed
         If (e.KeyCode = Keys.F11) Then
             ResizeAllForms()
         End If

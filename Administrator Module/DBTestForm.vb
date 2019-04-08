@@ -1,4 +1,20 @@
 ﻿Public Class DBTestForm
+    'Used for testing methods and functionality against the DB
+
+#Region "Properties"
+
+
+
+#End Region
+
+#Region "Methods"
+
+
+
+#End Region
+
+#Region "Event Handlers"
+
     Private Sub TableBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs) Handles TableBindingNavigatorSaveItem.Click
         Me.Validate()
         Me.TableBindingSource.EndEdit()
@@ -11,4 +27,7 @@
         Me.TableTableAdapter.Fill(Me.MyMoviesDBDataSet.Table)
 
     End Sub
+
+#End Region
+
 End Class

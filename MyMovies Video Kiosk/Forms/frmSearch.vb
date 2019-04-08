@@ -1,4 +1,10 @@
 ﻿Public Class frmSearch
+#Region "Properties"
+
+
+
+#End Region
+
 #Region "Methods"
 
 
@@ -30,8 +36,8 @@
     End Sub
 
     Private Sub frmSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        'Toggles all forms to / from fullscreen when F11 is pressed
 
-        'If F11 is pressed, resize all windows
         If (e.KeyCode = Keys.F11) Then
             ResizeAllForms()
         End If

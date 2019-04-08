@@ -1,13 +1,31 @@
 ﻿Public Class frmRegistration
+#Region "Properties"
 
     '? does this give us a link to the frmStart that sent us here?
     Private Overloads Property ParentForm() As Form
+
+#End Region
+
+#Region "Methods"
+    '?Overload Show() method to include parent argument?
+    Public Overloads Sub Show(parent As Form)
+
+        ParentForm = parent
+        MyBase.Show()
+
+    End Sub
+#End Region
+
+#Region "Event Handlers"
 
     'Handles btnSubmit Click
     Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
         'Validate inputs and add new user to DB
 
+        'show frmPlaceOrder
         PlaceOrder.Show()
+
+        'Hides this form
         Hide()
 
     End Sub
@@ -23,25 +41,18 @@
             PlaceOrder.Show()
         End If
 
+        'Hides this form
         Hide()
 
     End Sub
 
-    '?Overload Show() method to include parent argument?
-    Public Overloads Sub Show(parent As Form)
-
-        ParentForm = parent
-        MyBase.Show()
-
-    End Sub
-
     Private Sub frmRegistration_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
-        'If F11 is pressed, resize all forms
+        'Toggles all forms to / from fullscreen when F11 is pressed
 
         If (e.KeyCode = Keys.F11) Then
             ResizeAllForms()
         End If
 
     End Sub
-
+#End Region
 End Class
