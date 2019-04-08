@@ -1,6 +1,11 @@
 ﻿Public Module Program
+    'UserID tracks the current user
     Public Property UserID() As Integer
+
+    'System.Windows.Forms.FormWindowState is an enum to track maximized/minimized/normal window state
     Public Property WindowState() As FormWindowState
+
+    'Opens new frmStart window
     Public ReadOnly Property Start() As frmStart
         Get
             If (_Start Is Nothing OrElse _Start.IsDisposed) Then
@@ -10,6 +15,8 @@
             Return _Start
         End Get
     End Property
+
+    'Opens new frmSearch window
     Public ReadOnly Property Search() As frmSearch
         Get
             If (_Search Is Nothing OrElse _Search.IsDisposed) Then
@@ -19,6 +26,8 @@
             Return _Search
         End Get
     End Property
+
+    'Opens new frmRegistration window
     Public ReadOnly Property Registration() As frmRegistration
         Get
             If (_Registration Is Nothing OrElse _Registration.IsDisposed) Then
@@ -28,6 +37,8 @@
             Return _Registration
         End Get
     End Property
+
+    'Opens new frmPlaceOrder window
     Public ReadOnly Property PlaceOrder() As frmPlaceOrder
         Get
             If (_PlaceOrder Is Nothing OrElse _PlaceOrder.IsDisposed) Then
@@ -43,6 +54,7 @@
     Private _Registration As frmRegistration = New frmRegistration
     Private _PlaceOrder As frmPlaceOrder = New frmPlaceOrder
 
+    'Toggles FormWindowState of all forms between Maximized / Normal
     Public Sub ResizeAllForms()
         If WindowState = FormWindowState.Maximized Then
             WindowState = FormWindowState.Normal
