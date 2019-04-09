@@ -7,3 +7,8 @@ Notes for application Documentation:
 -create package diagram for each form (ch6)
 -create Design Class (or ER) diagram for database (ch6)
 -DFD (chapter online b)
+
+4/10
+-Auto scaling forms to match display resolution:
+https://www.codeproject.com/Answers/1028005/How-to-auto-scale-all-component-in-winform-Csharp#answer2
+http://www.codeproject.com/Answers/207268/how-to-dock-button-so-that-it-can-adjust-with-the#answer1
