@@ -41,65 +41,73 @@ Partial Class frmUpdateDelete
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(370, 13)
+        Me.Label1.Location = New System.Drawing.Point(185, 7)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(161, 25)
+        Me.Label1.Size = New System.Drawing.Size(84, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Update / Delete"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 52)
+        Me.Label2.Location = New System.Drawing.Point(6, 27)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(109, 25)
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Search in:"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(18, 81)
+        Me.TextBox1.Location = New System.Drawing.Point(9, 42)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 31)
+        Me.TextBox1.Size = New System.Drawing.Size(52, 20)
         Me.TextBox1.TabIndex = 2
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(185, 81)
+        Me.TextBox2.Location = New System.Drawing.Point(92, 42)
+        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 31)
+        Me.TextBox2.Size = New System.Drawing.Size(52, 20)
         Me.TextBox2.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(180, 52)
+        Me.Label3.Location = New System.Drawing.Point(90, 27)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 25)
+        Me.Label3.Size = New System.Drawing.Size(58, 13)
         Me.Label3.TabIndex = 3
         Me.Label3.Text = "Search by:"
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(343, 81)
+        Me.TextBox3.Location = New System.Drawing.Point(172, 42)
+        Me.TextBox3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 31)
+        Me.TextBox3.Size = New System.Drawing.Size(52, 20)
         Me.TextBox3.TabIndex = 6
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(338, 52)
+        Me.Label4.Location = New System.Drawing.Point(169, 27)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(134, 25)
+        Me.Label4.Size = New System.Drawing.Size(68, 13)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Search Text:"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(520, 88)
+        Me.Button1.Location = New System.Drawing.Point(260, 46)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(38, 12)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "Search"
         Me.Button1.UseVisualStyleBackColor = True
@@ -107,61 +115,67 @@ Partial Class frmUpdateDelete
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(40, 140)
+        Me.Label5.Location = New System.Drawing.Point(20, 73)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(77, 25)
+        Me.Label5.Size = New System.Drawing.Size(79, 13)
         Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Label5"
+        Me.Label5.Text = "Search Results"
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(45, 169)
+        Me.TextBox4.Location = New System.Drawing.Point(22, 88)
+        Me.TextBox4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(402, 155)
+        Me.TextBox4.Size = New System.Drawing.Size(203, 83)
         Me.TextBox4.TabIndex = 9
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(18, 366)
+        Me.Button2.Location = New System.Drawing.Point(9, 190)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(38, 12)
         Me.Button2.TabIndex = 10
         Me.Button2.Text = "Update"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(185, 366)
+        Me.Button3.Location = New System.Drawing.Point(92, 190)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.Size = New System.Drawing.Size(38, 12)
         Me.Button3.TabIndex = 11
         Me.Button3.Text = "Delete"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(340, 366)
+        Me.Button4.Location = New System.Drawing.Point(170, 190)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
+        Me.Button4.Size = New System.Drawing.Size(38, 12)
         Me.Button4.TabIndex = 12
         Me.Button4.Text = "Clear"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(520, 366)
+        Me.Button5.Location = New System.Drawing.Point(260, 190)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.Size = New System.Drawing.Size(38, 12)
         Me.Button5.TabIndex = 13
         Me.Button5.Text = "Cancel"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'frmUpdateDelete
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(400, 234)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
@@ -177,6 +191,7 @@ Partial Class frmUpdateDelete
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmUpdateDelete"
         Me.Text = "frmUpdateDelete"
         Me.ResumeLayout(False)
