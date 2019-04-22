@@ -14,6 +14,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -136,11 +136,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyMoviesDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MyMoviesDBDataSet1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyMoviesDBDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +189,13 @@
     <Content Include="Images\Film Reel Green.png" />
     <Content Include="Images\Film Reel Orange.png" />
     <Content Include="Images\Film Reel Red.png" />
+    <Content Include="MyMoviesDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MyMoviesDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MyMoviesDB.mdf</DependentUpon>
+    </Content>
     <None Include="MyMoviesDBDataSet.xsc">
       <DependentUpon>MyMoviesDBDataSet.xsd</DependentUpon>
     </None>
@@ -204,17 +206,6 @@
     </None>
     <None Include="MyMoviesDBDataSet.xss">
       <DependentUpon>MyMoviesDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MyMoviesDBDataSet1.xsc">
-      <DependentUpon>MyMoviesDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="MyMoviesDBDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MyMoviesDBDataSet1.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MyMoviesDBDataSet1.xss">
-      <DependentUpon>MyMoviesDBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Resources\Film Reel Red.png" />
     <None Include="Resources\Film Reel Orange.png" />
