@@ -39,6 +39,8 @@ Partial Public Class MyMoviesDBDataSet
     
     Private tableOrderDetail As OrderDetailDataTable
     
+    Private tableUser As UserDataTable
+    
     Private tableState As StateDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
@@ -90,6 +92,9 @@ Partial Public Class MyMoviesDBDataSet
             End If
             If (Not (ds.Tables("OrderDetail")) Is Nothing) Then
                 MyBase.Tables.Add(New OrderDetailDataTable(ds.Tables("OrderDetail")))
+            End If
+            If (Not (ds.Tables("User")) Is Nothing) Then
+                MyBase.Tables.Add(New UserDataTable(ds.Tables("User")))
             End If
             If (Not (ds.Tables("State")) Is Nothing) Then
                 MyBase.Tables.Add(New StateDataTable(ds.Tables("State")))
@@ -178,6 +183,16 @@ Partial Public Class MyMoviesDBDataSet
     Public ReadOnly Property OrderDetail() As OrderDetailDataTable
         Get
             Return Me.tableOrderDetail
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property User() As UserDataTable
+        Get
+            Return Me.tableUser
         End Get
     End Property
     
@@ -279,6 +294,9 @@ Partial Public Class MyMoviesDBDataSet
             If (Not (ds.Tables("OrderDetail")) Is Nothing) Then
                 MyBase.Tables.Add(New OrderDetailDataTable(ds.Tables("OrderDetail")))
             End If
+            If (Not (ds.Tables("User")) Is Nothing) Then
+                MyBase.Tables.Add(New UserDataTable(ds.Tables("User")))
+            End If
             If (Not (ds.Tables("State")) Is Nothing) Then
                 MyBase.Tables.Add(New StateDataTable(ds.Tables("State")))
             End If
@@ -356,6 +374,12 @@ Partial Public Class MyMoviesDBDataSet
                 Me.tableOrderDetail.InitVars
             End If
         End If
+        Me.tableUser = CType(MyBase.Tables("User"),UserDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableUser) Is Nothing) Then
+                Me.tableUser.InitVars
+            End If
+        End If
         Me.tableState = CType(MyBase.Tables("State"),StateDataTable)
         If (initTable = true) Then
             If (Not (Me.tableState) Is Nothing) Then
@@ -386,6 +410,8 @@ Partial Public Class MyMoviesDBDataSet
         MyBase.Tables.Add(Me.tableOrder)
         Me.tableOrderDetail = New OrderDetailDataTable()
         MyBase.Tables.Add(Me.tableOrderDetail)
+        Me.tableUser = New UserDataTable()
+        MyBase.Tables.Add(Me.tableUser)
         Me.tableState = New StateDataTable()
         MyBase.Tables.Add(Me.tableState)
     End Sub
@@ -429,6 +455,12 @@ Partial Public Class MyMoviesDBDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Function ShouldSerializeOrderDetail() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Function ShouldSerializeUser() As Boolean
         Return false
     End Function
     
@@ -516,6 +548,9 @@ Partial Public Class MyMoviesDBDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub OrderDetailRowChangeEventHandler(ByVal sender As Object, ByVal e As OrderDetailRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Delegate Sub UserRowChangeEventHandler(ByVal sender As Object, ByVal e As UserRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub StateRowChangeEventHandler(ByVal sender As Object, ByVal e As StateRowChangeEvent)
@@ -1142,21 +1177,21 @@ Partial Public Class MyMoviesDBDataSet
         
         Private columnDOB As Global.System.Data.DataColumn
         
-        Private columnPHONE As Global.System.Data.DataColumn
+        Private columnPhone As Global.System.Data.DataColumn
         
-        Private columnEMAIL As Global.System.Data.DataColumn
+        Private columnEmail As Global.System.Data.DataColumn
         
-        Private columnADDRESS As Global.System.Data.DataColumn
+        Private columnAddress As Global.System.Data.DataColumn
         
-        Private columnCITY As Global.System.Data.DataColumn
+        Private columnCity As Global.System.Data.DataColumn
         
-        Private columnSTATE As Global.System.Data.DataColumn
+        Private columnState As Global.System.Data.DataColumn
         
-        Private columnZIPCODE As Global.System.Data.DataColumn
+        Private columnZipCode As Global.System.Data.DataColumn
         
-        Private columnCREDITCARD As Global.System.Data.DataColumn
+        Private columnCreditCard As Global.System.Data.DataColumn
         
-        Private columnEXPIRATION As Global.System.Data.DataColumn
+        Private columnExpiration As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -1227,65 +1262,65 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property PHONEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PhoneColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPHONE
+                Return Me.columnPhone
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property EMAILColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property EmailColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnEMAIL
+                Return Me.columnEmail
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ADDRESSColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property AddressColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnADDRESS
+                Return Me.columnAddress
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property CITYColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CityColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCITY
+                Return Me.columnCity
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property STATEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property StateColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnSTATE
+                Return Me.columnState
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ZIPCODEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ZipCodeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnZIPCODE
+                Return Me.columnZipCode
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property CREDITCARDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CreditCardColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnCREDITCARD
+                Return Me.columnCreditCard
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property EXPIRATIONColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ExpirationColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnEXPIRATION
+                Return Me.columnExpiration
             End Get
         End Property
         
@@ -1326,9 +1361,9 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddCustomerRow(ByVal CustomerID As Integer, ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Date, ByVal PHONE As String, ByVal EMAIL As String, ByVal ADDRESS As String, ByVal CITY As String, ByVal STATE As String, ByVal ZIPCODE As String, ByVal CREDITCARD As String, ByVal EXPIRATION As Date) As CustomerRow
+        Public Overloads Function AddCustomerRow(ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Date, ByVal Phone As String, ByVal Email As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal CreditCard As String, ByVal Expiration As Date) As CustomerRow
             Dim rowCustomerRow As CustomerRow = CType(Me.NewRow,CustomerRow)
-            Dim columnValuesArray() As Object = New Object() {CustomerID, FirstName, LastName, DOB, PHONE, EMAIL, ADDRESS, CITY, STATE, ZIPCODE, CREDITCARD, EXPIRATION}
+            Dim columnValuesArray() As Object = New Object() {Nothing, FirstName, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expiration}
             rowCustomerRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCustomerRow)
             Return rowCustomerRow
@@ -1361,14 +1396,14 @@ Partial Public Class MyMoviesDBDataSet
             Me.columnFirstName = MyBase.Columns("FirstName")
             Me.columnLastName = MyBase.Columns("LastName")
             Me.columnDOB = MyBase.Columns("DOB")
-            Me.columnPHONE = MyBase.Columns("PHONE")
-            Me.columnEMAIL = MyBase.Columns("EMAIL")
-            Me.columnADDRESS = MyBase.Columns("ADDRESS")
-            Me.columnCITY = MyBase.Columns("CITY")
-            Me.columnSTATE = MyBase.Columns("STATE")
-            Me.columnZIPCODE = MyBase.Columns("ZIPCODE")
-            Me.columnCREDITCARD = MyBase.Columns("CREDITCARD")
-            Me.columnEXPIRATION = MyBase.Columns("EXPIRATION")
+            Me.columnPhone = MyBase.Columns("Phone")
+            Me.columnEmail = MyBase.Columns("Email")
+            Me.columnAddress = MyBase.Columns("Address")
+            Me.columnCity = MyBase.Columns("City")
+            Me.columnState = MyBase.Columns("State")
+            Me.columnZipCode = MyBase.Columns("ZipCode")
+            Me.columnCreditCard = MyBase.Columns("CreditCard")
+            Me.columnExpiration = MyBase.Columns("Expiration")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1382,35 +1417,39 @@ Partial Public Class MyMoviesDBDataSet
             MyBase.Columns.Add(Me.columnLastName)
             Me.columnDOB = New Global.System.Data.DataColumn("DOB", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDOB)
-            Me.columnPHONE = New Global.System.Data.DataColumn("PHONE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPHONE)
-            Me.columnEMAIL = New Global.System.Data.DataColumn("EMAIL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEMAIL)
-            Me.columnADDRESS = New Global.System.Data.DataColumn("ADDRESS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnADDRESS)
-            Me.columnCITY = New Global.System.Data.DataColumn("CITY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCITY)
-            Me.columnSTATE = New Global.System.Data.DataColumn("STATE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSTATE)
-            Me.columnZIPCODE = New Global.System.Data.DataColumn("ZIPCODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnZIPCODE)
-            Me.columnCREDITCARD = New Global.System.Data.DataColumn("CREDITCARD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCREDITCARD)
-            Me.columnEXPIRATION = New Global.System.Data.DataColumn("EXPIRATION", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEXPIRATION)
+            Me.columnPhone = New Global.System.Data.DataColumn("Phone", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPhone)
+            Me.columnEmail = New Global.System.Data.DataColumn("Email", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEmail)
+            Me.columnAddress = New Global.System.Data.DataColumn("Address", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAddress)
+            Me.columnCity = New Global.System.Data.DataColumn("City", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCity)
+            Me.columnState = New Global.System.Data.DataColumn("State", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnState)
+            Me.columnZipCode = New Global.System.Data.DataColumn("ZipCode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnZipCode)
+            Me.columnCreditCard = New Global.System.Data.DataColumn("CreditCard", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCreditCard)
+            Me.columnExpiration = New Global.System.Data.DataColumn("Expiration", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnExpiration)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCustomerID}, true))
+            Me.columnCustomerID.AutoIncrement = true
+            Me.columnCustomerID.AutoIncrementSeed = -1
+            Me.columnCustomerID.AutoIncrementStep = -1
             Me.columnCustomerID.AllowDBNull = false
+            Me.columnCustomerID.ReadOnly = true
             Me.columnCustomerID.Unique = true
             Me.columnFirstName.MaxLength = 50
             Me.columnLastName.MaxLength = 50
-            Me.columnPHONE.MaxLength = 50
-            Me.columnEMAIL.MaxLength = 50
-            Me.columnADDRESS.MaxLength = 100
-            Me.columnCITY.MaxLength = 50
-            Me.columnSTATE.MaxLength = 50
-            Me.columnZIPCODE.MaxLength = 50
-            Me.columnCREDITCARD.MaxLength = 50
-            Me.columnEXPIRATION.AllowDBNull = false
+            Me.columnPhone.MaxLength = 50
+            Me.columnEmail.MaxLength = 50
+            Me.columnAddress.MaxLength = 100
+            Me.columnCity.MaxLength = 50
+            Me.columnState.MaxLength = 50
+            Me.columnZipCode.MaxLength = 50
+            Me.columnCreditCard.MaxLength = 50
+            Me.columnExpiration.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2739,12 +2778,303 @@ Partial Public Class MyMoviesDBDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class UserDataTable
+        Inherits Global.System.Data.TypedTableBase(Of UserRow)
+        
+        Private columnUsername As Global.System.Data.DataColumn
+        
+        Private columnPassword As Global.System.Data.DataColumn
+        
+        Private columnCustomerID As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "User"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUsername
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property PasswordColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPassword
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CustomerIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCustomerID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As UserRow
+            Get
+                Return CType(Me.Rows(index),UserRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event UserRowChanging As UserRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event UserRowChanged As UserRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event UserRowDeleting As UserRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event UserRowDeleted As UserRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Sub AddUserRow(ByVal row As UserRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function AddUserRow(ByVal Username As String, ByVal Password As String, ByVal CustomerID As Integer) As UserRow
+            Dim rowUserRow As UserRow = CType(Me.NewRow,UserRow)
+            Dim columnValuesArray() As Object = New Object() {Username, Password, CustomerID}
+            rowUserRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowUserRow)
+            Return rowUserRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindByUsername(ByVal Username As String) As UserRow
+            Return CType(Me.Rows.Find(New Object() {Username}),UserRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As UserDataTable = CType(MyBase.Clone,UserDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New UserDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnUsername = MyBase.Columns("Username")
+            Me.columnPassword = MyBase.Columns("Password")
+            Me.columnCustomerID = MyBase.Columns("CustomerID")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUsername)
+            Me.columnPassword = New Global.System.Data.DataColumn("Password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPassword)
+            Me.columnCustomerID = New Global.System.Data.DataColumn("CustomerID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCustomerID)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUsername}, true))
+            Me.columnUsername.AllowDBNull = false
+            Me.columnUsername.Unique = true
+            Me.columnUsername.MaxLength = 50
+            Me.columnPassword.AllowDBNull = false
+            Me.columnPassword.MaxLength = 50
+            Me.columnCustomerID.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function NewUserRow() As UserRow
+            Return CType(Me.NewRow,UserRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New UserRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(UserRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.UserRowChangedEvent) Is Nothing) Then
+                RaiseEvent UserRowChanged(Me, New UserRowChangeEvent(CType(e.Row,UserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.UserRowChangingEvent) Is Nothing) Then
+                RaiseEvent UserRowChanging(Me, New UserRowChangeEvent(CType(e.Row,UserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.UserRowDeletedEvent) Is Nothing) Then
+                RaiseEvent UserRowDeleted(Me, New UserRowChangeEvent(CType(e.Row,UserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.UserRowDeletingEvent) Is Nothing) Then
+                RaiseEvent UserRowDeleting(Me, New UserRowChangeEvent(CType(e.Row,UserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub RemoveUserRow(ByVal row As UserRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As MyMoviesDBDataSet = New MyMoviesDBDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "UserDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class StateDataTable
         Inherits Global.System.Data.TypedTableBase(Of StateRow)
         
-        Private columnAbbreviation As Global.System.Data.DataColumn
-        
         Private columnFullName As Global.System.Data.DataColumn
+        
+        Private columnAbbreviation As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -2783,17 +3113,17 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property AbbreviationColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property FullNameColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnAbbreviation
+                Return Me.columnFullName
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property FullNameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property AbbreviationColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnFullName
+                Return Me.columnAbbreviation
             End Get
         End Property
         
@@ -2834,9 +3164,9 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddStateRow(ByVal Abbreviation As String, ByVal FullName As String) As StateRow
+        Public Overloads Function AddStateRow(ByVal FullName As String, ByVal Abbreviation As String) As StateRow
             Dim rowStateRow As StateRow = CType(Me.NewRow,StateRow)
-            Dim columnValuesArray() As Object = New Object() {Abbreviation, FullName}
+            Dim columnValuesArray() As Object = New Object() {FullName, Abbreviation}
             rowStateRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowStateRow)
             Return rowStateRow
@@ -2865,23 +3195,23 @@ Partial Public Class MyMoviesDBDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnAbbreviation = MyBase.Columns("Abbreviation")
             Me.columnFullName = MyBase.Columns("FullName")
+            Me.columnAbbreviation = MyBase.Columns("Abbreviation")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnAbbreviation = New Global.System.Data.DataColumn("Abbreviation", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnAbbreviation)
             Me.columnFullName = New Global.System.Data.DataColumn("FullName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFullName)
+            Me.columnAbbreviation = New Global.System.Data.DataColumn("Abbreviation", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnAbbreviation)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnAbbreviation}, true))
+            Me.columnFullName.AllowDBNull = false
+            Me.columnFullName.MaxLength = 20
             Me.columnAbbreviation.AllowDBNull = false
             Me.columnAbbreviation.Unique = true
             Me.columnAbbreviation.MaxLength = 5
-            Me.columnFullName.AllowDBNull = false
-            Me.columnFullName.MaxLength = 20
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3268,117 +3598,117 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property PHONE() As String
+        Public Property Phone() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCustomer.PHONEColumn),String)
+                    Return CType(Me(Me.tableCustomer.PhoneColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'PHONE' in table 'Customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Phone' in table 'Customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCustomer.PHONEColumn) = value
+                Me(Me.tableCustomer.PhoneColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property EMAIL() As String
+        Public Property Email() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCustomer.EMAILColumn),String)
+                    Return CType(Me(Me.tableCustomer.EmailColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'EMAIL' in table 'Customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Email' in table 'Customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCustomer.EMAILColumn) = value
+                Me(Me.tableCustomer.EmailColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ADDRESS() As String
+        Public Property Address() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCustomer.ADDRESSColumn),String)
+                    Return CType(Me(Me.tableCustomer.AddressColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ADDRESS' in table 'Customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Address' in table 'Customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCustomer.ADDRESSColumn) = value
+                Me(Me.tableCustomer.AddressColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property CITY() As String
+        Public Property City() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCustomer.CITYColumn),String)
+                    Return CType(Me(Me.tableCustomer.CityColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CITY' in table 'Customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'City' in table 'Customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCustomer.CITYColumn) = value
+                Me(Me.tableCustomer.CityColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property STATE() As String
+        Public Property State() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCustomer.STATEColumn),String)
+                    Return CType(Me(Me.tableCustomer.StateColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'STATE' in table 'Customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'State' in table 'Customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCustomer.STATEColumn) = value
+                Me(Me.tableCustomer.StateColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ZIPCODE() As String
+        Public Property ZipCode() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCustomer.ZIPCODEColumn),String)
+                    Return CType(Me(Me.tableCustomer.ZipCodeColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ZIPCODE' in table 'Customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ZipCode' in table 'Customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCustomer.ZIPCODEColumn) = value
+                Me(Me.tableCustomer.ZipCodeColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property CREDITCARD() As String
+        Public Property CreditCard() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableCustomer.CREDITCARDColumn),String)
+                    Return CType(Me(Me.tableCustomer.CreditCardColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CREDITCARD' in table 'Customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CreditCard' in table 'Customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableCustomer.CREDITCARDColumn) = value
+                Me(Me.tableCustomer.CreditCardColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property EXPIRATION() As Date
+        Public Property Expiration() As Date
             Get
-                Return CType(Me(Me.tableCustomer.EXPIRATIONColumn),Date)
+                Return CType(Me(Me.tableCustomer.ExpirationColumn),Date)
             End Get
             Set
-                Me(Me.tableCustomer.EXPIRATIONColumn) = value
+                Me(Me.tableCustomer.ExpirationColumn) = value
             End Set
         End Property
         
@@ -3420,86 +3750,86 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsPHONENull() As Boolean
-            Return Me.IsNull(Me.tableCustomer.PHONEColumn)
+        Public Function IsPhoneNull() As Boolean
+            Return Me.IsNull(Me.tableCustomer.PhoneColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetPHONENull()
-            Me(Me.tableCustomer.PHONEColumn) = Global.System.Convert.DBNull
+        Public Sub SetPhoneNull()
+            Me(Me.tableCustomer.PhoneColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsEMAILNull() As Boolean
-            Return Me.IsNull(Me.tableCustomer.EMAILColumn)
+        Public Function IsEmailNull() As Boolean
+            Return Me.IsNull(Me.tableCustomer.EmailColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetEMAILNull()
-            Me(Me.tableCustomer.EMAILColumn) = Global.System.Convert.DBNull
+        Public Sub SetEmailNull()
+            Me(Me.tableCustomer.EmailColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsADDRESSNull() As Boolean
-            Return Me.IsNull(Me.tableCustomer.ADDRESSColumn)
+        Public Function IsAddressNull() As Boolean
+            Return Me.IsNull(Me.tableCustomer.AddressColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetADDRESSNull()
-            Me(Me.tableCustomer.ADDRESSColumn) = Global.System.Convert.DBNull
+        Public Sub SetAddressNull()
+            Me(Me.tableCustomer.AddressColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsCITYNull() As Boolean
-            Return Me.IsNull(Me.tableCustomer.CITYColumn)
+        Public Function IsCityNull() As Boolean
+            Return Me.IsNull(Me.tableCustomer.CityColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetCITYNull()
-            Me(Me.tableCustomer.CITYColumn) = Global.System.Convert.DBNull
+        Public Sub SetCityNull()
+            Me(Me.tableCustomer.CityColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsSTATENull() As Boolean
-            Return Me.IsNull(Me.tableCustomer.STATEColumn)
+        Public Function IsStateNull() As Boolean
+            Return Me.IsNull(Me.tableCustomer.StateColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetSTATENull()
-            Me(Me.tableCustomer.STATEColumn) = Global.System.Convert.DBNull
+        Public Sub SetStateNull()
+            Me(Me.tableCustomer.StateColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsZIPCODENull() As Boolean
-            Return Me.IsNull(Me.tableCustomer.ZIPCODEColumn)
+        Public Function IsZipCodeNull() As Boolean
+            Return Me.IsNull(Me.tableCustomer.ZipCodeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetZIPCODENull()
-            Me(Me.tableCustomer.ZIPCODEColumn) = Global.System.Convert.DBNull
+        Public Sub SetZipCodeNull()
+            Me(Me.tableCustomer.ZipCodeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsCREDITCARDNull() As Boolean
-            Return Me.IsNull(Me.tableCustomer.CREDITCARDColumn)
+        Public Function IsCreditCardNull() As Boolean
+            Return Me.IsNull(Me.tableCustomer.CreditCardColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetCREDITCARDNull()
-            Me(Me.tableCustomer.CREDITCARDColumn) = Global.System.Convert.DBNull
+        Public Sub SetCreditCardNull()
+            Me(Me.tableCustomer.CreditCardColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3821,6 +4151,55 @@ Partial Public Class MyMoviesDBDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
+    Partial Public Class UserRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableUser As UserDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableUser = CType(Me.Table,UserDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableUser.UsernameColumn),String)
+            End Get
+            Set
+                Me(Me.tableUser.UsernameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Password() As String
+            Get
+                Return CType(Me(Me.tableUser.PasswordColumn),String)
+            End Get
+            Set
+                Me(Me.tableUser.PasswordColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CustomerID() As Integer
+            Get
+                Return CType(Me(Me.tableUser.CustomerIDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableUser.CustomerIDColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
     Partial Public Class StateRow
         Inherits Global.System.Data.DataRow
         
@@ -3835,23 +4214,23 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property Abbreviation() As String
-            Get
-                Return CType(Me(Me.tableState.AbbreviationColumn),String)
-            End Get
-            Set
-                Me(Me.tableState.AbbreviationColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property FullName() As String
             Get
                 Return CType(Me(Me.tableState.FullNameColumn),String)
             End Get
             Set
                 Me(Me.tableState.FullNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Abbreviation() As String
+            Get
+                Return CType(Me(Me.tableState.AbbreviationColumn),String)
+            End Get
+            Set
+                Me(Me.tableState.AbbreviationColumn) = value
             End Set
         End Property
     End Class
@@ -4094,6 +4473,42 @@ Partial Public Class MyMoviesDBDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property Row() As OrderDetailRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Class UserRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As UserRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal row As UserRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Row() As UserRow
             Get
                 Return Me.eventRow
             End Get
@@ -5018,14 +5433,14 @@ Namespace MyMoviesDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("FirstName", "FirstName")
             tableMapping.ColumnMappings.Add("LastName", "LastName")
             tableMapping.ColumnMappings.Add("DOB", "DOB")
-            tableMapping.ColumnMappings.Add("PHONE", "PHONE")
-            tableMapping.ColumnMappings.Add("EMAIL", "EMAIL")
-            tableMapping.ColumnMappings.Add("ADDRESS", "ADDRESS")
-            tableMapping.ColumnMappings.Add("CITY", "CITY")
-            tableMapping.ColumnMappings.Add("STATE", "STATE")
-            tableMapping.ColumnMappings.Add("ZIPCODE", "ZIPCODE")
-            tableMapping.ColumnMappings.Add("CREDITCARD", "CREDITCARD")
-            tableMapping.ColumnMappings.Add("EXPIRATION", "EXPIRATION")
+            tableMapping.ColumnMappings.Add("Phone", "Phone")
+            tableMapping.ColumnMappings.Add("Email", "Email")
+            tableMapping.ColumnMappings.Add("Address", "Address")
+            tableMapping.ColumnMappings.Add("City", "City")
+            tableMapping.ColumnMappings.Add("State", "State")
+            tableMapping.ColumnMappings.Add("ZipCode", "ZipCode")
+            tableMapping.ColumnMappings.Add("CreditCard", "CreditCard")
+            tableMapping.ColumnMappings.Add("Expiration", "Expiration")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -5033,14 +5448,14 @@ Namespace MyMoviesDBDataSetTableAdapters
                 "IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstN"& _ 
                 "ame)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Origi"& _ 
                 "nal_LastName)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DO"& _ 
-                "B)) AND ((@IsNull_PHONE = 1 AND [PHONE] IS NULL) OR ([PHONE] = @Original_PHONE))"& _ 
-                " AND ((@IsNull_EMAIL = 1 AND [EMAIL] IS NULL) OR ([EMAIL] = @Original_EMAIL)) AN"& _ 
-                "D ((@IsNull_ADDRESS = 1 AND [ADDRESS] IS NULL) OR ([ADDRESS] = @Original_ADDRESS"& _ 
-                ")) AND ((@IsNull_CITY = 1 AND [CITY] IS NULL) OR ([CITY] = @Original_CITY)) AND "& _ 
-                "((@IsNull_STATE = 1 AND [STATE] IS NULL) OR ([STATE] = @Original_STATE)) AND ((@"& _ 
-                "IsNull_ZIPCODE = 1 AND [ZIPCODE] IS NULL) OR ([ZIPCODE] = @Original_ZIPCODE)) AN"& _ 
-                "D ((@IsNull_CREDITCARD = 1 AND [CREDITCARD] IS NULL) OR ([CREDITCARD] = @Origina"& _ 
-                "l_CREDITCARD)) AND ([EXPIRATION] = @Original_EXPIRATION))"
+                "B)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone))"& _ 
+                " AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AN"& _ 
+                "D ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address"& _ 
+                ")) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND "& _ 
+                "((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@"& _ 
+                "IsNull_ZipCode = 1 AND [ZipCode] IS NULL) OR ([ZipCode] = @Original_ZipCode)) AN"& _ 
+                "D ((@IsNull_CreditCard = 1 AND [CreditCard] IS NULL) OR ([CreditCard] = @Origina"& _ 
+                "l_CreditCard)) AND ([Expiration] = @Original_Expiration))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -5049,74 +5464,72 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DOB", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DOB", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DOB", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DOB", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PHONE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PHONE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PHONE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PHONE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EMAIL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EMAIL", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ADDRESS", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ADDRESS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CITY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CITY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CITY", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CITY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_STATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "STATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_STATE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "STATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ZIPCODE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZIPCODE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZIPCODE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZIPCODE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREDITCARD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREDITCARD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CREDITCARD", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREDITCARD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EXPIRATION", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXPIRATION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Phone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Email", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Address", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_City", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_State", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_State", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ZipCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZipCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CreditCard", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Customer] ([CustomerID], [FirstName], [LastName], [DOB], [PHON"& _ 
-                "E], [EMAIL], [ADDRESS], [CITY], [STATE], [ZIPCODE], [CREDITCARD], [EXPIRATION]) "& _ 
-                "VALUES (@CustomerID, @FirstName, @LastName, @DOB, @PHONE, @EMAIL, @ADDRESS, @CIT"& _ 
-                "Y, @STATE, @ZIPCODE, @CREDITCARD, @EXPIRATION);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustomerID, FirstName, L"& _ 
-                "astName, DOB, PHONE, EMAIL, ADDRESS, CITY, STATE, ZIPCODE, CREDITCARD, EXPIRATIO"& _ 
-                "N FROM Customer WHERE (CustomerID = @CustomerID)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Customer] ([FirstName], [LastName], [DOB], [Phone], [Email], ["& _ 
+                "Address], [City], [State], [ZipCode], [CreditCard], [Expiration]) VALUES (@First"& _ 
+                "Name, @LastName, @DOB, @Phone, @Email, @Address, @City, @State, @ZipCode, @Credi"& _ 
+                "tCard, @Expiration);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustomerID, FirstName, LastName, DOB, Phone, Email,"& _ 
+                " Address, City, State, ZipCode, CreditCard, Expiration FROM Customer WHERE (Cust"& _ 
+                "omerID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DOB", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DOB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PHONE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PHONE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EMAIL", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EMAIL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ADDRESS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CITY", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CITY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "STATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZIPCODE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZIPCODE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREDITCARD", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREDITCARD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXPIRATION", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXPIRATION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Customer] SET [CustomerID] = @CustomerID, [FirstName] = @FirstName,"& _ 
-                " [LastName] = @LastName, [DOB] = @DOB, [PHONE] = @PHONE, [EMAIL] = @EMAIL, [ADDR"& _ 
-                "ESS] = @ADDRESS, [CITY] = @CITY, [STATE] = @STATE, [ZIPCODE] = @ZIPCODE, [CREDIT"& _ 
-                "CARD] = @CREDITCARD, [EXPIRATION] = @EXPIRATION WHERE (([CustomerID] = @Original"& _ 
-                "_CustomerID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName"& _ 
-                "] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR "& _ 
-                "([LastName] = @Original_LastName)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ("& _ 
-                "[DOB] = @Original_DOB)) AND ((@IsNull_PHONE = 1 AND [PHONE] IS NULL) OR ([PHONE]"& _ 
-                " = @Original_PHONE)) AND ((@IsNull_EMAIL = 1 AND [EMAIL] IS NULL) OR ([EMAIL] = "& _ 
-                "@Original_EMAIL)) AND ((@IsNull_ADDRESS = 1 AND [ADDRESS] IS NULL) OR ([ADDRESS]"& _ 
-                " = @Original_ADDRESS)) AND ((@IsNull_CITY = 1 AND [CITY] IS NULL) OR ([CITY] = @"& _ 
-                "Original_CITY)) AND ((@IsNull_STATE = 1 AND [STATE] IS NULL) OR ([STATE] = @Orig"& _ 
-                "inal_STATE)) AND ((@IsNull_ZIPCODE = 1 AND [ZIPCODE] IS NULL) OR ([ZIPCODE] = @O"& _ 
-                "riginal_ZIPCODE)) AND ((@IsNull_CREDITCARD = 1 AND [CREDITCARD] IS NULL) OR ([CR"& _ 
-                "EDITCARD] = @Original_CREDITCARD)) AND ([EXPIRATION] = @Original_EXPIRATION));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "SELECT CustomerID, FirstName, LastName, DOB, PHONE, EMAIL, ADDRESS, CITY, STATE,"& _ 
-                " ZIPCODE, CREDITCARD, EXPIRATION FROM Customer WHERE (CustomerID = @CustomerID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Customer] SET [FirstName] = @FirstName, [LastName] = @LastName, [DO"& _ 
+                "B] = @DOB, [Phone] = @Phone, [Email] = @Email, [Address] = @Address, [City] = @C"& _ 
+                "ity, [State] = @State, [ZipCode] = @ZipCode, [CreditCard] = @CreditCard, [Expira"& _ 
+                "tion] = @Expiration WHERE (([CustomerID] = @Original_CustomerID) AND ((@IsNull_F"& _ 
+                "irstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AN"& _ 
+                "D ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_Last"& _ 
+                "Name)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AND "& _ 
+                "((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@"& _ 
+                "IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsN"& _ 
+                "ull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ("& _ 
+                "(@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNul"& _ 
+                "l_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_Z"& _ 
+                "ipCode = 1 AND [ZipCode] IS NULL) OR ([ZipCode] = @Original_ZipCode)) AND ((@IsN"& _ 
+                "ull_CreditCard = 1 AND [CreditCard] IS NULL) OR ([CreditCard] = @Original_Credit"& _ 
+                "Card)) AND ([Expiration] = @Original_Expiration));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustomerID, FirstName"& _ 
+                ", LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expira"& _ 
+                "tion FROM Customer WHERE (CustomerID = @CustomerID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DOB", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DOB", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PHONE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PHONE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EMAIL", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EMAIL", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ADDRESS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CITY", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CITY", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@STATE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "STATE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZIPCODE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZIPCODE", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CREDITCARD", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREDITCARD", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EXPIRATION", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXPIRATION", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Address", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@State", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -5124,21 +5537,22 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DOB", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DOB", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DOB", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DOB", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PHONE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PHONE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PHONE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PHONE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EMAIL", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EMAIL", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ADDRESS", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ADDRESS", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADDRESS", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CITY", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CITY", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CITY", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CITY", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_STATE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "STATE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_STATE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "STATE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ZIPCODE", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZIPCODE", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZIPCODE", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZIPCODE", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CREDITCARD", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREDITCARD", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CREDITCARD", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CREDITCARD", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EXPIRATION", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EXPIRATION", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Phone", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Phone", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Phone", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Email", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Email", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Address", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Address", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Address", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_City", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_City", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "City", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_State", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_State", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "State", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ZipCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ZipCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CreditCard", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5154,8 +5568,8 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CustomerID, FirstName, LastName, DOB, PHONE, EMAIL, ADDRESS, CITY, STATE, "& _ 
-                "ZIPCODE, CREDITCARD, EXPIRATION FROM dbo.Customer"
+            Me._commandCollection(0).CommandText = "SELECT CustomerID, FirstName, LastName, DOB, Phone, Email, Address, City, State, "& _ 
+                "ZipCode, CreditCard, Expiration FROM dbo.Customer"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -5215,7 +5629,7 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CustomerID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_DOB As Global.System.Nullable(Of Date), ByVal Original_PHONE As String, ByVal Original_EMAIL As String, ByVal Original_ADDRESS As String, ByVal Original_CITY As String, ByVal Original_STATE As String, ByVal Original_ZIPCODE As String, ByVal Original_CREDITCARD As String, ByVal Original_EXPIRATION As Date) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CustomerID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_DOB As Global.System.Nullable(Of Date), ByVal Original_Phone As String, ByVal Original_Email As String, ByVal Original_Address As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_ZipCode As String, ByVal Original_CreditCard As String, ByVal Original_Expiration As Date) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CustomerID,Integer)
             If (Original_FirstName Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -5238,56 +5652,56 @@ Namespace MyMoviesDBDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             End If
-            If (Original_PHONE Is Nothing) Then
+            If (Original_Phone Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_PHONE,String)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Phone,String)
             End If
-            If (Original_EMAIL Is Nothing) Then
+            If (Original_Email Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_EMAIL,String)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Email,String)
             End If
-            If (Original_ADDRESS Is Nothing) Then
+            If (Original_Address Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_ADDRESS,String)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Address,String)
             End If
-            If (Original_CITY Is Nothing) Then
+            If (Original_City Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_CITY,String)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_City,String)
             End If
-            If (Original_STATE Is Nothing) Then
+            If (Original_State Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_STATE,String)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_State,String)
             End If
-            If (Original_ZIPCODE Is Nothing) Then
+            If (Original_ZipCode Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_ZIPCODE,String)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_ZipCode,String)
             End If
-            If (Original_CREDITCARD Is Nothing) Then
+            If (Original_CreditCard Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_CREDITCARD,String)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_CreditCard,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_EXPIRATION,Date)
+            Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_Expiration,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5307,59 +5721,58 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CustomerID As Integer, ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Global.System.Nullable(Of Date), ByVal PHONE As String, ByVal EMAIL As String, ByVal ADDRESS As String, ByVal CITY As String, ByVal STATE As String, ByVal ZIPCODE As String, ByVal CREDITCARD As String, ByVal EXPIRATION As Date) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(CustomerID,Integer)
+        Public Overloads Overridable Function Insert(ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Global.System.Nullable(Of Date), ByVal Phone As String, ByVal Email As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal CreditCard As String, ByVal Expiration As Date) As Integer
             If (FirstName Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(FirstName,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(FirstName,String)
             End If
             If (LastName Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(LastName,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(LastName,String)
             End If
             If (DOB.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(DOB.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DOB.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (PHONE Is Nothing) Then
+            If (Phone Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Phone,String)
+            End If
+            If (Email Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(PHONE,String)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Email,String)
             End If
-            If (EMAIL Is Nothing) Then
+            If (Address Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(EMAIL,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Address,String)
             End If
-            If (ADDRESS Is Nothing) Then
+            If (City Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(ADDRESS,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(City,String)
             End If
-            If (CITY Is Nothing) Then
+            If (State Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(CITY,String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(State,String)
             End If
-            If (STATE Is Nothing) Then
+            If (ZipCode Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(STATE,String)
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(ZipCode,String)
             End If
-            If (ZIPCODE Is Nothing) Then
+            If (CreditCard Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(ZIPCODE,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(CreditCard,String)
             End If
-            If (CREDITCARD Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(10).Value = CType(CREDITCARD,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(11).Value = CType(EXPIRATION,Date)
+            Me.Adapter.InsertCommand.Parameters(10).Value = CType(Expiration,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5380,154 +5793,154 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
-                    ByVal CustomerID As Integer,  _
                     ByVal FirstName As String,  _
                     ByVal LastName As String,  _
                     ByVal DOB As Global.System.Nullable(Of Date),  _
-                    ByVal PHONE As String,  _
-                    ByVal EMAIL As String,  _
-                    ByVal ADDRESS As String,  _
-                    ByVal CITY As String,  _
-                    ByVal STATE As String,  _
-                    ByVal ZIPCODE As String,  _
-                    ByVal CREDITCARD As String,  _
-                    ByVal EXPIRATION As Date,  _
+                    ByVal Phone As String,  _
+                    ByVal Email As String,  _
+                    ByVal Address As String,  _
+                    ByVal City As String,  _
+                    ByVal State As String,  _
+                    ByVal ZipCode As String,  _
+                    ByVal CreditCard As String,  _
+                    ByVal Expiration As Date,  _
                     ByVal Original_CustomerID As Integer,  _
                     ByVal Original_FirstName As String,  _
                     ByVal Original_LastName As String,  _
                     ByVal Original_DOB As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PHONE As String,  _
-                    ByVal Original_EMAIL As String,  _
-                    ByVal Original_ADDRESS As String,  _
-                    ByVal Original_CITY As String,  _
-                    ByVal Original_STATE As String,  _
-                    ByVal Original_ZIPCODE As String,  _
-                    ByVal Original_CREDITCARD As String,  _
-                    ByVal Original_EXPIRATION As Date) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CustomerID,Integer)
+                    ByVal Original_Phone As String,  _
+                    ByVal Original_Email As String,  _
+                    ByVal Original_Address As String,  _
+                    ByVal Original_City As String,  _
+                    ByVal Original_State As String,  _
+                    ByVal Original_ZipCode As String,  _
+                    ByVal Original_CreditCard As String,  _
+                    ByVal Original_Expiration As Date,  _
+                    ByVal CustomerID As Integer) As Integer
             If (FirstName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(FirstName,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(FirstName,String)
             End If
             If (LastName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(LastName,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(LastName,String)
             End If
             If (DOB.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DOB.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DOB.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            If (PHONE Is Nothing) Then
+            If (Phone Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Phone,String)
+            End If
+            If (Email Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(PHONE,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Email,String)
             End If
-            If (EMAIL Is Nothing) Then
+            If (Address Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(EMAIL,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Address,String)
             End If
-            If (ADDRESS Is Nothing) Then
+            If (City Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(ADDRESS,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(City,String)
             End If
-            If (CITY Is Nothing) Then
+            If (State Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(CITY,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(State,String)
             End If
-            If (STATE Is Nothing) Then
+            If (ZipCode Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(STATE,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ZipCode,String)
             End If
-            If (ZIPCODE Is Nothing) Then
+            If (CreditCard Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ZIPCODE,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(CreditCard,String)
             End If
-            If (CREDITCARD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(CREDITCARD,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(EXPIRATION,Date)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_CustomerID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Expiration,Date)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_CustomerID,Integer)
             If (Original_FirstName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_FirstName,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FirstName,String)
             End If
             If (Original_LastName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_LastName,String)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_LastName,String)
             End If
             If (Original_DOB.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_DOB.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_DOB.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
-            If (Original_PHONE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            If (Original_Phone Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_PHONE,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Phone,String)
             End If
-            If (Original_EMAIL Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            If (Original_Email Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_EMAIL,String)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Email,String)
             End If
-            If (Original_ADDRESS Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            If (Original_Address Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_ADDRESS,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Address,String)
             End If
-            If (Original_CITY Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            If (Original_City Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_CITY,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_City,String)
             End If
-            If (Original_STATE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            If (Original_State Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_STATE,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_State,String)
             End If
-            If (Original_ZIPCODE Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+            If (Original_ZipCode Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_ZIPCODE,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ZipCode,String)
             End If
-            If (Original_CREDITCARD Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+            If (Original_CreditCard Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_CREDITCARD,String)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_CreditCard,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_EXPIRATION,Date)
+            Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_Expiration,Date)
+            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(CustomerID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5551,27 +5964,27 @@ Namespace MyMoviesDBDataSetTableAdapters
                     ByVal FirstName As String,  _
                     ByVal LastName As String,  _
                     ByVal DOB As Global.System.Nullable(Of Date),  _
-                    ByVal PHONE As String,  _
-                    ByVal EMAIL As String,  _
-                    ByVal ADDRESS As String,  _
-                    ByVal CITY As String,  _
-                    ByVal STATE As String,  _
-                    ByVal ZIPCODE As String,  _
-                    ByVal CREDITCARD As String,  _
-                    ByVal EXPIRATION As Date,  _
+                    ByVal Phone As String,  _
+                    ByVal Email As String,  _
+                    ByVal Address As String,  _
+                    ByVal City As String,  _
+                    ByVal State As String,  _
+                    ByVal ZipCode As String,  _
+                    ByVal CreditCard As String,  _
+                    ByVal Expiration As Date,  _
                     ByVal Original_CustomerID As Integer,  _
                     ByVal Original_FirstName As String,  _
                     ByVal Original_LastName As String,  _
                     ByVal Original_DOB As Global.System.Nullable(Of Date),  _
-                    ByVal Original_PHONE As String,  _
-                    ByVal Original_EMAIL As String,  _
-                    ByVal Original_ADDRESS As String,  _
-                    ByVal Original_CITY As String,  _
-                    ByVal Original_STATE As String,  _
-                    ByVal Original_ZIPCODE As String,  _
-                    ByVal Original_CREDITCARD As String,  _
-                    ByVal Original_EXPIRATION As Date) As Integer
-            Return Me.Update(Original_CustomerID, FirstName, LastName, DOB, PHONE, EMAIL, ADDRESS, CITY, STATE, ZIPCODE, CREDITCARD, EXPIRATION, Original_CustomerID, Original_FirstName, Original_LastName, Original_DOB, Original_PHONE, Original_EMAIL, Original_ADDRESS, Original_CITY, Original_STATE, Original_ZIPCODE, Original_CREDITCARD, Original_EXPIRATION)
+                    ByVal Original_Phone As String,  _
+                    ByVal Original_Email As String,  _
+                    ByVal Original_Address As String,  _
+                    ByVal Original_City As String,  _
+                    ByVal Original_State As String,  _
+                    ByVal Original_ZipCode As String,  _
+                    ByVal Original_CreditCard As String,  _
+                    ByVal Original_Expiration As Date) As Integer
+            Return Me.Update(FirstName, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expiration, Original_CustomerID, Original_FirstName, Original_LastName, Original_DOB, Original_Phone, Original_Email, Original_Address, Original_City, Original_State, Original_ZipCode, Original_CreditCard, Original_Expiration, Original_CustomerID)
         End Function
     End Class
     
@@ -6555,6 +6968,351 @@ Namespace MyMoviesDBDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class UserTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "User"
+            tableMapping.ColumnMappings.Add("Username", "Username")
+            tableMapping.ColumnMappings.Add("Password", "Password")
+            tableMapping.ColumnMappings.Add("CustomerID", "CustomerID")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[User] WHERE (([Username] = @Original_Username) AND ([Password]"& _ 
+                " = @Original_Password) AND ([CustomerID] = @Original_CustomerID))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[User] ([Username], [Password], [CustomerID]) VALUES (@Username"& _ 
+                ", @Password, @CustomerID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Username, Password, CustomerID FROM [User] WH"& _ 
+                "ERE (Username = @Username)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[User] SET [Username] = @Username, [Password] = @Password, [Customer"& _ 
+                "ID] = @CustomerID WHERE (([Username] = @Original_Username) AND ([Password] = @Or"& _ 
+                "iginal_Password) AND ([CustomerID] = @Original_CustomerID));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Username, P"& _ 
+                "assword, CustomerID FROM [User] WHERE (Username = @Username)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Username", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Password", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Password", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.MyMovies_Video_Kiosk.My.MySettings.Default.MyMoviesDBConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT Username, Password, CustomerID FROM dbo.[User]"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As MyMoviesDBDataSet.UserDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As MyMoviesDBDataSet.UserDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As MyMoviesDBDataSet.UserDataTable = New MyMoviesDBDataSet.UserDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As MyMoviesDBDataSet.UserDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As MyMoviesDBDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "User")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_Username As String, ByVal Original_Password As String, ByVal Original_CustomerID As Integer) As Integer
+            If (Original_Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Username")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Username,String)
+            End If
+            If (Original_Password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Password")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Password,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CustomerID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal Username As String, ByVal Password As String, ByVal CustomerID As Integer) As Integer
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Username,String)
+            End If
+            If (Password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Password")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Password,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(CustomerID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal Username As String, ByVal Password As String, ByVal CustomerID As Integer, ByVal Original_Username As String, ByVal Original_Password As String, ByVal Original_CustomerID As Integer) As Integer
+            If (Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Username")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Username,String)
+            End If
+            If (Password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Password")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Password,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(CustomerID,Integer)
+            If (Original_Username Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Username")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_Username,String)
+            End If
+            If (Original_Password Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Password")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Password,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_CustomerID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal Password As String, ByVal CustomerID As Integer, ByVal Original_Username As String, ByVal Original_Password As String, ByVal Original_CustomerID As Integer) As Integer
+            Return Me.Update(Original_Username, Password, CustomerID, Original_Username, Original_Password, Original_CustomerID)
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class StateTableAdapter
         Inherits Global.System.ComponentModel.Component
         
@@ -6673,35 +7431,35 @@ Namespace MyMoviesDBDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "State"
-            tableMapping.ColumnMappings.Add("Abbreviation", "Abbreviation")
             tableMapping.ColumnMappings.Add("FullName", "FullName")
+            tableMapping.ColumnMappings.Add("Abbreviation", "Abbreviation")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[State] WHERE (([Abbreviation] = @Original_Abbreviation) AND (["& _ 
-                "FullName] = @Original_FullName))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[State] WHERE (([FullName] = @Original_FullName) AND ([Abbrevia"& _ 
+                "tion] = @Original_Abbreviation))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FullName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FullName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[State] ([Abbreviation], [FullName]) VALUES (@Abbreviation, @Fu"& _ 
-                "llName);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Abbreviation, FullName FROM State WHERE (Abbreviation = @Abbrev"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[State] ([FullName], [Abbreviation]) VALUES (@FullName, @Abbrev"& _ 
+                "iation);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT FullName, Abbreviation FROM State WHERE (Abbreviation = @Abbrev"& _ 
                 "iation)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FullName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FullName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[State] SET [Abbreviation] = @Abbreviation, [FullName] = @FullName W"& _ 
-                "HERE (([Abbreviation] = @Original_Abbreviation) AND ([FullName] = @Original_Full"& _ 
-                "Name));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Abbreviation, FullName FROM State WHERE (Abbreviation = @Abbrevi"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[State] SET [FullName] = @FullName, [Abbreviation] = @Abbreviation W"& _ 
+                "HERE (([FullName] = @Original_FullName) AND ([Abbreviation] = @Original_Abbrevia"& _ 
+                "tion));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT FullName, Abbreviation FROM State WHERE (Abbreviation = @Abbrevi"& _ 
                 "ation)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FullName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FullName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FullName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FullName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Abbreviation", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Abbreviation", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6717,7 +7475,7 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Abbreviation, FullName FROM dbo.State"
+            Me._commandCollection(0).CommandText = "SELECT FullName, Abbreviation FROM dbo.State"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -6777,16 +7535,16 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Abbreviation As String, ByVal Original_FullName As String) As Integer
-            If (Original_Abbreviation Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Abbreviation")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Abbreviation,String)
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_FullName As String, ByVal Original_Abbreviation As String) As Integer
             If (Original_FullName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_FullName")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_FullName,String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_FullName,String)
+            End If
+            If (Original_Abbreviation Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Abbreviation")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Abbreviation,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6807,16 +7565,16 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Abbreviation As String, ByVal FullName As String) As Integer
-            If (Abbreviation Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Abbreviation")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Abbreviation,String)
-            End If
+        Public Overloads Overridable Function Insert(ByVal FullName As String, ByVal Abbreviation As String) As Integer
             If (FullName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("FullName")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(FullName,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(FullName,String)
+            End If
+            If (Abbreviation Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Abbreviation")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Abbreviation,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6837,26 +7595,26 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Abbreviation As String, ByVal FullName As String, ByVal Original_Abbreviation As String, ByVal Original_FullName As String) As Integer
-            If (Abbreviation Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Abbreviation")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Abbreviation,String)
-            End If
+        Public Overloads Overridable Function Update(ByVal FullName As String, ByVal Abbreviation As String, ByVal Original_FullName As String, ByVal Original_Abbreviation As String) As Integer
             If (FullName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("FullName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(FullName,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(FullName,String)
             End If
-            If (Original_Abbreviation Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Abbreviation")
+            If (Abbreviation Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Abbreviation")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_Abbreviation,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Abbreviation,String)
             End If
             If (Original_FullName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_FullName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_FullName,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_FullName,String)
+            End If
+            If (Original_Abbreviation Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Abbreviation")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_Abbreviation,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6877,8 +7635,8 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal FullName As String, ByVal Original_Abbreviation As String, ByVal Original_FullName As String) As Integer
-            Return Me.Update(Original_Abbreviation, FullName, Original_Abbreviation, Original_FullName)
+        Public Overloads Overridable Function Update(ByVal FullName As String, ByVal Original_FullName As String, ByVal Original_Abbreviation As String) As Integer
+            Return Me.Update(FullName, Original_Abbreviation, Original_FullName, Original_Abbreviation)
         End Function
     End Class
     
@@ -6908,6 +7666,8 @@ Namespace MyMoviesDBDataSetTableAdapters
         Private _orderTableAdapter As OrderTableAdapter
         
         Private _orderDetailTableAdapter As OrderDetailTableAdapter
+        
+        Private _userTableAdapter As UserTableAdapter
         
         Private _stateTableAdapter As StateTableAdapter
         
@@ -7029,6 +7789,20 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property UserTableAdapter() As UserTableAdapter
+            Get
+                Return Me._userTableAdapter
+            End Get
+            Set
+                Me._userTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
         Public Property StateTableAdapter() As StateTableAdapter
             Get
                 Return Me._stateTableAdapter
@@ -7085,6 +7859,10 @@ Namespace MyMoviesDBDataSetTableAdapters
                             AndAlso (Not (Me._orderDetailTableAdapter.Connection) Is Nothing)) Then
                     Return Me._orderDetailTableAdapter.Connection
                 End If
+                If ((Not (Me._userTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._userTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._userTableAdapter.Connection
+                End If
                 If ((Not (Me._stateTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._stateTableAdapter.Connection) Is Nothing)) Then
                     Return Me._stateTableAdapter.Connection
@@ -7121,6 +7899,9 @@ Namespace MyMoviesDBDataSetTableAdapters
                     count = (count + 1)
                 End If
                 If (Not (Me._orderDetailTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
+                If (Not (Me._userTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._stateTableAdapter) Is Nothing) Then
@@ -7200,6 +7981,15 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._userTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._userTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._stateTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.State.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -7275,6 +8065,14 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._userTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._userTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._stateTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.State.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -7298,6 +8096,14 @@ Namespace MyMoviesDBDataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._stateTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._userTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._userTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -7433,6 +8239,11 @@ Namespace MyMoviesDBDataSetTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
+            If ((Not (Me._userTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._userTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+                        "tring.")
+            End If
             If ((Not (Me._stateTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._stateTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
@@ -7533,6 +8344,15 @@ Namespace MyMoviesDBDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._orderDetailTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._userTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._userTableAdapter, Me._userTableAdapter.Connection)
+                    Me._userTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._userTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._userTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._userTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._userTableAdapter.Adapter)
+                    End If
+                End If
                 If (Not (Me._stateTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._stateTableAdapter, Me._stateTableAdapter.Connection)
                     Me._stateTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -7629,6 +8449,10 @@ Namespace MyMoviesDBDataSetTableAdapters
                 If (Not (Me._orderDetailTableAdapter) Is Nothing) Then
                     Me._orderDetailTableAdapter.Connection = CType(revertConnections(Me._orderDetailTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._orderDetailTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._userTableAdapter) Is Nothing) Then
+                    Me._userTableAdapter.Connection = CType(revertConnections(Me._userTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._userTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._stateTableAdapter) Is Nothing) Then
                     Me._stateTableAdapter.Connection = CType(revertConnections(Me._stateTableAdapter),Global.System.Data.SqlClient.SqlConnection)

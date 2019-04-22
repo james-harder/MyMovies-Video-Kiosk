@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmRegistration
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class frmRegistration
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRegistration))
         Me.btnSubmit = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -38,24 +39,34 @@ Partial Class frmRegistration
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.tbExpiry = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.txtAddress = New System.Windows.Forms.TextBox()
+        Me.txtCity = New System.Windows.Forms.TextBox()
+        Me.txtZip = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.txtPhone = New System.Windows.Forms.TextBox()
+        Me.txtExpiration = New System.Windows.Forms.MaskedTextBox()
+        Me.txtDOB = New System.Windows.Forms.MaskedTextBox()
+        Me.txtCreditCard = New System.Windows.Forms.MaskedTextBox()
         Me.cboState = New System.Windows.Forms.ComboBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.MyMoviesDBDataSet = New MyMovies_Video_Kiosk.MyMoviesDBDataSet()
+        Me.StateBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.StateTableAdapter = New MyMovies_Video_Kiosk.MyMoviesDBDataSetTableAdapters.StateTableAdapter()
+        Me.TableAdapterManager = New MyMovies_Video_Kiosk.MyMoviesDBDataSetTableAdapters.TableAdapterManager()
+        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StateBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnSubmit
         '
         Me.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnSubmit.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSubmit.Location = New System.Drawing.Point(643, 299)
+        Me.btnSubmit.Location = New System.Drawing.Point(644, 335)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(83, 28)
         Me.btnSubmit.TabIndex = 0
@@ -66,7 +77,7 @@ Partial Class frmRegistration
         '
         Me.btnClear.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnClear.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(554, 299)
+        Me.btnClear.Location = New System.Drawing.Point(555, 335)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(83, 28)
         Me.btnClear.TabIndex = 1
@@ -77,7 +88,7 @@ Partial Class frmRegistration
         '
         Me.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnCancel.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancel.Location = New System.Drawing.Point(465, 299)
+        Me.btnCancel.Location = New System.Drawing.Point(466, 335)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(83, 28)
         Me.btnCancel.TabIndex = 2
@@ -216,105 +227,107 @@ Partial Class frmRegistration
         Me.Label15.TabIndex = 17
         Me.Label15.Text = "Credit Card:"
         '
-        'TextBox1
+        'txtFirstName
         '
-        Me.TextBox1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox1.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(115, 167)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(153, 22)
-        Me.TextBox1.TabIndex = 18
+        Me.txtFirstName.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtFirstName.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFirstName.Location = New System.Drawing.Point(115, 167)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(153, 22)
+        Me.txtFirstName.TabIndex = 18
         '
-        'TextBox2
+        'txtLastName
         '
-        Me.TextBox2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox2.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(115, 200)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(153, 22)
-        Me.TextBox2.TabIndex = 19
+        Me.txtLastName.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtLastName.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLastName.Location = New System.Drawing.Point(115, 200)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(153, 22)
+        Me.txtLastName.TabIndex = 19
         '
-        'TextBox3
+        'txtAddress
         '
-        Me.TextBox3.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox3.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(384, 167)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(220, 22)
-        Me.TextBox3.TabIndex = 20
+        Me.txtAddress.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtAddress.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAddress.Location = New System.Drawing.Point(384, 167)
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.Size = New System.Drawing.Size(220, 22)
+        Me.txtAddress.TabIndex = 20
         '
-        'TextBox4
+        'txtCity
         '
-        Me.TextBox4.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox4.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(384, 200)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(118, 22)
-        Me.TextBox4.TabIndex = 21
+        Me.txtCity.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtCity.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCity.Location = New System.Drawing.Point(384, 200)
+        Me.txtCity.Name = "txtCity"
+        Me.txtCity.Size = New System.Drawing.Size(118, 22)
+        Me.txtCity.TabIndex = 21
         '
-        'TextBox6
+        'txtZip
         '
-        Me.TextBox6.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox6.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(384, 233)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(72, 22)
-        Me.TextBox6.TabIndex = 23
+        Me.txtZip.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtZip.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtZip.Location = New System.Drawing.Point(384, 233)
+        Me.txtZip.Name = "txtZip"
+        Me.txtZip.Size = New System.Drawing.Size(72, 22)
+        Me.txtZip.TabIndex = 23
         '
-        'TextBox7
+        'txtEmail
         '
-        Me.TextBox7.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox7.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox7.Location = New System.Drawing.Point(115, 299)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(153, 22)
-        Me.TextBox7.TabIndex = 24
+        Me.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtEmail.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmail.Location = New System.Drawing.Point(115, 299)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(153, 22)
+        Me.txtEmail.TabIndex = 24
         '
-        'TextBox8
+        'txtPhone
         '
-        Me.TextBox8.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.TextBox8.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox8.Location = New System.Drawing.Point(115, 265)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(153, 22)
-        Me.TextBox8.TabIndex = 25
+        Me.txtPhone.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtPhone.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPhone.Location = New System.Drawing.Point(115, 265)
+        Me.txtPhone.Name = "txtPhone"
+        Me.txtPhone.Size = New System.Drawing.Size(153, 22)
+        Me.txtPhone.TabIndex = 25
         '
-        'tbExpiry
+        'txtExpiration
         '
-        Me.tbExpiry.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.tbExpiry.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbExpiry.Location = New System.Drawing.Point(384, 299)
-        Me.tbExpiry.Mask = "00/0000"
-        Me.tbExpiry.Name = "tbExpiry"
-        Me.tbExpiry.Size = New System.Drawing.Size(48, 22)
-        Me.tbExpiry.TabIndex = 28
-        Me.tbExpiry.ValidatingType = GetType(Date)
+        Me.txtExpiration.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtExpiration.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtExpiration.Location = New System.Drawing.Point(384, 299)
+        Me.txtExpiration.Mask = "00/0000"
+        Me.txtExpiration.Name = "txtExpiration"
+        Me.txtExpiration.Size = New System.Drawing.Size(48, 22)
+        Me.txtExpiration.TabIndex = 28
+        Me.txtExpiration.ValidatingType = GetType(Date)
         '
-        'MaskedTextBox1
+        'txtDOB
         '
-        Me.MaskedTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaskedTextBox1.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(115, 233)
-        Me.MaskedTextBox1.Mask = "00/00/0000"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(61, 22)
-        Me.MaskedTextBox1.TabIndex = 29
-        Me.MaskedTextBox1.ValidatingType = GetType(Date)
+        Me.txtDOB.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtDOB.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDOB.Location = New System.Drawing.Point(115, 233)
+        Me.txtDOB.Mask = "00/00/0000"
+        Me.txtDOB.Name = "txtDOB"
+        Me.txtDOB.Size = New System.Drawing.Size(61, 22)
+        Me.txtDOB.TabIndex = 29
+        Me.txtDOB.ValidatingType = GetType(Date)
         '
-        'MaskedTextBox2
+        'txtCreditCard
         '
-        Me.MaskedTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MaskedTextBox2.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(384, 265)
-        Me.MaskedTextBox2.Mask = "0000 0000 0000 0000"
-        Me.MaskedTextBox2.Name = "MaskedTextBox2"
-        Me.MaskedTextBox2.Size = New System.Drawing.Size(109, 22)
-        Me.MaskedTextBox2.TabIndex = 30
-        Me.MaskedTextBox2.ValidatingType = GetType(Date)
+        Me.txtCreditCard.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtCreditCard.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCreditCard.Location = New System.Drawing.Point(384, 265)
+        Me.txtCreditCard.Mask = "0000 0000 0000 0000"
+        Me.txtCreditCard.Name = "txtCreditCard"
+        Me.txtCreditCard.Size = New System.Drawing.Size(109, 22)
+        Me.txtCreditCard.TabIndex = 30
+        Me.txtCreditCard.ValidatingType = GetType(Date)
         '
         'cboState
         '
         Me.cboState.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.cboState.DataSource = Me.StateBindingSource
+        Me.cboState.DisplayMember = "FullName"
         Me.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboState.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboState.FormattingEnabled = True
@@ -322,6 +335,75 @@ Partial Class frmRegistration
         Me.cboState.Name = "cboState"
         Me.cboState.Size = New System.Drawing.Size(42, 21)
         Me.cboState.TabIndex = 31
+        Me.cboState.ValueMember = "Abbreviation"
+        '
+        'txtPassword
+        '
+        Me.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtPassword.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPassword.Location = New System.Drawing.Point(621, 299)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(106, 22)
+        Me.txtPassword.TabIndex = 35
+        '
+        'txtUsername
+        '
+        Me.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.txtUsername.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.Location = New System.Drawing.Point(621, 265)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(106, 22)
+        Me.txtUsername.TabIndex = 34
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(541, 300)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(67, 17)
+        Me.Label3.TabIndex = 33
+        Me.Label3.Text = "Password:"
+        '
+        'Label4
+        '
+        Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(541, 267)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(70, 17)
+        Me.Label4.TabIndex = 32
+        Me.Label4.Text = "Username:"
+        '
+        'MyMoviesDBDataSet
+        '
+        Me.MyMoviesDBDataSet.DataSetName = "MyMoviesDBDataSet"
+        Me.MyMoviesDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'StateBindingSource
+        '
+        Me.StateBindingSource.DataMember = "State"
+        Me.StateBindingSource.DataSource = Me.MyMoviesDBDataSet
+        '
+        'StateTableAdapter
+        '
+        Me.StateTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.ActorMovieTableAdapter = Nothing
+        Me.TableAdapterManager.ActorTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.CustomerTableAdapter = Nothing
+        Me.TableAdapterManager.DirectorTableAdapter = Nothing
+        Me.TableAdapterManager.MovieTableAdapter = Nothing
+        Me.TableAdapterManager.OrderDetailTableAdapter = Nothing
+        Me.TableAdapterManager.OrderTableAdapter = Nothing
+        Me.TableAdapterManager.StateTableAdapter = Me.StateTableAdapter
+        Me.TableAdapterManager.UpdateOrder = MyMovies_Video_Kiosk.MyMoviesDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.UserTableAdapter = Nothing
         '
         'frmRegistration
         '
@@ -331,17 +413,21 @@ Partial Class frmRegistration
         Me.BackgroundImage = Global.MyMovies_Video_Kiosk.My.Resources.Resources.Film_Reel_Green
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 470)
+        Me.Controls.Add(Me.txtPassword)
+        Me.Controls.Add(Me.txtUsername)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cboState)
-        Me.Controls.Add(Me.MaskedTextBox2)
-        Me.Controls.Add(Me.MaskedTextBox1)
-        Me.Controls.Add(Me.tbExpiry)
-        Me.Controls.Add(Me.TextBox8)
-        Me.Controls.Add(Me.TextBox7)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtCreditCard)
+        Me.Controls.Add(Me.txtDOB)
+        Me.Controls.Add(Me.txtExpiration)
+        Me.Controls.Add(Me.txtPhone)
+        Me.Controls.Add(Me.txtEmail)
+        Me.Controls.Add(Me.txtZip)
+        Me.Controls.Add(Me.txtCity)
+        Me.Controls.Add(Me.txtAddress)
+        Me.Controls.Add(Me.txtLastName)
+        Me.Controls.Add(Me.txtFirstName)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
@@ -364,6 +450,8 @@ Partial Class frmRegistration
         Me.Name = "frmRegistration"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistration"
+        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StateBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -384,15 +472,23 @@ Partial Class frmRegistration
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents tbExpiry As MaskedTextBox
-    Friend WithEvents MaskedTextBox1 As MaskedTextBox
-    Friend WithEvents MaskedTextBox2 As MaskedTextBox
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents txtAddress As TextBox
+    Friend WithEvents txtCity As TextBox
+    Friend WithEvents txtZip As TextBox
+    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents txtPhone As TextBox
+    Friend WithEvents txtExpiration As MaskedTextBox
+    Friend WithEvents txtDOB As MaskedTextBox
+    Friend WithEvents txtCreditCard As MaskedTextBox
     Friend WithEvents cboState As ComboBox
+    Friend WithEvents txtPassword As TextBox
+    Friend WithEvents txtUsername As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents MyMoviesDBDataSet As MyMoviesDBDataSet
+    Friend WithEvents StateBindingSource As BindingSource
+    Friend WithEvents StateTableAdapter As MyMoviesDBDataSetTableAdapters.StateTableAdapter
+    Friend WithEvents TableAdapterManager As MyMoviesDBDataSetTableAdapters.TableAdapterManager
 End Class
