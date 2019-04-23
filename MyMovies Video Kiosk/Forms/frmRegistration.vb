@@ -14,13 +14,7 @@
         MyBase.Show()
 
     End Sub
-    Private Function CheckForSQL(stringIn As String) As Boolean
-        If stringIn.Contains("Select") Or stringIn.Contains("Update") Or stringIn.Contains("Delete") Or stringIn.Contains("Drop") Or stringIn.Contains("Insert") Then
-            Return True
-        Else
-            Return False
-        End If
-    End Function
+
 #End Region
 
 #Region "Event Handlers"
@@ -34,9 +28,12 @@
 
         Dim user As String = If(CheckForSQL(txtUsername.Text), "ERROR USER ATTEMPTED SQL INJECTION", txtUsername.Text)
         Dim pwd As String = txtPassword.Text
-
+        If user.Equals("ERROR USER ATTEMPTED SQL INJECTION") Then
+            MessageBox.Show("SQL Injection Attempt Detected.", "Error: Closing Application", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error)
+            Application.Exit()
+        End If
         Dim checkUser As DataRow
-        checkUser = tblUser.Select(String.Format("Username = '{0}'", user)).FirstOrDefault()
+        checkUser = tblUser.Select(String.Format("Username = '{0}'", user.ToUpper)).FirstOrDefault()
         If checkUser Is Nothing Then
             'This block can be used to selectively validate inserted fields
             Dim customer As New MyMoviesDBDataSetTableAdapters.CustomerTableAdapter()
@@ -58,13 +55,12 @@
             customer.Insert(firstName, lastName, DOB, phone, email, address, city, state, zip, CC, expiration, CreateTime)
             Dim tblCustomer As New MyMoviesDBDataSet.CustomerDataTable()
             customer.Fill(tblCustomer)
-            For Each r As DataRow In tblCustomer.Rows
-                Debug.WriteLine(r(12).ToString())
-            Next
-            Debug.WriteLine(String.Format("DateTimeCreated = '{0}'", CreateTime.ToString()))
+
             Dim row As DataRow = (From r As DataRow In tblCustomer.Rows Where r(12).ToString().Equals(CreateTime.ToString()) Select r).Single()
-            users.Insert(txtUsername.Text, txtPassword.Text, CType(row, MyMoviesDBDataSet.CustomerRow).CustomerID)
+            users.Insert(txtUsername.Text.ToUpper, txtPassword.Text, CType(row, MyMoviesDBDataSet.CustomerRow).CustomerID)
+
             MessageBox.Show("User Added!")
+
             'shows parent
             If (ParentForm.Name = "frmStart") Then
                 Start.Show()
@@ -72,8 +68,8 @@
                 PlaceOrder.Show()
             End If
 
-            'Hides this form
-            Hide()
+            'closes this form
+            Close()
         Else
             MessageBox.Show("Username already taken.")
         End If
@@ -110,6 +106,7 @@
     Private Sub frmRegistration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'MyMoviesDBDataSet.State' table. You can move, or remove it, as needed.
         Me.StateTableAdapter.Fill(Me.MyMoviesDBDataSet.State)
+        txtPassword.UseSystemPasswordChar = True
     End Sub
 #End Region
 End Class

@@ -73,7 +73,7 @@ Partial Class frmStart
         Me.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtPassword.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPassword.Location = New System.Drawing.Point(105, 55)
-        Me.txtPassword.MaxLength = 8
+        Me.txtPassword.MaxLength = 20
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(100, 22)
         Me.txtPassword.TabIndex = 4
@@ -83,7 +83,7 @@ Partial Class frmStart
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(20, 51)
+        Me.Label6.Location = New System.Drawing.Point(20, 56)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(67, 17)
         Me.Label6.TabIndex = 3
@@ -106,7 +106,7 @@ Partial Class frmStart
         Me.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtUsername.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.Location = New System.Drawing.Point(105, 26)
-        Me.txtUsername.MaxLength = 8
+        Me.txtUsername.MaxLength = 20
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(100, 22)
         Me.txtUsername.TabIndex = 1

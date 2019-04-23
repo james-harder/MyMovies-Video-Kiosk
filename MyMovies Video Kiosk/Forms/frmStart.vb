@@ -8,29 +8,27 @@
 
 #Region "Methods"
     Private Sub SubmitUser()
-        'query database for username exist
-        'if user exists, query user for password, match password
-        'if password matches password, continue
-        'UserID = p
-        'If (txtUsername.Text In Customer) Then
-        '   If (txtPassword.Text Matches txtUsername.Text In Customer) Then
-        '       'Search.Show()
-        '       'Hide()
-        '   Else
-        '       'MessageBox.Show("Password is invalid")
-        '   End If
-        'Else
-        '   MessageBox.Show("Username does not exist.")
-        'End If
+        Dim users As New MyMoviesDBDataSetTableAdapters.UserTableAdapter
+        Dim tblUsers As New MyMoviesDBDataSet.UserDataTable
+        users.Fill(tblUsers)
 
-        If (True) Then
-            Search.Show()
-            Hide()
+        Dim user As String = If(CheckForSQL(txtUsername.Text), "ERROR USER ATTEMPTED SQL INJECTION", txtUsername.Text)
+        Dim pwd As String = If(CheckForSQL(txtPassword.Text), "ERROR USER ATTEMPTED SQL INJECTION", txtPassword.Text)
+        Dim checkUser As DataRow
+        checkUser = tblUsers.Select(String.Format("Username = '{0}'", user.ToUpper)).FirstOrDefault()
+        If checkUser IsNot Nothing Then
+            If pwd.Equals(checkUser(1).ToString()) Then
+                Search.Show()
+                UserID = checkUser(2)
+                Hide()
+            Else
+                MessageBox.Show("User/Password is incorrect.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                txtUsername.Text = String.Empty
+                txtPassword.Text = String.Empty
+            End If
         Else
-            MessageBox.Show("User ID incorrectly formatted.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txtUsername.Text = String.Empty
+            MessageBox.Show("User is not registered in database.")
         End If
-
     End Sub
 #End Region
 

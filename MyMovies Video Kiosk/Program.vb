@@ -70,4 +70,11 @@
             _PlaceOrder.WindowState = FormWindowState.Maximized
         End If
     End Sub
+    Public Function CheckForSQL(stringIn As String) As Boolean
+        If stringIn.ToUpper().Contains("SELECT") Or stringIn.ToUpper.Contains("UPDATE") Or stringIn.ToUpper.Contains("DELETE") Or stringIn.ToUpper.Contains("DROP") Or stringIn.ToUpper.Contains("INSERT") Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Module
