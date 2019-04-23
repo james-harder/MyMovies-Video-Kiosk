@@ -1,7 +1,16 @@
 ﻿Public Class frmPlaceOrder
 
 #Region "Properties"
+    'call this from frmSearch btnPlaceOrder
+    Private _movies As List(Of String) = New List(Of String)
 
+    Public WriteOnly Property orderList As String
+
+        Set(value As String)
+            _movies.Add(value)
+        End Set
+
+    End Property
 
 
 #End Region
@@ -20,6 +29,17 @@
         'Set Card Carrier check box index to 0
         cboCardCarrier.SelectedIndex = 0
 
+        'display movies in cart
+        If _movies Is Nothing Then
+            lstItems.Items.Clear()
+            lstItems.Items.Add("No movies in your order...")
+        Else
+            lstItems.Items.Clear()
+
+            For Each movieID As String In _movies
+                lstItems.Items.Add(movieID)
+            Next
+        End If
     End Sub
 
     'Handles btnCancel Click
