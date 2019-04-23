@@ -38,8 +38,8 @@
 
     'Handles btnPlaceOrder Click
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
-        'send movie name to frmPlaceOrder
-        PlaceOrder.orderList = lstResults.SelectedItem
+        'Add movie to Program._MoviesOrdered
+        AddToOrder = lstResults.SelectedItem
 
         'show frmPlaceOrder
         PlaceOrder.Show()

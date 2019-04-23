@@ -2,6 +2,22 @@
     'UserID tracks the current user
     Public Property UserID() As Integer
 
+    'MoviesOrdered tracks the movies added to the order, IE a shopping cart
+    'MoviesOrdered() returns the list of movies ordered
+    'AddToOrder() adds a movie title to _MoviesOrdered
+    Private _MoviesOrdered As List(Of String) = New List(Of String)
+    Public ReadOnly Property MoviesOrdered() As List(Of String)
+        Get
+            Return _MoviesOrdered
+        End Get
+    End Property
+
+    Public WriteOnly Property AddToOrder As String
+        Set(ByVal value As String)
+            _MoviesOrdered.Add(value)
+        End Set
+    End Property
+
     'System.Windows.Forms.FormWindowState is an enum to track maximized/minimized/normal window state
     Public Property WindowState() As FormWindowState
 
