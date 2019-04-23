@@ -50,16 +50,16 @@ Partial Class frmRegistration
         Me.txtDOB = New System.Windows.Forms.MaskedTextBox()
         Me.txtCreditCard = New System.Windows.Forms.MaskedTextBox()
         Me.cboState = New System.Windows.Forms.ComboBox()
+        Me.StateBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MyMoviesDBDataSet = New MyMovies_Video_Kiosk.MyMoviesDBDataSet()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.MyMoviesDBDataSet = New MyMovies_Video_Kiosk.MyMoviesDBDataSet()
-        Me.StateBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.StateTableAdapter = New MyMovies_Video_Kiosk.MyMoviesDBDataSetTableAdapters.StateTableAdapter()
         Me.TableAdapterManager = New MyMovies_Video_Kiosk.MyMoviesDBDataSetTableAdapters.TableAdapterManager()
-        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StateBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnSubmit
@@ -69,7 +69,7 @@ Partial Class frmRegistration
         Me.btnSubmit.Location = New System.Drawing.Point(644, 335)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(83, 28)
-        Me.btnSubmit.TabIndex = 0
+        Me.btnSubmit.TabIndex = 13
         Me.btnSubmit.Text = "Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
@@ -80,7 +80,7 @@ Partial Class frmRegistration
         Me.btnClear.Location = New System.Drawing.Point(555, 335)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(83, 28)
-        Me.btnClear.TabIndex = 1
+        Me.btnClear.TabIndex = 14
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
@@ -91,7 +91,7 @@ Partial Class frmRegistration
         Me.btnCancel.Location = New System.Drawing.Point(466, 335)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(83, 28)
-        Me.btnCancel.TabIndex = 2
+        Me.btnCancel.TabIndex = 15
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
@@ -234,7 +234,7 @@ Partial Class frmRegistration
         Me.txtFirstName.Location = New System.Drawing.Point(115, 167)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(153, 22)
-        Me.txtFirstName.TabIndex = 18
+        Me.txtFirstName.TabIndex = 0
         '
         'txtLastName
         '
@@ -243,7 +243,7 @@ Partial Class frmRegistration
         Me.txtLastName.Location = New System.Drawing.Point(115, 200)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(153, 22)
-        Me.txtLastName.TabIndex = 19
+        Me.txtLastName.TabIndex = 1
         '
         'txtAddress
         '
@@ -252,7 +252,7 @@ Partial Class frmRegistration
         Me.txtAddress.Location = New System.Drawing.Point(384, 167)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(220, 22)
-        Me.txtAddress.TabIndex = 20
+        Me.txtAddress.TabIndex = 5
         '
         'txtCity
         '
@@ -261,7 +261,7 @@ Partial Class frmRegistration
         Me.txtCity.Location = New System.Drawing.Point(384, 200)
         Me.txtCity.Name = "txtCity"
         Me.txtCity.Size = New System.Drawing.Size(118, 22)
-        Me.txtCity.TabIndex = 21
+        Me.txtCity.TabIndex = 6
         '
         'txtZip
         '
@@ -270,7 +270,7 @@ Partial Class frmRegistration
         Me.txtZip.Location = New System.Drawing.Point(384, 233)
         Me.txtZip.Name = "txtZip"
         Me.txtZip.Size = New System.Drawing.Size(72, 22)
-        Me.txtZip.TabIndex = 23
+        Me.txtZip.TabIndex = 8
         '
         'txtEmail
         '
@@ -279,7 +279,7 @@ Partial Class frmRegistration
         Me.txtEmail.Location = New System.Drawing.Point(115, 299)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(153, 22)
-        Me.txtEmail.TabIndex = 24
+        Me.txtEmail.TabIndex = 4
         '
         'txtPhone
         '
@@ -288,7 +288,7 @@ Partial Class frmRegistration
         Me.txtPhone.Location = New System.Drawing.Point(115, 265)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(153, 22)
-        Me.txtPhone.TabIndex = 25
+        Me.txtPhone.TabIndex = 3
         '
         'txtExpiration
         '
@@ -298,7 +298,7 @@ Partial Class frmRegistration
         Me.txtExpiration.Mask = "00/0000"
         Me.txtExpiration.Name = "txtExpiration"
         Me.txtExpiration.Size = New System.Drawing.Size(48, 22)
-        Me.txtExpiration.TabIndex = 28
+        Me.txtExpiration.TabIndex = 10
         Me.txtExpiration.ValidatingType = GetType(Date)
         '
         'txtDOB
@@ -309,7 +309,7 @@ Partial Class frmRegistration
         Me.txtDOB.Mask = "00/00/0000"
         Me.txtDOB.Name = "txtDOB"
         Me.txtDOB.Size = New System.Drawing.Size(61, 22)
-        Me.txtDOB.TabIndex = 29
+        Me.txtDOB.TabIndex = 2
         Me.txtDOB.ValidatingType = GetType(Date)
         '
         'txtCreditCard
@@ -320,22 +320,32 @@ Partial Class frmRegistration
         Me.txtCreditCard.Mask = "0000 0000 0000 0000"
         Me.txtCreditCard.Name = "txtCreditCard"
         Me.txtCreditCard.Size = New System.Drawing.Size(109, 22)
-        Me.txtCreditCard.TabIndex = 30
+        Me.txtCreditCard.TabIndex = 9
         Me.txtCreditCard.ValidatingType = GetType(Date)
         '
         'cboState
         '
         Me.cboState.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.cboState.DataSource = Me.StateBindingSource
-        Me.cboState.DisplayMember = "FullName"
+        Me.cboState.DisplayMember = "Abbreviation"
         Me.cboState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboState.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboState.FormattingEnabled = True
         Me.cboState.Location = New System.Drawing.Point(562, 200)
         Me.cboState.Name = "cboState"
         Me.cboState.Size = New System.Drawing.Size(42, 21)
-        Me.cboState.TabIndex = 31
+        Me.cboState.TabIndex = 7
         Me.cboState.ValueMember = "Abbreviation"
+        '
+        'StateBindingSource
+        '
+        Me.StateBindingSource.DataMember = "State"
+        Me.StateBindingSource.DataSource = Me.MyMoviesDBDataSet
+        '
+        'MyMoviesDBDataSet
+        '
+        Me.MyMoviesDBDataSet.DataSetName = "MyMoviesDBDataSet"
+        Me.MyMoviesDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtPassword
         '
@@ -344,7 +354,7 @@ Partial Class frmRegistration
         Me.txtPassword.Location = New System.Drawing.Point(621, 299)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(106, 22)
-        Me.txtPassword.TabIndex = 35
+        Me.txtPassword.TabIndex = 12
         '
         'txtUsername
         '
@@ -353,7 +363,7 @@ Partial Class frmRegistration
         Me.txtUsername.Location = New System.Drawing.Point(621, 265)
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(106, 22)
-        Me.txtUsername.TabIndex = 34
+        Me.txtUsername.TabIndex = 11
         '
         'Label3
         '
@@ -376,16 +386,6 @@ Partial Class frmRegistration
         Me.Label4.Size = New System.Drawing.Size(70, 17)
         Me.Label4.TabIndex = 32
         Me.Label4.Text = "Username:"
-        '
-        'MyMoviesDBDataSet
-        '
-        Me.MyMoviesDBDataSet.DataSetName = "MyMoviesDBDataSet"
-        Me.MyMoviesDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'StateBindingSource
-        '
-        Me.StateBindingSource.DataMember = "State"
-        Me.StateBindingSource.DataSource = Me.MyMoviesDBDataSet
         '
         'StateTableAdapter
         '
@@ -450,8 +450,8 @@ Partial Class frmRegistration
         Me.Name = "frmRegistration"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistration"
-        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StateBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

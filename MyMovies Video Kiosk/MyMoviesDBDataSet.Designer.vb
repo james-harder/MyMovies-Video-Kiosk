@@ -1193,6 +1193,8 @@ Partial Public Class MyMoviesDBDataSet
         
         Private columnExpiration As Global.System.Data.DataColumn
         
+        Private columnDateTimeCreated As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1325,6 +1327,14 @@ Partial Public Class MyMoviesDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property DateTimeCreatedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDateTimeCreated
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1361,9 +1371,9 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddCustomerRow(ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Date, ByVal Phone As String, ByVal Email As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal CreditCard As String, ByVal Expiration As Date) As CustomerRow
+        Public Overloads Function AddCustomerRow(ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Date, ByVal Phone As String, ByVal Email As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal CreditCard As String, ByVal Expiration As Date, ByVal DateTimeCreated As Date) As CustomerRow
             Dim rowCustomerRow As CustomerRow = CType(Me.NewRow,CustomerRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, FirstName, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expiration}
+            Dim columnValuesArray() As Object = New Object() {Nothing, FirstName, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expiration, DateTimeCreated}
             rowCustomerRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCustomerRow)
             Return rowCustomerRow
@@ -1404,6 +1414,7 @@ Partial Public Class MyMoviesDBDataSet
             Me.columnZipCode = MyBase.Columns("ZipCode")
             Me.columnCreditCard = MyBase.Columns("CreditCard")
             Me.columnExpiration = MyBase.Columns("Expiration")
+            Me.columnDateTimeCreated = MyBase.Columns("DateTimeCreated")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1433,6 +1444,8 @@ Partial Public Class MyMoviesDBDataSet
             MyBase.Columns.Add(Me.columnCreditCard)
             Me.columnExpiration = New Global.System.Data.DataColumn("Expiration", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnExpiration)
+            Me.columnDateTimeCreated = New Global.System.Data.DataColumn("DateTimeCreated", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateTimeCreated)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCustomerID}, true))
             Me.columnCustomerID.AutoIncrement = true
             Me.columnCustomerID.AutoIncrementSeed = -1
@@ -1450,6 +1463,7 @@ Partial Public Class MyMoviesDBDataSet
             Me.columnZipCode.MaxLength = 50
             Me.columnCreditCard.MaxLength = 50
             Me.columnExpiration.AllowDBNull = false
+            Me.columnDateTimeCreated.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3714,6 +3728,17 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property DateTimeCreated() As Date
+            Get
+                Return CType(Me(Me.tableCustomer.DateTimeCreatedColumn),Date)
+            End Get
+            Set
+                Me(Me.tableCustomer.DateTimeCreatedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsFirstNameNull() As Boolean
             Return Me.IsNull(Me.tableCustomer.FirstNameColumn)
         End Function
@@ -5441,21 +5466,23 @@ Namespace MyMoviesDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("ZipCode", "ZipCode")
             tableMapping.ColumnMappings.Add("CreditCard", "CreditCard")
             tableMapping.ColumnMappings.Add("Expiration", "Expiration")
+            tableMapping.ColumnMappings.Add("DateTimeCreated", "DateTimeCreated")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Customer] WHERE (([CustomerID] = @Original_CustomerID) AND ((@"& _ 
-                "IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstN"& _ 
-                "ame)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Origi"& _ 
-                "nal_LastName)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DO"& _ 
-                "B)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone))"& _ 
-                " AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AN"& _ 
-                "D ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address"& _ 
-                ")) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND "& _ 
-                "((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@"& _ 
-                "IsNull_ZipCode = 1 AND [ZipCode] IS NULL) OR ([ZipCode] = @Original_ZipCode)) AN"& _ 
-                "D ((@IsNull_CreditCard = 1 AND [CreditCard] IS NULL) OR ([CreditCard] = @Origina"& _ 
-                "l_CreditCard)) AND ([Expiration] = @Original_Expiration))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Customer] WHERE (([CustomerID] = @Original_CustomerID) AND ((@IsNull"& _ 
+                "_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) "& _ 
+                "AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_La"& _ 
+                "stName)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AN"& _ 
+                "D ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ("& _ 
+                "(@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@I"& _ 
+                "sNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND"& _ 
+                " ((@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsN"& _ 
+                "ull_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull"& _ 
+                "_ZipCode = 1 AND [ZipCode] IS NULL) OR ([ZipCode] = @Original_ZipCode)) AND ((@I"& _ 
+                "sNull_CreditCard = 1 AND [CreditCard] IS NULL) OR ([CreditCard] = @Original_Cred"& _ 
+                "itCard)) AND ([Expiration] = @Original_Expiration) AND ([DateTimeCreated] = @Ori"& _ 
+                "ginal_DateTimeCreated))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -5479,14 +5506,15 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CreditCard", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateTimeCreated", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateTimeCreated", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Customer] ([FirstName], [LastName], [DOB], [Phone], [Email], ["& _ 
-                "Address], [City], [State], [ZipCode], [CreditCard], [Expiration]) VALUES (@First"& _ 
-                "Name, @LastName, @DOB, @Phone, @Email, @Address, @City, @State, @ZipCode, @Credi"& _ 
-                "tCard, @Expiration);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustomerID, FirstName, LastName, DOB, Phone, Email,"& _ 
-                " Address, City, State, ZipCode, CreditCard, Expiration FROM Customer WHERE (Cust"& _ 
-                "omerID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Customer] ([FirstName], [LastName], [DOB], [Phone], [Email], [Addres"& _ 
+                "s], [City], [State], [ZipCode], [CreditCard], [Expiration], [DateTimeCreated]) V"& _ 
+                "ALUES (@FirstName, @LastName, @DOB, @Phone, @Email, @Address, @City, @State, @Zi"& _ 
+                "pCode, @CreditCard, @Expiration, @DateTimeCreated);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustomerID, FirstNam"& _ 
+                "e, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expir"& _ 
+                "ation, DateTimeCreated FROM Customer WHERE (CustomerID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5499,25 +5527,27 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTimeCreated", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateTimeCreated", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Customer] SET [FirstName] = @FirstName, [LastName] = @LastName, [DO"& _ 
-                "B] = @DOB, [Phone] = @Phone, [Email] = @Email, [Address] = @Address, [City] = @C"& _ 
-                "ity, [State] = @State, [ZipCode] = @ZipCode, [CreditCard] = @CreditCard, [Expira"& _ 
-                "tion] = @Expiration WHERE (([CustomerID] = @Original_CustomerID) AND ((@IsNull_F"& _ 
-                "irstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AN"& _ 
-                "D ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_Last"& _ 
-                "Name)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AND "& _ 
-                "((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@"& _ 
-                "IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsN"& _ 
-                "ull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ("& _ 
-                "(@IsNull_City = 1 AND [City] IS NULL) OR ([City] = @Original_City)) AND ((@IsNul"& _ 
-                "l_State = 1 AND [State] IS NULL) OR ([State] = @Original_State)) AND ((@IsNull_Z"& _ 
-                "ipCode = 1 AND [ZipCode] IS NULL) OR ([ZipCode] = @Original_ZipCode)) AND ((@IsN"& _ 
-                "ull_CreditCard = 1 AND [CreditCard] IS NULL) OR ([CreditCard] = @Original_Credit"& _ 
-                "Card)) AND ([Expiration] = @Original_Expiration));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustomerID, FirstName"& _ 
-                ", LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expira"& _ 
-                "tion FROM Customer WHERE (CustomerID = @CustomerID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Customer] SET [FirstName] = @FirstName, [LastName] = @LastName, [DOB] = @"& _ 
+                "DOB, [Phone] = @Phone, [Email] = @Email, [Address] = @Address, [City] = @City, ["& _ 
+                "State] = @State, [ZipCode] = @ZipCode, [CreditCard] = @CreditCard, [Expiration] "& _ 
+                "= @Expiration, [DateTimeCreated] = @DateTimeCreated WHERE (([CustomerID] = @Orig"& _ 
+                "inal_CustomerID) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([First"& _ 
+                "Name] = @Original_FirstName)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL)"& _ 
+                " OR ([LastName] = @Original_LastName)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) "& _ 
+                "OR ([DOB] = @Original_DOB)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Ph"& _ 
+                "one] = @Original_Phone)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email"& _ 
+                "] = @Original_Email)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Addr"& _ 
+                "ess] = @Original_Address)) AND ((@IsNull_City = 1 AND [City] IS NULL) OR ([City]"& _ 
+                " = @Original_City)) AND ((@IsNull_State = 1 AND [State] IS NULL) OR ([State] = @"& _ 
+                "Original_State)) AND ((@IsNull_ZipCode = 1 AND [ZipCode] IS NULL) OR ([ZipCode] "& _ 
+                "= @Original_ZipCode)) AND ((@IsNull_CreditCard = 1 AND [CreditCard] IS NULL) OR "& _ 
+                "([CreditCard] = @Original_CreditCard)) AND ([Expiration] = @Original_Expiration)"& _ 
+                " AND ([DateTimeCreated] = @Original_DateTimeCreated));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CustomerID, First"& _ 
+                "Name, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Ex"& _ 
+                "piration, DateTimeCreated FROM Customer WHERE (CustomerID = @CustomerID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LastName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "LastName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5530,6 +5560,7 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ZipCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ZipCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateTimeCreated", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateTimeCreated", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CustomerID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FirstName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FirstName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FirstName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -5552,6 +5583,7 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CreditCard", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CreditCard", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreditCard", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Expiration", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Expiration", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateTimeCreated", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateTimeCreated", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -5569,7 +5601,7 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT CustomerID, FirstName, LastName, DOB, Phone, Email, Address, City, State, "& _ 
-                "ZipCode, CreditCard, Expiration FROM dbo.Customer"
+                "ZipCode, CreditCard, Expiration, DateTimeCreated FROM Customer"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -5629,7 +5661,7 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CustomerID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_DOB As Global.System.Nullable(Of Date), ByVal Original_Phone As String, ByVal Original_Email As String, ByVal Original_Address As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_ZipCode As String, ByVal Original_CreditCard As String, ByVal Original_Expiration As Date) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CustomerID As Integer, ByVal Original_FirstName As String, ByVal Original_LastName As String, ByVal Original_DOB As Global.System.Nullable(Of Date), ByVal Original_Phone As String, ByVal Original_Email As String, ByVal Original_Address As String, ByVal Original_City As String, ByVal Original_State As String, ByVal Original_ZipCode As String, ByVal Original_CreditCard As String, ByVal Original_Expiration As Date, ByVal Original_DateTimeCreated As Date) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CustomerID,Integer)
             If (Original_FirstName Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -5702,6 +5734,7 @@ Namespace MyMoviesDBDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_CreditCard,String)
             End If
             Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_Expiration,Date)
+            Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_DateTimeCreated,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5721,7 +5754,7 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Global.System.Nullable(Of Date), ByVal Phone As String, ByVal Email As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal CreditCard As String, ByVal Expiration As Date) As Integer
+        Public Overloads Overridable Function Insert(ByVal FirstName As String, ByVal LastName As String, ByVal DOB As Global.System.Nullable(Of Date), ByVal Phone As String, ByVal Email As String, ByVal Address As String, ByVal City As String, ByVal State As String, ByVal ZipCode As String, ByVal CreditCard As String, ByVal Expiration As Date, ByVal DateTimeCreated As Date) As Integer
             If (FirstName Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -5773,6 +5806,7 @@ Namespace MyMoviesDBDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(9).Value = CType(CreditCard,String)
             End If
             Me.Adapter.InsertCommand.Parameters(10).Value = CType(Expiration,Date)
+            Me.Adapter.InsertCommand.Parameters(11).Value = CType(DateTimeCreated,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5804,6 +5838,7 @@ Namespace MyMoviesDBDataSetTableAdapters
                     ByVal ZipCode As String,  _
                     ByVal CreditCard As String,  _
                     ByVal Expiration As Date,  _
+                    ByVal DateTimeCreated As Date,  _
                     ByVal Original_CustomerID As Integer,  _
                     ByVal Original_FirstName As String,  _
                     ByVal Original_LastName As String,  _
@@ -5816,6 +5851,7 @@ Namespace MyMoviesDBDataSetTableAdapters
                     ByVal Original_ZipCode As String,  _
                     ByVal Original_CreditCard As String,  _
                     ByVal Original_Expiration As Date,  _
+                    ByVal Original_DateTimeCreated As Date,  _
                     ByVal CustomerID As Integer) As Integer
             If (FirstName Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -5868,79 +5904,81 @@ Namespace MyMoviesDBDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(CreditCard,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Expiration,Date)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_CustomerID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DateTimeCreated,Date)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_CustomerID,Integer)
             If (Original_FirstName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_FirstName,String)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_FirstName,String)
             End If
             If (Original_LastName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_LastName,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_LastName,String)
             End If
             If (Original_DOB.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_DOB.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_DOB.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
             If (Original_Phone Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Phone,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Phone,String)
             End If
             If (Original_Email Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Email,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Email,String)
             End If
             If (Original_Address Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Address,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Address,String)
             End If
             If (Original_City Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_City,String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_City,String)
             End If
             If (Original_State Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_State,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_State,String)
             End If
             If (Original_ZipCode Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ZipCode,String)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_ZipCode,String)
             End If
             If (Original_CreditCard Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_CreditCard,String)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_CreditCard,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_Expiration,Date)
-            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(CustomerID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Expiration,Date)
+            Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_DateTimeCreated,Date)
+            Me.Adapter.UpdateCommand.Parameters(35).Value = CType(CustomerID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5972,6 +6010,7 @@ Namespace MyMoviesDBDataSetTableAdapters
                     ByVal ZipCode As String,  _
                     ByVal CreditCard As String,  _
                     ByVal Expiration As Date,  _
+                    ByVal DateTimeCreated As Date,  _
                     ByVal Original_CustomerID As Integer,  _
                     ByVal Original_FirstName As String,  _
                     ByVal Original_LastName As String,  _
@@ -5983,8 +6022,9 @@ Namespace MyMoviesDBDataSetTableAdapters
                     ByVal Original_State As String,  _
                     ByVal Original_ZipCode As String,  _
                     ByVal Original_CreditCard As String,  _
-                    ByVal Original_Expiration As Date) As Integer
-            Return Me.Update(FirstName, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expiration, Original_CustomerID, Original_FirstName, Original_LastName, Original_DOB, Original_Phone, Original_Email, Original_Address, Original_City, Original_State, Original_ZipCode, Original_CreditCard, Original_Expiration, Original_CustomerID)
+                    ByVal Original_Expiration As Date,  _
+                    ByVal Original_DateTimeCreated As Date) As Integer
+            Return Me.Update(FirstName, LastName, DOB, Phone, Email, Address, City, State, ZipCode, CreditCard, Expiration, DateTimeCreated, Original_CustomerID, Original_FirstName, Original_LastName, Original_DOB, Original_Phone, Original_Email, Original_Address, Original_City, Original_State, Original_ZipCode, Original_CreditCard, Original_Expiration, Original_DateTimeCreated, Original_CustomerID)
         End Function
     End Class
     
