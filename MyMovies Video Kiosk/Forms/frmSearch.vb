@@ -25,12 +25,10 @@
 
 #Region "Methods"
 
-    Private Sub testMovies()
-        lstResults.Items.Add("The Angry Inch")
-        lstResults.Items.Add("The Room")
-        lstResults.Items.Add("39 Steps")
-        lstResults.Items.Add("The Fifth Element")
-    End Sub
+    Private Function getSearchResults(ByVal searchTerms As String) As DataTable
+        Dim searchTableAdapter = New MyMoviesDBDataSetTableAdapters.MovieTableAdapter
+
+    End Function
 
 #End Region
 
@@ -40,7 +38,8 @@
     'just for testing...
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
 
-        testMovies()
+        'call function that returns dataTable
+        'add each row of data table to lstIResults
 
     End Sub
 
