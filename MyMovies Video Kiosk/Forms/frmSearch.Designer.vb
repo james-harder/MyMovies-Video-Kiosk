@@ -33,6 +33,7 @@ Partial Class frmSearch
         Me.cboBrowseBy = New System.Windows.Forms.ComboBox()
         Me.lstResults = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.btnAddToCart = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -40,9 +41,10 @@ Partial Class frmSearch
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Nirmala UI", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(300, 101)
+        Me.Label1.Location = New System.Drawing.Point(600, 194)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(119, 45)
+        Me.Label1.Size = New System.Drawing.Size(236, 86)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Search"
         '
@@ -51,9 +53,10 @@ Partial Class frmSearch
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(32, 175)
+        Me.Label2.Location = New System.Drawing.Point(64, 337)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 17)
+        Me.Label2.Size = New System.Drawing.Size(151, 36)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Search Text:"
         '
@@ -62,9 +65,10 @@ Partial Class frmSearch
         Me.Label3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(32, 210)
+        Me.Label3.Location = New System.Drawing.Point(64, 404)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(70, 17)
+        Me.Label3.Size = New System.Drawing.Size(139, 36)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Browse By:"
         '
@@ -72,18 +76,20 @@ Partial Class frmSearch
         '
         Me.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.txtSearch.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(115, 175)
+        Me.txtSearch.Location = New System.Drawing.Point(230, 337)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(6)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(161, 22)
+        Me.txtSearch.Size = New System.Drawing.Size(318, 37)
         Me.txtSearch.TabIndex = 3
         '
         'btnSearch
         '
         Me.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnSearch.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSearch.Location = New System.Drawing.Point(177, 237)
+        Me.btnSearch.Location = New System.Drawing.Point(354, 456)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(6)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(99, 37)
+        Me.btnSearch.Size = New System.Drawing.Size(198, 71)
         Me.btnSearch.TabIndex = 5
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
@@ -92,20 +98,22 @@ Partial Class frmSearch
         '
         Me.btnPlaceOrder.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnPlaceOrder.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPlaceOrder.Location = New System.Drawing.Point(623, 319)
+        Me.btnPlaceOrder.Location = New System.Drawing.Point(1246, 613)
+        Me.btnPlaceOrder.Margin = New System.Windows.Forms.Padding(6)
         Me.btnPlaceOrder.Name = "btnPlaceOrder"
-        Me.btnPlaceOrder.Size = New System.Drawing.Size(89, 26)
+        Me.btnPlaceOrder.Size = New System.Drawing.Size(178, 50)
         Me.btnPlaceOrder.TabIndex = 6
-        Me.btnPlaceOrder.Text = "Place Order"
+        Me.btnPlaceOrder.Text = "View Cart"
         Me.btnPlaceOrder.UseVisualStyleBackColor = True
         '
         'btnReturn
         '
         Me.btnReturn.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnReturn.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReturn.Location = New System.Drawing.Point(319, 319)
+        Me.btnReturn.Location = New System.Drawing.Point(326, 613)
+        Me.btnReturn.Margin = New System.Windows.Forms.Padding(6)
         Me.btnReturn.Name = "btnReturn"
-        Me.btnReturn.Size = New System.Drawing.Size(111, 26)
+        Me.btnReturn.Size = New System.Drawing.Size(222, 50)
         Me.btnReturn.TabIndex = 7
         Me.btnReturn.Text = "Return To Start"
         Me.btnReturn.UseVisualStyleBackColor = True
@@ -116,9 +124,11 @@ Partial Class frmSearch
         Me.cboBrowseBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBrowseBy.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboBrowseBy.FormattingEnabled = True
-        Me.cboBrowseBy.Location = New System.Drawing.Point(115, 210)
+        Me.cboBrowseBy.Items.AddRange(New Object() {"Movie Title", "Movie Release Year", "Director", "Genre"})
+        Me.cboBrowseBy.Location = New System.Drawing.Point(230, 404)
+        Me.cboBrowseBy.Margin = New System.Windows.Forms.Padding(6)
         Me.cboBrowseBy.Name = "cboBrowseBy"
-        Me.cboBrowseBy.Size = New System.Drawing.Size(161, 21)
+        Me.cboBrowseBy.Size = New System.Drawing.Size(318, 38)
         Me.cboBrowseBy.TabIndex = 8
         '
         'lstResults
@@ -126,9 +136,11 @@ Partial Class frmSearch
         Me.lstResults.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.lstResults.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lstResults.FormattingEnabled = True
-        Me.lstResults.Location = New System.Drawing.Point(319, 179)
+        Me.lstResults.ItemHeight = 30
+        Me.lstResults.Location = New System.Drawing.Point(638, 344)
+        Me.lstResults.Margin = New System.Windows.Forms.Padding(6)
         Me.lstResults.Name = "lstResults"
-        Me.lstResults.Size = New System.Drawing.Size(393, 134)
+        Me.lstResults.Size = New System.Drawing.Size(782, 244)
         Me.lstResults.TabIndex = 9
         '
         'Label4
@@ -136,20 +148,34 @@ Partial Class frmSearch
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(316, 159)
+        Me.Label4.Location = New System.Drawing.Point(632, 306)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(6, 0, 6, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(103, 17)
+        Me.Label4.Size = New System.Drawing.Size(202, 36)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Search Result(s):"
         '
+        'btnAddToCart
+        '
+        Me.btnAddToCart.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnAddToCart.Font = New System.Drawing.Font("Nirmala UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddToCart.Location = New System.Drawing.Point(947, 613)
+        Me.btnAddToCart.Margin = New System.Windows.Forms.Padding(6)
+        Me.btnAddToCart.Name = "btnAddToCart"
+        Me.btnAddToCart.Size = New System.Drawing.Size(222, 50)
+        Me.btnAddToCart.TabIndex = 11
+        Me.btnAddToCart.Text = "Add To Cart"
+        Me.btnAddToCart.UseVisualStyleBackColor = True
+        '
         'frmSearch
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(12.0!, 25.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.BackgroundImage = Global.MyMovies_Video_Kiosk.My.Resources.Resources.Film_Reel_Orange
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(750, 470)
+        Me.ClientSize = New System.Drawing.Size(1500, 904)
+        Me.Controls.Add(Me.btnAddToCart)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.lstResults)
         Me.Controls.Add(Me.cboBrowseBy)
@@ -164,6 +190,7 @@ Partial Class frmSearch
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(6)
         Me.Name = "frmSearch"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmSearch"
@@ -182,4 +209,5 @@ Partial Class frmSearch
     Friend WithEvents cboBrowseBy As ComboBox
     Friend WithEvents lstResults As ListBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents btnAddToCart As Button
 End Class

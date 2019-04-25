@@ -75,6 +75,16 @@
         End If
 
     End Sub
+
+    Private Sub btnAddToCart_click(sender As Object, e As EventArgs) Handles btnAddToCart.Click
+        ' find MovieID from MovieTitle
+        ' add movieID to Movies ordered
+        ' Display confirmation messagebox with movie title and ID, and number of Items in cart
+    End Sub
+
+    Private Sub frmSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 #End Region
 
 End Class
