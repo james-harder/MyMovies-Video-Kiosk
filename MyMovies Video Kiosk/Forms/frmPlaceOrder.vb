@@ -2,13 +2,63 @@
 
 #Region "Properties"
 
-
+    Private _orderNUmber As Integer
+    Public Property orderNumber() As Integer
+        Get
+            Return _orderNUmber
+        End Get
+        Set(ByVal value As Integer)
+            _orderNUmber = value
+        End Set
+    End Property
 
 #End Region
 
 #Region "Methods"
 
+    Private Sub setOrderNumber()
 
+        'orderNumebr should be set. If it is not, then check for the highest orderID in the database and add 1
+        If orderNumber() = Nothing Then
+
+            'get highest order number from orders table and increment, then store that as the order number
+            Dim orderTableAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter()
+
+            If orderTableAdapter.MaxOrderID Is Nothing Then
+
+                ' add first row to table
+                orderTableAdapter.AddOrderRow(UserID, Date.Today, 0.0)
+
+                orderNumber = 1
+            Else
+
+                orderNumber = orderTableAdapter.MaxOrderID() + 1
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Function getMoviesInOrder() As List(Of String)
+
+        'create a Table adapter and a data table
+        Dim moviesInOrderTableAdapter As New MyMoviesDBDataSetTableAdapters.MoviesInOrder()
+        Dim moviesInOrder As New MyMoviesDBDataSet.MoviesByOrderAndUserDataTable()
+
+        'fill data table 
+        moviesInOrderTableAdapter.Fill(moviesInOrder, UserID, orderNumber)
+
+        'each row should be a movie ID (later a movie title)
+        For Each row As DataRow In moviesInOrder
+
+            'store each row in the lstItem
+            lstItems.Items.Add(row)
+
+        Next
+
+
+    End Function
 
 #End Region
 
@@ -20,17 +70,10 @@
         'Set Card Carrier check box index to 0
         cboCardCarrier.SelectedIndex = 0
 
-        'display movies in cart
-        If MoviesOrdered Is Nothing Then
-            lstItems.Items.Clear()
-            lstItems.Items.Add("No movies in your order...")
-        Else
-            lstItems.Items.Clear()
+        setOrderNumber()
 
-            For Each movieTitle As String In MoviesOrdered
-                lstItems.Items.Add(movieTitle)
-            Next
-        End If
+
+
     End Sub
 
     'Handles btnCancel Click

@@ -1,7 +1,25 @@
 ﻿Public Class frmSearch
 #Region "Properties"
 
+    Private _currentOrderID As String
+    Public Property currentOrderID() As String
 
+        Get
+            If String.IsNullOrEmpty(_currentOrderID) Then
+                ' make new orderID
+                ' make sure to add try catch before submiting project
+
+                Return UserID.ToString
+            Else
+                Return _currentOrderID
+            End If
+        End Get
+
+        Set(ByVal value As String)
+            _currentOrderID = value
+        End Set
+
+    End Property
 
 #End Region
 

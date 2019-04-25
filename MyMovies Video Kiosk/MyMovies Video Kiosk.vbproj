@@ -151,6 +151,9 @@
       <DependentUpon>MyMoviesDBDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="MyMoviesDBDataSet.vb">
+      <DependentUpon>MyMoviesDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.vb" />
   </ItemGroup>
   <ItemGroup>

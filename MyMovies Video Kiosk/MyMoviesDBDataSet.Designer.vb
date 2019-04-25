@@ -43,6 +43,22 @@ Partial Public Class MyMoviesDBDataSet
     
     Private tableState As StateDataTable
     
+    Private tableMoviesByOrderAndUser As MoviesByOrderAndUserDataTable
+    
+    Private relationFK_User_Customer As Global.System.Data.DataRelation
+    
+    Private relationFK_Director_Movie As Global.System.Data.DataRelation
+    
+    Private relationFK_Order_OrderDetail As Global.System.Data.DataRelation
+    
+    Private relationFK_Movie_OrderDetail As Global.System.Data.DataRelation
+    
+    Private relationActor_ActorMovie As Global.System.Data.DataRelation
+    
+    Private relationMovie_ActorMovie1 As Global.System.Data.DataRelation
+    
+    Private relationCustomer_Order As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -98,6 +114,9 @@ Partial Public Class MyMoviesDBDataSet
             End If
             If (Not (ds.Tables("State")) Is Nothing) Then
                 MyBase.Tables.Add(New StateDataTable(ds.Tables("State")))
+            End If
+            If (Not (ds.Tables("MoviesByOrderAndUser")) Is Nothing) Then
+                MyBase.Tables.Add(New MoviesByOrderAndUserDataTable(ds.Tables("MoviesByOrderAndUser")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -208,6 +227,16 @@ Partial Public Class MyMoviesDBDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property MoviesByOrderAndUser() As MoviesByOrderAndUserDataTable
+        Get
+            Return Me.tableMoviesByOrderAndUser
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -300,6 +329,9 @@ Partial Public Class MyMoviesDBDataSet
             If (Not (ds.Tables("State")) Is Nothing) Then
                 MyBase.Tables.Add(New StateDataTable(ds.Tables("State")))
             End If
+            If (Not (ds.Tables("MoviesByOrderAndUser")) Is Nothing) Then
+                MyBase.Tables.Add(New MoviesByOrderAndUserDataTable(ds.Tables("MoviesByOrderAndUser")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -386,6 +418,19 @@ Partial Public Class MyMoviesDBDataSet
                 Me.tableState.InitVars
             End If
         End If
+        Me.tableMoviesByOrderAndUser = CType(MyBase.Tables("MoviesByOrderAndUser"),MoviesByOrderAndUserDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableMoviesByOrderAndUser) Is Nothing) Then
+                Me.tableMoviesByOrderAndUser.InitVars
+            End If
+        End If
+        Me.relationFK_User_Customer = Me.Relations("FK_User_Customer")
+        Me.relationFK_Director_Movie = Me.Relations("FK_Director_Movie")
+        Me.relationFK_Order_OrderDetail = Me.Relations("FK_Order_OrderDetail")
+        Me.relationFK_Movie_OrderDetail = Me.Relations("FK_Movie_OrderDetail")
+        Me.relationActor_ActorMovie = Me.Relations("Actor_ActorMovie")
+        Me.relationMovie_ActorMovie1 = Me.Relations("Movie_ActorMovie1")
+        Me.relationCustomer_Order = Me.Relations("Customer_Order")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -414,6 +459,43 @@ Partial Public Class MyMoviesDBDataSet
         MyBase.Tables.Add(Me.tableUser)
         Me.tableState = New StateDataTable()
         MyBase.Tables.Add(Me.tableState)
+        Me.tableMoviesByOrderAndUser = New MoviesByOrderAndUserDataTable()
+        MyBase.Tables.Add(Me.tableMoviesByOrderAndUser)
+        Dim fkc As Global.System.Data.ForeignKeyConstraint
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_User_Customer", New Global.System.Data.DataColumn() {Me.tableUser.CustomerIDColumn}, New Global.System.Data.DataColumn() {Me.tableCustomer.CustomerIDColumn})
+        Me.tableCustomer.Constraints.Add(fkc)
+        fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
+        fkc.DeleteRule = Global.System.Data.Rule.Cascade
+        fkc.UpdateRule = Global.System.Data.Rule.Cascade
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Director_Movie", New Global.System.Data.DataColumn() {Me.tableDirector.DirectorIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovie.DirectorIDColumn})
+        Me.tableMovie.Constraints.Add(fkc)
+        fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
+        fkc.DeleteRule = Global.System.Data.Rule.Cascade
+        fkc.UpdateRule = Global.System.Data.Rule.Cascade
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn})
+        Me.tableOrderDetail.Constraints.Add(fkc)
+        fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
+        fkc.DeleteRule = Global.System.Data.Rule.Cascade
+        fkc.UpdateRule = Global.System.Data.Rule.Cascade
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn})
+        Me.tableOrderDetail.Constraints.Add(fkc)
+        fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
+        fkc.DeleteRule = Global.System.Data.Rule.Cascade
+        fkc.UpdateRule = Global.System.Data.Rule.Cascade
+        Me.relationFK_User_Customer = New Global.System.Data.DataRelation("FK_User_Customer", New Global.System.Data.DataColumn() {Me.tableUser.CustomerIDColumn}, New Global.System.Data.DataColumn() {Me.tableCustomer.CustomerIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_User_Customer)
+        Me.relationFK_Director_Movie = New Global.System.Data.DataRelation("FK_Director_Movie", New Global.System.Data.DataColumn() {Me.tableDirector.DirectorIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovie.DirectorIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Director_Movie)
+        Me.relationFK_Order_OrderDetail = New Global.System.Data.DataRelation("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Order_OrderDetail)
+        Me.relationFK_Movie_OrderDetail = New Global.System.Data.DataRelation("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Movie_OrderDetail)
+        Me.relationActor_ActorMovie = New Global.System.Data.DataRelation("Actor_ActorMovie", New Global.System.Data.DataColumn() {Me.tableActor.ActorIDColumn}, New Global.System.Data.DataColumn() {Me.tableActorMovie.ActorIDColumn}, false)
+        Me.Relations.Add(Me.relationActor_ActorMovie)
+        Me.relationMovie_ActorMovie1 = New Global.System.Data.DataRelation("Movie_ActorMovie1", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableActorMovie.MovieIDColumn}, false)
+        Me.Relations.Add(Me.relationMovie_ActorMovie1)
+        Me.relationCustomer_Order = New Global.System.Data.DataRelation("Customer_Order", New Global.System.Data.DataColumn() {Me.tableCustomer.CustomerIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrder.CustomerIDColumn}, false)
+        Me.Relations.Add(Me.relationCustomer_Order)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -467,6 +549,12 @@ Partial Public Class MyMoviesDBDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Function ShouldSerializeState() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Function ShouldSerializeMoviesByOrderAndUser() As Boolean
         Return false
     End Function
     
@@ -554,6 +642,9 @@ Partial Public Class MyMoviesDBDataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub StateRowChangeEventHandler(ByVal sender As Object, ByVal e As StateRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Delegate Sub MoviesByOrderAndUserRowChangeEventHandler(ByVal sender As Object, ByVal e As MoviesByOrderAndUserRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -982,9 +1073,15 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddActorMovieRow(ByVal ActorMovieID As Integer, ByVal ActorID As Integer, ByVal MovieID As Integer) As ActorMovieRow
+        Public Overloads Function AddActorMovieRow(ByVal ActorMovieID As Integer, ByVal parentActorRowByActor_ActorMovie As ActorRow, ByVal parentMovieRowByMovie_ActorMovie1 As MovieRow) As ActorMovieRow
             Dim rowActorMovieRow As ActorMovieRow = CType(Me.NewRow,ActorMovieRow)
-            Dim columnValuesArray() As Object = New Object() {ActorMovieID, ActorID, MovieID}
+            Dim columnValuesArray() As Object = New Object() {ActorMovieID, Nothing, Nothing}
+            If (Not (parentActorRowByActor_ActorMovie) Is Nothing) Then
+                columnValuesArray(1) = parentActorRowByActor_ActorMovie(0)
+            End If
+            If (Not (parentMovieRowByMovie_ActorMovie1) Is Nothing) Then
+                columnValuesArray(2) = parentMovieRowByMovie_ActorMovie1(0)
+            End If
             rowActorMovieRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowActorMovieRow)
             Return rowActorMovieRow
@@ -1768,7 +1865,9 @@ Partial Public Class MyMoviesDBDataSet
             MyBase.Columns.Add(Me.columnDOB)
             Me.columnBackground = New Global.System.Data.DataColumn("Background", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBackground)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnDirectorID}, false))
             Me.columnDirectorID.AllowDBNull = false
+            Me.columnDirectorID.Unique = true
             Me.columnFirstName.MaxLength = 50
             Me.columnLastName.MaxLength = 50
             Me.columnBackground.MaxLength = 200
@@ -2021,9 +2120,12 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddMovieRow(ByVal MovieID As Integer, ByVal DirectorID As Integer, ByVal Genre As String, ByVal Price As Decimal) As MovieRow
+        Public Overloads Function AddMovieRow(ByVal MovieID As Integer, ByVal parentDirectorRowByFK_Director_Movie As DirectorRow, ByVal Genre As String, ByVal Price As Decimal) As MovieRow
             Dim rowMovieRow As MovieRow = CType(Me.NewRow,MovieRow)
-            Dim columnValuesArray() As Object = New Object() {MovieID, DirectorID, Genre, Price}
+            Dim columnValuesArray() As Object = New Object() {MovieID, Nothing, Genre, Price}
+            If (Not (parentDirectorRowByFK_Director_Movie) Is Nothing) Then
+                columnValuesArray(1) = parentDirectorRowByFK_Director_Movie(0)
+            End If
             rowMovieRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowMovieRow)
             Return rowMovieRow
@@ -2063,7 +2165,9 @@ Partial Public Class MyMoviesDBDataSet
             MyBase.Columns.Add(Me.columnGenre)
             Me.columnPrice = New Global.System.Data.DataColumn("Price", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPrice)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnMovieID}, false))
             Me.columnMovieID.AllowDBNull = false
+            Me.columnMovieID.Unique = true
             Me.columnDirectorID.AllowDBNull = false
             Me.columnGenre.AllowDBNull = false
             Me.columnGenre.MaxLength = 20
@@ -2317,9 +2421,12 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddOrderRow(ByVal OrderID As Integer, ByVal CustomerID As Integer, ByVal OrderDate As Date, ByVal OrderTotal As Decimal) As OrderRow
+        Public Overloads Function AddOrderRow(ByVal OrderID As Integer, ByVal parentCustomerRowByCustomer_Order As CustomerRow, ByVal OrderDate As Date, ByVal OrderTotal As Decimal) As OrderRow
             Dim rowOrderRow As OrderRow = CType(Me.NewRow,OrderRow)
-            Dim columnValuesArray() As Object = New Object() {OrderID, CustomerID, OrderDate, OrderTotal}
+            Dim columnValuesArray() As Object = New Object() {OrderID, Nothing, OrderDate, OrderTotal}
+            If (Not (parentCustomerRowByCustomer_Order) Is Nothing) Then
+                columnValuesArray(1) = parentCustomerRowByCustomer_Order(0)
+            End If
             rowOrderRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowOrderRow)
             Return rowOrderRow
@@ -2359,7 +2466,9 @@ Partial Public Class MyMoviesDBDataSet
             MyBase.Columns.Add(Me.columnOrderDate)
             Me.columnOrderTotal = New Global.System.Data.DataColumn("OrderTotal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOrderTotal)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnOrderID}, false))
             Me.columnOrderID.AllowDBNull = false
+            Me.columnOrderID.Unique = true
             Me.columnCustomerID.AllowDBNull = false
             Me.columnOrderDate.AllowDBNull = false
             Me.columnOrderTotal.AllowDBNull = false
@@ -2612,9 +2721,15 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddOrderDetailRow(ByVal OrderID As Integer, ByVal MovieID As Integer, ByVal Quantity As Integer, ByVal LineTotal As Decimal) As OrderDetailRow
+        Public Overloads Function AddOrderDetailRow(ByVal parentOrderRowByFK_Order_OrderDetail As OrderRow, ByVal parentMovieRowByFK_Movie_OrderDetail As MovieRow, ByVal Quantity As Integer, ByVal LineTotal As Decimal) As OrderDetailRow
             Dim rowOrderDetailRow As OrderDetailRow = CType(Me.NewRow,OrderDetailRow)
-            Dim columnValuesArray() As Object = New Object() {OrderID, MovieID, Quantity, LineTotal}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Quantity, LineTotal}
+            If (Not (parentOrderRowByFK_Order_OrderDetail) Is Nothing) Then
+                columnValuesArray(0) = parentOrderRowByFK_Order_OrderDetail(0)
+            End If
+            If (Not (parentMovieRowByFK_Movie_OrderDetail) Is Nothing) Then
+                columnValuesArray(1) = parentMovieRowByFK_Movie_OrderDetail(0)
+            End If
             rowOrderDetailRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowOrderDetailRow)
             Return rowOrderDetailRow
@@ -2943,12 +3058,14 @@ Partial Public Class MyMoviesDBDataSet
             Me.columnCustomerID = New Global.System.Data.DataColumn("CustomerID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCustomerID)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUsername}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint2", New Global.System.Data.DataColumn() {Me.columnCustomerID}, false))
             Me.columnUsername.AllowDBNull = false
             Me.columnUsername.Unique = true
             Me.columnUsername.MaxLength = 50
             Me.columnPassword.AllowDBNull = false
             Me.columnPassword.MaxLength = 50
             Me.columnCustomerID.AllowDBNull = false
+            Me.columnCustomerID.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3356,6 +3473,296 @@ Partial Public Class MyMoviesDBDataSet
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class MoviesByOrderAndUserDataTable
+        Inherits Global.System.Data.TypedTableBase(Of MoviesByOrderAndUserRow)
+        
+        Private columnMovieID As Global.System.Data.DataColumn
+        
+        Private columnUsername As Global.System.Data.DataColumn
+        
+        Private columnOrderID As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "MoviesByOrderAndUser"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property MovieIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMovieID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property UsernameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUsername
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property OrderIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOrderID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As MoviesByOrderAndUserRow
+            Get
+                Return CType(Me.Rows(index),MoviesByOrderAndUserRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event MoviesByOrderAndUserRowChanging As MoviesByOrderAndUserRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event MoviesByOrderAndUserRowChanged As MoviesByOrderAndUserRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event MoviesByOrderAndUserRowDeleting As MoviesByOrderAndUserRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event MoviesByOrderAndUserRowDeleted As MoviesByOrderAndUserRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Sub AddMoviesByOrderAndUserRow(ByVal row As MoviesByOrderAndUserRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function AddMoviesByOrderAndUserRow(ByVal MovieID As Integer, ByVal Username As String, ByVal OrderID As Integer) As MoviesByOrderAndUserRow
+            Dim rowMoviesByOrderAndUserRow As MoviesByOrderAndUserRow = CType(Me.NewRow,MoviesByOrderAndUserRow)
+            Dim columnValuesArray() As Object = New Object() {MovieID, Username, OrderID}
+            rowMoviesByOrderAndUserRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowMoviesByOrderAndUserRow)
+            Return rowMoviesByOrderAndUserRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindByUsername(ByVal Username As String) As MoviesByOrderAndUserRow
+            Return CType(Me.Rows.Find(New Object() {Username}),MoviesByOrderAndUserRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As MoviesByOrderAndUserDataTable = CType(MyBase.Clone,MoviesByOrderAndUserDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New MoviesByOrderAndUserDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnMovieID = MyBase.Columns("MovieID")
+            Me.columnUsername = MyBase.Columns("Username")
+            Me.columnOrderID = MyBase.Columns("OrderID")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnMovieID = New Global.System.Data.DataColumn("MovieID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMovieID)
+            Me.columnUsername = New Global.System.Data.DataColumn("Username", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUsername)
+            Me.columnOrderID = New Global.System.Data.DataColumn("OrderID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOrderID)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnUsername}, true))
+            Me.columnMovieID.AllowDBNull = false
+            Me.columnUsername.AllowDBNull = false
+            Me.columnUsername.Unique = true
+            Me.columnUsername.MaxLength = 50
+            Me.columnOrderID.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function NewMoviesByOrderAndUserRow() As MoviesByOrderAndUserRow
+            Return CType(Me.NewRow,MoviesByOrderAndUserRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New MoviesByOrderAndUserRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(MoviesByOrderAndUserRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.MoviesByOrderAndUserRowChangedEvent) Is Nothing) Then
+                RaiseEvent MoviesByOrderAndUserRowChanged(Me, New MoviesByOrderAndUserRowChangeEvent(CType(e.Row,MoviesByOrderAndUserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.MoviesByOrderAndUserRowChangingEvent) Is Nothing) Then
+                RaiseEvent MoviesByOrderAndUserRowChanging(Me, New MoviesByOrderAndUserRowChangeEvent(CType(e.Row,MoviesByOrderAndUserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.MoviesByOrderAndUserRowDeletedEvent) Is Nothing) Then
+                RaiseEvent MoviesByOrderAndUserRowDeleted(Me, New MoviesByOrderAndUserRowChangeEvent(CType(e.Row,MoviesByOrderAndUserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.MoviesByOrderAndUserRowDeletingEvent) Is Nothing) Then
+                RaiseEvent MoviesByOrderAndUserRowDeleting(Me, New MoviesByOrderAndUserRowChangeEvent(CType(e.Row,MoviesByOrderAndUserRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub RemoveMoviesByOrderAndUserRow(ByVal row As MoviesByOrderAndUserRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As MyMoviesDBDataSet = New MyMoviesDBDataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "MoviesByOrderAndUserDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class ActorRow
@@ -3488,6 +3895,16 @@ Partial Public Class MyMoviesDBDataSet
         Public Sub SetBackgroundNull()
             Me(Me.tableActor.BackgroundColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetActorMovieRows() As ActorMovieRow()
+            If (Me.Table.ChildRelations("Actor_ActorMovie") Is Nothing) Then
+                Return New ActorMovieRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Actor_ActorMovie")),ActorMovieRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -3535,6 +3952,28 @@ Partial Public Class MyMoviesDBDataSet
             End Get
             Set
                 Me(Me.tableActorMovie.MovieIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ActorRow() As ActorRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Actor_ActorMovie")),ActorRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("Actor_ActorMovie"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property MovieRow() As MovieRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Movie_ActorMovie1")),MovieRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("Movie_ActorMovie1"))
             End Set
         End Property
     End Class
@@ -3739,6 +4178,17 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property UserRow() As UserRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_User_Customer")),UserRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_User_Customer"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsFirstNameNull() As Boolean
             Return Me.IsNull(Me.tableCustomer.FirstNameColumn)
         End Function
@@ -3856,6 +4306,16 @@ Partial Public Class MyMoviesDBDataSet
         Public Sub SetCreditCardNull()
             Me(Me.tableCustomer.CreditCardColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetOrderRows() As OrderRow()
+            If (Me.Table.ChildRelations("Customer_Order") Is Nothing) Then
+                Return New OrderRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Customer_Order")),OrderRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -3991,6 +4451,16 @@ Partial Public Class MyMoviesDBDataSet
         Public Sub SetBackgroundNull()
             Me(Me.tableDirector.BackgroundColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetMovieRows() As MovieRow()
+            If (Me.Table.ChildRelations("FK_Director_Movie") Is Nothing) Then
+                Return New MovieRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Director_Movie")),MovieRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -4051,6 +4521,37 @@ Partial Public Class MyMoviesDBDataSet
                 Me(Me.tableMovie.PriceColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property DirectorRow() As DirectorRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Director_Movie")),DirectorRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Director_Movie"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetOrderDetailRows() As OrderDetailRow()
+            If (Me.Table.ChildRelations("FK_Movie_OrderDetail") Is Nothing) Then
+                Return New OrderDetailRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Movie_OrderDetail")),OrderDetailRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetActorMovieRows() As ActorMovieRow()
+            If (Me.Table.ChildRelations("Movie_ActorMovie1") Is Nothing) Then
+                Return New ActorMovieRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Movie_ActorMovie1")),ActorMovieRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -4111,6 +4612,27 @@ Partial Public Class MyMoviesDBDataSet
                 Me(Me.tableOrder.OrderTotalColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CustomerRow() As CustomerRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Customer_Order")),CustomerRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("Customer_Order"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetOrderDetailRows() As OrderDetailRow()
+            If (Me.Table.ChildRelations("FK_Order_OrderDetail") Is Nothing) Then
+                Return New OrderDetailRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Order_OrderDetail")),OrderDetailRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -4171,6 +4693,28 @@ Partial Public Class MyMoviesDBDataSet
                 Me(Me.tableOrderDetail.LineTotalColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property OrderRow() As OrderRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Order_OrderDetail")),OrderRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Order_OrderDetail"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property MovieRow() As MovieRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Movie_OrderDetail")),MovieRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Movie_OrderDetail"))
+            End Set
+        End Property
     End Class
     
     '''<summary>
@@ -4220,6 +4764,16 @@ Partial Public Class MyMoviesDBDataSet
                 Me(Me.tableUser.CustomerIDColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function GetCustomerRows() As CustomerRow()
+            If (Me.Table.ChildRelations("FK_User_Customer") Is Nothing) Then
+                Return New CustomerRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_User_Customer")),CustomerRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -4256,6 +4810,55 @@ Partial Public Class MyMoviesDBDataSet
             End Get
             Set
                 Me(Me.tableState.AbbreviationColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class MoviesByOrderAndUserRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableMoviesByOrderAndUser As MoviesByOrderAndUserDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableMoviesByOrderAndUser = CType(Me.Table,MoviesByOrderAndUserDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property MovieID() As Integer
+            Get
+                Return CType(Me(Me.tableMoviesByOrderAndUser.MovieIDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableMoviesByOrderAndUser.MovieIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Username() As String
+            Get
+                Return CType(Me(Me.tableMoviesByOrderAndUser.UsernameColumn),String)
+            End Get
+            Set
+                Me(Me.tableMoviesByOrderAndUser.UsernameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property OrderID() As Integer
+            Get
+                Return CType(Me(Me.tableMoviesByOrderAndUser.OrderIDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableMoviesByOrderAndUser.OrderIDColumn) = value
             End Set
         End Property
     End Class
@@ -4570,6 +5173,42 @@ Partial Public Class MyMoviesDBDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public ReadOnly Property Row() As StateRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Class MoviesByOrderAndUserRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As MoviesByOrderAndUserRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal row As MoviesByOrderAndUserRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Row() As MoviesByOrderAndUserRow
             Get
                 Return Me.eventRow
             End Get
@@ -6678,11 +7317,23 @@ Namespace MyMoviesDBDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT OrderID, CustomerID, OrderDate, OrderTotal FROM dbo.[Order]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "INSERT INTO [dbo].[Order] ([CustomerID], [OrderDate], [OrderTotal]) VALUES (@Cust"& _ 
+                "omerID, @OrderDate, @OrderTotal)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CustomerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CustomerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OrderDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "OrderDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OrderTotal", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "OrderTotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT MAX(OrderID) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  [Order]"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6759,6 +7410,61 @@ Namespace MyMoviesDBDataSetTableAdapters
                     Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function AddOrderRow(ByVal CustomerID As Integer, ByVal OrderDate As String, ByVal OrderTotal As Decimal) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            command.Parameters(0).Value = CType(CustomerID,Integer)
+            If (OrderDate Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("OrderDate")
+            Else
+                command.Parameters(1).Value = CType(OrderDate,String)
+            End If
+            command.Parameters(2).Value = CType(OrderTotal,Decimal)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function MaxOrderID() As Global.System.Nullable(Of Integer)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Object
+            Try 
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            If ((returnValue Is Nothing)  _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return New Global.System.Nullable(Of Integer)()
+            Else
+                Return New Global.System.Nullable(Of Integer)(CType(returnValue,Integer))
+            End If
         End Function
     End Class
     
@@ -7681,6 +8387,200 @@ Namespace MyMoviesDBDataSetTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class MoviesInOrder
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "MoviesByOrderAndUser"
+            tableMapping.ColumnMappings.Add("MovieID", "MovieID")
+            tableMapping.ColumnMappings.Add("Username", "Username")
+            tableMapping.ColumnMappings.Add("OrderID", "OrderID")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.MyMovies_Video_Kiosk.My.MySettings.Default.MyMoviesDBConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT Movie.MovieID, [User].Username, [Order].OrderID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  Customer INNER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         [Order] ON Customer.CustomerID = [Order].CustomerID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "    [User] ON Customer.CustomerID = [User].CustomerID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         Movie"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         OrderDetail ON Movie.MovieID = OrderDetail.MovieID ON [Ord"& _ 
+                "er].OrderID = OrderDetail.OrderID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE ([User].Username = @UserID) AND ([Order"& _ 
+                "].OrderID = @orderNumber)"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UserID", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@orderNumber", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "OrderID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As MyMoviesDBDataSet.MoviesByOrderAndUserDataTable, ByVal UserID As String, ByVal orderNumber As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (UserID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("UserID")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(UserID,String)
+            End If
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(orderNumber,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal UserID As String, ByVal orderNumber As Integer) As MyMoviesDBDataSet.MoviesByOrderAndUserDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (UserID Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("UserID")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(UserID,String)
+            End If
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(orderNumber,Integer)
+            Dim dataTable As MyMoviesDBDataSet.MoviesByOrderAndUserDataTable = New MyMoviesDBDataSet.MoviesByOrderAndUserDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -7958,21 +8858,12 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As MyMoviesDBDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._actorTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Actor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._userTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._actorTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._actorMovieTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.ActorMovie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._actorMovieTableAdapter.Update(updatedRows))
+                    result = (result + Me._userTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -7994,6 +8885,15 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._actorTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Actor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._actorTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._movieTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Movie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -8012,21 +8912,21 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._actorMovieTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.ActorMovie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._actorMovieTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._orderDetailTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.OrderDetail.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._orderDetailTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
-            If (Not (Me._userTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._userTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -8049,19 +8949,11 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As MyMoviesDBDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._actorTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Actor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._userTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._actorTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._actorMovieTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.ActorMovie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._actorMovieTableAdapter.Update(addedRows))
+                    result = (result + Me._userTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -8081,6 +8973,14 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._actorTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Actor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._actorTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._movieTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Movie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -8097,19 +8997,19 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._actorMovieTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.ActorMovie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._actorMovieTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._orderDetailTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.OrderDetail.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._orderDetailTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
-            If (Not (Me._userTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._userTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -8139,19 +9039,19 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._userTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._userTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._orderDetailTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.OrderDetail.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._orderDetailTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._actorMovieTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.ActorMovie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._actorMovieTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -8171,6 +9071,14 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
+            If (Not (Me._actorTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Actor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._actorTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._directorTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Director.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -8187,19 +9095,11 @@ Namespace MyMoviesDBDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._actorMovieTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.ActorMovie.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._userTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.User.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._actorMovieTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._actorTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Actor.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._actorTableAdapter.Update(deletedRows))
+                    result = (result + Me._userTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
