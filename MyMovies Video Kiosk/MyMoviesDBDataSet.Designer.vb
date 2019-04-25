@@ -53,13 +53,13 @@ Partial Public Class MyMoviesDBDataSet
     
     Private relationFK_Director_Movie As Global.System.Data.DataRelation
     
-    Private relationFK_Order_OrderDetail As Global.System.Data.DataRelation
-    
     Private relationFK_Movie_OrderDetail As Global.System.Data.DataRelation
     
-    Private relationFK_Genre_MovieGenre As Global.System.Data.DataRelation
+    Private relationFK_Order_OrderDetail As Global.System.Data.DataRelation
     
     Private relationFK_Movie_MovieGenre As Global.System.Data.DataRelation
+    
+    Private relationFK_Genre_MovieGenre As Global.System.Data.DataRelation
     
     Private relationActor_ActorMovie As Global.System.Data.DataRelation
     
@@ -478,10 +478,10 @@ Partial Public Class MyMoviesDBDataSet
         End If
         Me.relationFK_User_Customer = Me.Relations("FK_User_Customer")
         Me.relationFK_Director_Movie = Me.Relations("FK_Director_Movie")
-        Me.relationFK_Order_OrderDetail = Me.Relations("FK_Order_OrderDetail")
         Me.relationFK_Movie_OrderDetail = Me.Relations("FK_Movie_OrderDetail")
-        Me.relationFK_Genre_MovieGenre = Me.Relations("FK_Genre_MovieGenre")
+        Me.relationFK_Order_OrderDetail = Me.Relations("FK_Order_OrderDetail")
         Me.relationFK_Movie_MovieGenre = Me.Relations("FK_Movie_MovieGenre")
+        Me.relationFK_Genre_MovieGenre = Me.Relations("FK_Genre_MovieGenre")
         Me.relationActor_ActorMovie = Me.Relations("Actor_ActorMovie")
         Me.relationMovie_ActorMovie1 = Me.Relations("Movie_ActorMovie1")
         Me.relationCustomer_Order = Me.Relations("Customer_Order")
@@ -530,18 +530,13 @@ Partial Public Class MyMoviesDBDataSet
         fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
         fkc.DeleteRule = Global.System.Data.Rule.Cascade
         fkc.UpdateRule = Global.System.Data.Rule.Cascade
-        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn})
-        Me.tableOrderDetail.Constraints.Add(fkc)
-        fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
-        fkc.DeleteRule = Global.System.Data.Rule.Cascade
-        fkc.UpdateRule = Global.System.Data.Rule.Cascade
         fkc = New Global.System.Data.ForeignKeyConstraint("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn})
         Me.tableOrderDetail.Constraints.Add(fkc)
         fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
         fkc.DeleteRule = Global.System.Data.Rule.Cascade
         fkc.UpdateRule = Global.System.Data.Rule.Cascade
-        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Genre_MovieGenre", New Global.System.Data.DataColumn() {Me.tableGenre.GenreIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovieGenre.GenreIDColumn})
-        Me.tableMovieGenre.Constraints.Add(fkc)
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn})
+        Me.tableOrderDetail.Constraints.Add(fkc)
         fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
         fkc.DeleteRule = Global.System.Data.Rule.Cascade
         fkc.UpdateRule = Global.System.Data.Rule.Cascade
@@ -550,18 +545,23 @@ Partial Public Class MyMoviesDBDataSet
         fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
         fkc.DeleteRule = Global.System.Data.Rule.Cascade
         fkc.UpdateRule = Global.System.Data.Rule.Cascade
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Genre_MovieGenre", New Global.System.Data.DataColumn() {Me.tableGenre.GenreIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovieGenre.GenreIDColumn})
+        Me.tableMovieGenre.Constraints.Add(fkc)
+        fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
+        fkc.DeleteRule = Global.System.Data.Rule.Cascade
+        fkc.UpdateRule = Global.System.Data.Rule.Cascade
         Me.relationFK_User_Customer = New Global.System.Data.DataRelation("FK_User_Customer", New Global.System.Data.DataColumn() {Me.tableUser.CustomerIDColumn}, New Global.System.Data.DataColumn() {Me.tableCustomer.CustomerIDColumn}, false)
         Me.Relations.Add(Me.relationFK_User_Customer)
         Me.relationFK_Director_Movie = New Global.System.Data.DataRelation("FK_Director_Movie", New Global.System.Data.DataColumn() {Me.tableDirector.DirectorIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovie.DirectorIDColumn}, false)
         Me.Relations.Add(Me.relationFK_Director_Movie)
-        Me.relationFK_Order_OrderDetail = New Global.System.Data.DataRelation("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn}, false)
-        Me.Relations.Add(Me.relationFK_Order_OrderDetail)
         Me.relationFK_Movie_OrderDetail = New Global.System.Data.DataRelation("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn}, false)
         Me.Relations.Add(Me.relationFK_Movie_OrderDetail)
-        Me.relationFK_Genre_MovieGenre = New Global.System.Data.DataRelation("FK_Genre_MovieGenre", New Global.System.Data.DataColumn() {Me.tableGenre.GenreIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovieGenre.GenreIDColumn}, false)
-        Me.Relations.Add(Me.relationFK_Genre_MovieGenre)
+        Me.relationFK_Order_OrderDetail = New Global.System.Data.DataRelation("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Order_OrderDetail)
         Me.relationFK_Movie_MovieGenre = New Global.System.Data.DataRelation("FK_Movie_MovieGenre", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovieGenre.MovieIDColumn}, false)
         Me.Relations.Add(Me.relationFK_Movie_MovieGenre)
+        Me.relationFK_Genre_MovieGenre = New Global.System.Data.DataRelation("FK_Genre_MovieGenre", New Global.System.Data.DataColumn() {Me.tableGenre.GenreIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovieGenre.GenreIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Genre_MovieGenre)
         Me.relationActor_ActorMovie = New Global.System.Data.DataRelation("Actor_ActorMovie", New Global.System.Data.DataColumn() {Me.tableActor.ActorIDColumn}, New Global.System.Data.DataColumn() {Me.tableActorMovie.ActorIDColumn}, false)
         Me.Relations.Add(Me.relationActor_ActorMovie)
         Me.relationMovie_ActorMovie1 = New Global.System.Data.DataRelation("Movie_ActorMovie1", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableActorMovie.MovieIDColumn}, false)
@@ -5370,23 +5370,23 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property OrderRow() As OrderRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Order_OrderDetail")),OrderRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Order_OrderDetail"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property MovieRow() As MovieRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Movie_OrderDetail")),MovieRow)
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_Movie_OrderDetail"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property OrderRow() As OrderRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Order_OrderDetail")),OrderRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Order_OrderDetail"))
             End Set
         End Property
     End Class
@@ -5624,23 +5624,23 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property GenreRow() As GenreRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Genre_MovieGenre")),GenreRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Genre_MovieGenre"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property MovieRow() As MovieRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Movie_MovieGenre")),MovieRow)
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_Movie_MovieGenre"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property GenreRow() As GenreRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Genre_MovieGenre")),GenreRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Genre_MovieGenre"))
             End Set
         End Property
     End Class
@@ -7929,11 +7929,21 @@ Namespace MyMoviesDBDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT MovieID, DirectorID, Genre, Price FROM dbo.Movie"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        Movie.MovieID, Movie.Title, Director.LastName, Movie.ReleaseDate, G"& _ 
+                "enre.Genre, Movie.Price"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Movie INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    Director ON Movie.DirectorID = Director.DirectorID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            MovieGenre ON Movie.MovieID = MovieGenre.MovieID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  Genre ON MovieGenre.GenreID = Genre.GenreID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Mov"& _ 
+                "ie.Title = @SearchTerm)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SearchTerm", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Title", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7955,6 +7965,22 @@ Namespace MyMoviesDBDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
         Public Overloads Overridable Function GetData() As MyMoviesDBDataSet.MovieDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As MyMoviesDBDataSet.MovieDataTable = New MyMoviesDBDataSet.MovieDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function MovieListingByTitle(ByVal SearchTerm As String) As MyMoviesDBDataSet.MovieDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (SearchTerm Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("SearchTerm")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(SearchTerm,String)
+            End If
             Dim dataTable As MyMoviesDBDataSet.MovieDataTable = New MyMoviesDBDataSet.MovieDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
