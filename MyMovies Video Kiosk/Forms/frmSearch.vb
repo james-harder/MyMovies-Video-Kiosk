@@ -36,23 +36,19 @@
 
 #Region "Methods"
 
-    Private Function searchDataBase(ByVal searchTerms As String) As DataTable
-        'WHERE Title LIKE *'@searchTerm'*
+    Private Function SearchDataBase(ByVal searchTerms As String) As DataTable
+
         Dim resultsAdapter As New MyMoviesDBDataSetTableAdapters.SearchResultsTableAdapter()
         Dim results As New MyMoviesDBDataSet.SearchResultsDataTable()
 
         results.Clear()
         resultsAdapter.Fill(results, searchTerms)
 
-        If results IsNot Nothing Then
-            For Each row As DataRow In results
-                lstResults.Items.Add(row.Item(4))
-            Next
-        End If
+        Return results
 
     End Function
 
-    Private Sub updateListResults()
+    Private Sub UpdateListResults()
 
         lstResults.Items.Clear()
 
@@ -62,7 +58,7 @@
 
             For Each movie As MyMoviesDBDataSet.SearchResultsRow In results
 
-                Dim listItem As String = movie.Item(4).ToString + " (" + movie.Item(5) + ")"
+                Dim listItem As String = movie.Item(1).ToString + " (" + movie.Item(3).ToString + ")"
 
                 lstResults.Items.Add(listItem)
             Next
@@ -83,9 +79,9 @@
     'just for testing...
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
 
-        SearchResults = searchDataBase(txtSearch.Text)
+        SearchResults = SearchDataBase(txtSearch.Text)
 
-        updateListResults()
+        UpdateListResults()
 
     End Sub
 
