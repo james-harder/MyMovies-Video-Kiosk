@@ -26,7 +26,18 @@
 #Region "Methods"
 
     Private Function getSearchResults(ByVal searchTerms As String) As DataTable
-        Dim searchTableAdapter = New MyMoviesDBDataSetTableAdapters.MovieTableAdapter
+        'WHERE Title LIKE *'@searchTerm'*
+        Dim resultsAdapter As New MyMoviesDBDataSetTableAdapters.SearchResultsTableAdapter()
+        Dim results As New MyMoviesDBDataSet.SearchResultsDataTable()
+
+        results.Clear()
+        resultsAdapter.Fill(results, searchTerms)
+
+        If results IsNot Nothing Then
+            For Each row As DataRow In results
+                lstResults.Items.Add(row.Item(4))
+            Next
+        End If
 
     End Function
 
