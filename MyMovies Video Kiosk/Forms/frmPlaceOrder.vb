@@ -40,7 +40,7 @@
 
     End Sub
 
-    Private Function getMoviesInOrder() As List(Of String)
+    Private Function getMoviesInOrder() As List(Of Integer)
 
         'create a Table adapter and a data table
         Dim moviesInOrderTableAdapter As New MyMoviesDBDataSetTableAdapters.MoviesInOrder()
