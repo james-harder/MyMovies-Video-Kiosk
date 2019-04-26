@@ -1,32 +1,35 @@
 ﻿Public Module Program
+#Region "properties"
     'UserID tracks the current user
     Public Property UserID() As Integer
 
-    '_MoviesInOrder tracks the movies added to the order, IE a shopping cart
-    Private _MoviesInOrder As New MyMoviesDBDataSet.SearchResultsDataTable()
+    'System.Windows.Forms.FormWindowState is an enum to track maximized/minimized/normal window state
+    Public Property WindowState() As FormWindowState
 
-    'MoviesInOrder() returns the list of movies ordered
-    Public Property MoviesInOrder() As MyMoviesDBDataSet.SearchResultsDataTable
+    '_MoviesInOrder is like a shopping cart...
+    Private _MoviesInOrder As List(Of Integer)
+    Public Property MoviesInOrder() As List(Of Integer)
         Get
             Return _MoviesInOrder
         End Get
-
-        '= Repalces _moviesInOrdere with value. This should only be called from frmPlaceOrder
-        'where the customer will be looking at the entire order at once.
-        Set(ByVal value As MyMoviesDBDataSet.SearchResultsDataTable)
+        Set(ByVal value As List(Of Integer))
             _MoviesInOrder = value
         End Set
     End Property
 
-    'addToOrder() is called by frmSearch to add a single row to _MoviesInOrder DataTable
-    Public WriteOnly Property AddToOrder(ByVal movie As MyMoviesDBDataSet.SearchResultsRow)
-        Set(value)
-            _MoviesInOrder.AddSearchResultsRow(movie)
+    'adds a single movie to Movies in order
+    Public WriteOnly Property AddMovieToOrder() As Integer
+        Set(ByVal Value As Integer)
+            If _MoviesInOrder Is Nothing Then
+                Dim movies As List(Of Integer) = New List(Of Integer)
+                movies.Add(Value)
+                _MoviesInOrder = movies
+            Else
+                _MoviesInOrder.Add(Value)
+            End If
         End Set
     End Property
 
-    'System.Windows.Forms.FormWindowState is an enum to track maximized/minimized/normal window state
-    Public Property WindowState() As FormWindowState
 
     'Opens new frmStart window
     Public ReadOnly Property Start() As frmStart
@@ -72,6 +75,8 @@
         End Get
     End Property
 
+#End Region
+
     Private _Start As frmStart = New frmStart
     Private _Search As frmSearch = New frmSearch
     Private _Registration As frmRegistration = New frmRegistration
@@ -100,4 +105,6 @@
             Return False
         End If
     End Function
+
+
 End Module

@@ -11,26 +11,51 @@
         End Set
     End Property
 
-    ' Do we need this? Why did I put this here... 
-    Private _currentOrderID As String
-    Public Property currentOrderID() As String
-
+    ' Matches a MovieId to the line number of lstResults.ItemSelected...
+    'There HAS to be a better way to do this
+    Private _MovieIdIndex() As Integer
+    Public Property MovieIdIndex() As Integer()
         Get
-            If String.IsNullOrEmpty(_currentOrderID) Then
-                ' make new orderID
-                ' make sure to add try catch before submiting project
+            Return _MovieIdIndex
+        End Get
+        Set(ByVal value() As Integer)
 
-                Return UserID.ToString
-            Else
-                Return _currentOrderID
+            If value Is Nothing Then
+                Throw New ArgumentNullException(NameOf(value))
+            End If
+
+            _MovieIdIndex = value
+        End Set
+    End Property
+    'returns the MovieId at lineNumber
+    Public ReadOnly Property IdOfLine(lineNumber As Integer) As Integer
+        Get
+            If _MovieIdIndex IsNot Nothing Then
+                Return _MovieIdIndex(lineNumber)
             End If
         End Get
-
-        Set(ByVal value As String)
-            _currentOrderID = value
-        End Set
-
     End Property
+
+    '' Do we need this? Why did I put this here... 
+    'Private _CurrentOrderID As String
+    'Public Property CurrentOrderID() As String
+
+    '    Get
+    '        If String.IsNullOrEmpty(_CurrentOrderID) Then
+    '            ' make new orderID
+    '            ' make sure to add try catch before submiting project
+
+    '            Return UserID.ToString
+    '        Else
+    '            Return _CurrentOrderID
+    '        End If
+    '    End Get
+
+    '    Set(ByVal value As String)
+    '        _CurrentOrderID = value
+    '    End Set
+
+    'End Property
 
 #End Region
 
@@ -43,6 +68,21 @@
 
         results.Clear()
         resultsAdapter.Fill(results, searchTerms)
+
+        ' find number of results
+        Dim intNumberOfResults As Integer = results.Rows.Count()
+
+        'set _MovieIdIndex
+        Dim intMovieIds(intNumberOfResults) As Integer
+
+        If intNumberOfResults > 0 Then
+
+            For i As Integer = 0 To (intNumberOfResults - 1)
+                intMovieIds(i) = results.Rows(i).Item(0)
+            Next
+
+            MovieIdIndex = intMovieIds
+        End If
 
         Return results
 
@@ -97,8 +137,11 @@
 
     'Handles btnPlaceOrder Click
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
-        'find datarow in sear
-
+        'find MovieID that matches title
+        'Dim intSelectedMovieId As Integer = IdOfLine(lstResults.SelectedIndex)
+        Dim intSelectedMovieId As Integer = 3
+        ' add movie to order
+        Program.AddMovieToOrder = intSelectedMovieId
 
         'show frmPlaceOrder
         PlaceOrder.Show()
@@ -115,12 +158,6 @@
             ResizeAllForms()
         End If
 
-    End Sub
-
-    Private Sub btnAddToCart_click(sender As Object, e As EventArgs) Handles btnAddToCart.Click
-        ' find MovieID from MovieTitle
-        ' add movieID to Movies ordered
-        ' Display confirmation messagebox with movie title and ID, and number of Items in cart
     End Sub
 
     Private Sub frmSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
