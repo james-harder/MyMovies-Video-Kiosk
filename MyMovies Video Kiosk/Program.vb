@@ -2,27 +2,26 @@
     'UserID tracks the current user
     Public Property UserID() As Integer
 
-    'MoviesOrdered tracks the movies added to the order, IE a shopping cart
-    'MoviesOrdered() returns the list of movies ordered
-    'AddToOrder() adds a movie title to _MoviesOrdered
+    '_MoviesInOrder tracks the movies added to the order, IE a shopping cart
     Private _MoviesInOrder As New MyMoviesDBDataSet.SearchResultsDataTable()
+
+    'MoviesInOrder() returns the list of movies ordered
     Public Property MoviesInOrder() As MyMoviesDBDataSet.SearchResultsDataTable
         Get
             Return _MoviesInOrder
         End Get
 
+        '= Repalces _moviesInOrdere with value. This should only be called from frmPlaceOrder
+        'where the customer will be looking at the entire order at once.
         Set(ByVal value As MyMoviesDBDataSet.SearchResultsDataTable)
             _MoviesInOrder = value
         End Set
     End Property
 
-    Private newPropertyValue As String
-    Public Property NewProperty() As String
-        Get
-            Return newPropertyValue
-        End Get
-        Set(ByVal value As String)
-            newPropertyValue = value
+    'addToOrder() is called by frmSearch to add a single row to _MoviesInOrder DataTable
+    Public WriteOnly Property AddToOrder(ByVal movie As MyMoviesDBDataSet.SearchResultsRow)
+        Set(value)
+            _MoviesInOrder.AddSearchResultsRow(movie)
         End Set
     End Property
 

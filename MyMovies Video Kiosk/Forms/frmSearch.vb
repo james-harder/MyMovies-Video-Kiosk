@@ -1,6 +1,17 @@
 ﻿Public Class frmSearch
 #Region "Properties"
+    '_SearchResults is a datatable of... search results
+    Private _SearchResults As MyMoviesDBDataSet.SearchResultsDataTable
+    Public Property SearchResults() As MyMoviesDBDataSet.SearchResultsDataTable
+        Get
+            Return _SearchResults
+        End Get
+        Set(ByVal value As MyMoviesDBDataSet.SearchResultsDataTable)
+            _SearchResults = value
+        End Set
+    End Property
 
+    ' Do we need this? Why did I put this here... 
     Private _currentOrderID As String
     Public Property currentOrderID() As String
 
@@ -25,7 +36,7 @@
 
 #Region "Methods"
 
-    Private Function getSearchResults(ByVal searchTerms As String) As DataTable
+    Private Function searchDataBase(ByVal searchTerms As String) As DataTable
         'WHERE Title LIKE *'@searchTerm'*
         Dim resultsAdapter As New MyMoviesDBDataSetTableAdapters.SearchResultsTableAdapter()
         Dim results As New MyMoviesDBDataSet.SearchResultsDataTable()
@@ -41,6 +52,29 @@
 
     End Function
 
+    Private Sub updateListResults()
+
+        lstResults.Items.Clear()
+
+        Dim results As MyMoviesDBDataSet.SearchResultsDataTable = SearchResults()
+
+        If results IsNot Nothing Then
+
+            For Each movie As MyMoviesDBDataSet.SearchResultsRow In results
+
+                Dim listItem As String = movie.Item(4).ToString + " (" + movie.Item(5) + ")"
+
+                lstResults.Items.Add(listItem)
+            Next
+
+        Else
+
+            lstResults.Items.Add("No results were found for your search...")
+
+        End If
+
+    End Sub
+
 #End Region
 
 #Region "Event Handlers"
@@ -49,8 +83,9 @@
     'just for testing...
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
 
-        'call function that returns dataTable
-        'add each row of data table to lstIResults
+        SearchResults = searchDataBase(txtSearch.Text)
+
+        updateListResults()
 
     End Sub
 
@@ -66,8 +101,8 @@
 
     'Handles btnPlaceOrder Click
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
-        'Add movie to Program._MoviesOrdered
-        AddToOrder = lstResults.SelectedItem
+        'find datarow in sear
+
 
         'show frmPlaceOrder
         PlaceOrder.Show()

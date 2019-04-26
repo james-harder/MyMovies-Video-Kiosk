@@ -215,6 +215,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MyMoviesDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Scripts\CreateAllTables.sql" />
+    <Content Include="Scripts\Insert Data.sql" />
     <None Include="MyMoviesDBDataSet.xsc">
       <DependentUpon>MyMoviesDBDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
