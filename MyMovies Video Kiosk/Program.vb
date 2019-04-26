@@ -5,16 +5,24 @@
     'MoviesOrdered tracks the movies added to the order, IE a shopping cart
     'MoviesOrdered() returns the list of movies ordered
     'AddToOrder() adds a movie title to _MoviesOrdered
-    Private _MoviesOrdered As List(Of String) = New List(Of String)
-    Public ReadOnly Property MoviesOrdered() As List(Of String)
+    Private _MoviesInOrder As New MyMoviesDBDataSet.SearchResultsDataTable()
+    Public Property MoviesInOrder() As MyMoviesDBDataSet.SearchResultsDataTable
         Get
-            Return _MoviesOrdered
+            Return _MoviesInOrder
         End Get
+
+        Set(ByVal value As MyMoviesDBDataSet.SearchResultsDataTable)
+            _MoviesInOrder = value
+        End Set
     End Property
 
-    Public WriteOnly Property AddToOrder As String
+    Private newPropertyValue As String
+    Public Property NewProperty() As String
+        Get
+            Return newPropertyValue
+        End Get
         Set(ByVal value As String)
-            _MoviesOrdered.Add(value)
+            newPropertyValue = value
         End Set
     End Property
 
