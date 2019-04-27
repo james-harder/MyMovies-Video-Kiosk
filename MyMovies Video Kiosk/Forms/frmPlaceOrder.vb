@@ -73,7 +73,6 @@
         setOrderNumber()
 
 
-
     End Sub
 
     'Handles btnCancel Click

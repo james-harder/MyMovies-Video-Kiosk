@@ -30,6 +30,12 @@
         End Set
     End Property
 
+    Public ReadOnly Property SizeOfOrder() As Integer
+        Get
+            Return _MoviesInOrder.Count()
+        End Get
+    End Property
+
 
     'Opens new frmStart window
     Public ReadOnly Property Start() As frmStart

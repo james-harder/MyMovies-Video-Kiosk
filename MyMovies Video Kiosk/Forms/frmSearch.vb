@@ -137,11 +137,6 @@
 
     'Handles btnPlaceOrder Click
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
-        'find MovieID that matches title
-        'Dim intSelectedMovieId As Integer = IdOfLine(lstResults.SelectedIndex)
-        Dim intSelectedMovieId As Integer = 3
-        ' add movie to order
-        Program.AddMovieToOrder = intSelectedMovieId
 
         'show frmPlaceOrder
         PlaceOrder.Show()
@@ -161,6 +156,21 @@
     End Sub
 
     Private Sub frmSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub btnAddToCart_Click(sender As Object, e As EventArgs) Handles btnAddToCart.Click
+
+        'find MovieID that matches title
+        Dim intSelectedMovieId As Integer = IdOfLine(lstResults.SelectedIndex)
+
+        ' add movie to order
+        Program.AddMovieToOrder = intSelectedMovieId
+        ' check to see what's in MoviesInOrder
+        Dim number As List(Of Integer) = MoviesInOrder()
+
+        'Display a confirmation that the movie was added to the cart
+        MessageBox.Show("Movie added to cart. You have " + SizeOfOrder().ToString + " in your order.", "Information", MessageBoxButtons.OK)
 
     End Sub
 #End Region

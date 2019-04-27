@@ -6,6 +6,9 @@
 End Class
 
 Namespace MyMoviesDBDataSetTableAdapters
+    Partial Public Class MoviesInOrder
+    End Class
+
     Partial Public Class SearchResultsTableAdapter
     End Class
 
