@@ -40,23 +40,40 @@
 
     End Sub
 
-    Private Function getMoviesInOrder() As List(Of Integer)
+    Private Function getMoviesInOrder() As List(Of String)
 
-        'create a Table adapter and a data table
-        Dim moviesInOrderTableAdapter As New MyMoviesDBDataSetTableAdapters.MoviesInOrder()
-        Dim moviesInOrder As New MyMoviesDBDataSet.MoviesByOrderAndUserDataTable()
+        ''create a Table adapter and a data table
+        'Dim moviesInOrderTableAdapter As New MyMoviesDBDataSetTableAdapters.MoviesInOrder()
+        'Dim moviesInOrder As New MyMoviesDBDataSet.MoviesByOrderAndUserDataTable()
 
-        'fill data table 
-        moviesInOrderTableAdapter.Fill(moviesInOrder, UserID, orderNumber)
+        ''fill data table 
+        'moviesInOrderTableAdapter.Fill(moviesInOrder, UserID, orderNumber)
 
-        'each row should be a movie ID (later a movie title)
-        For Each row As DataRow In moviesInOrder
+        ''each row should be a movie ID (later a movie title)
+        'For Each row As DataRow In moviesInOrder
 
-            'store each row in the lstItem
-            lstItems.Items.Add(row)
+        '    'store each row in the lstItem
+        '    lstItems.Items.Add(row)
 
+        'Next
+
+        Dim lstMovieList As New List(Of String)
+
+        'make a data adapter
+        Dim movieDataAdapter As New MyMoviesDBDataSetTableAdapters.MovieTableAdapter
+
+        'get the list of movieID's from the program.MoviesInOrder List
+        For Each movieId As Integer In Program.MoviesInOrder()
+            Dim movieDataRow As MyMoviesDBDataSet.MovieDataTable = movieDataAdapter.GetMovieByID(movieId)
+            Dim strMovieId As String = movieDataRow.Item(0).MovieID.ToString
+            Dim strMovieTitle As String = movieDataRow.Item(0).Title.ToString
+            Dim dblMoviePrice As Double = movieDataRow.Item(0).Price
+
+            Dim strItemRow As String = "[" + strMovieId + "]" + " " + strMovieTitle + " (" + dblMoviePrice.ToString("C2") + ")"
+            lstMovieList.Add(strItemRow)
         Next
 
+        Return lstMovieList
 
     End Function
 

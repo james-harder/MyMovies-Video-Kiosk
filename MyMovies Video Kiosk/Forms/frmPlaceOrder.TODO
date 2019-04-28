@@ -1,9 +1,2 @@
-﻿Add a button to frmSearch that adds movie to list without opening the frmPlaceOrder
-add a messagebox to confirm that movie was added to list
-add button to frmPlaceOrder to return to search 
-change cancel button to clear out order
-
-...
-
-OR 
-have frmSearch add movies to order table instead of adding to a list... ? Yeah, this is the ticket.
+﻿(1) Create an Order Row to insert into dbo.Orders
+(2) Create OrderDetail Rows and Insert into dbo.OrderDetail
