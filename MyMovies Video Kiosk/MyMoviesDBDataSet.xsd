@@ -325,7 +325,7 @@ FROM            Movie</CommandText>
               <DbSource ConnectionRef="MyMoviesDBConnectionString (MySettings)" DbObjectName="dbo.Movie" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetMovieByID" GetMethodModifier="Public" GetMethodName="GetMovieByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetMovieByID" UserSourceName="GetMovieByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        MovieID, Title, Price
+                    <CommandText>SELECT        MovieID, DirectorID, Genre, Price, Title, ReleaseDate
 FROM            Movie
 WHERE        (MovieID = @movieID)</CommandText>
                     <Parameters>
