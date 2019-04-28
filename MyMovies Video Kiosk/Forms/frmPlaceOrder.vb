@@ -2,7 +2,7 @@
 
 #Region "Properties"
 
-    Private _orderNUmber As Integer
+    Private _orderNumber As Integer
     Public Property orderNumber() As Integer
         Get
             Return _orderNUmber
@@ -42,14 +42,21 @@
 
     Private Function getMoviesInOrder() As List(Of Integer)
 
-        ''create a Table adapter and a data table
-        'Dim moviesInOrderTableAdapter As New MyMoviesDBDataSetTableAdapters.MoviesInOrder()
-        'Dim moviesInOrder As New MyMoviesDBDataSet.MoviesByOrderAndUserDataTable()
+        'create a Table adapter and a data table
+        Dim moviesInOrderTableAdapter As New MyMoviesDBDataSetTableAdapters.MoviesInOrder()
+        Dim moviesInOrder As New MyMoviesDBDataSet.MoviesByOrderAndUserDataTable()
 
-        ''fill data table 
-        'moviesInOrderTableAdapter.Fill(moviesInOrder, UserID, orderNumber
+        'fill data table 
+        moviesInOrderTableAdapter.Fill(moviesInOrder, UserID, orderNumber)
 
-        'Return MoviesInOrder()
+        'each row should be a movie ID (later a movie title)
+        For Each row As DataRow In moviesInOrder
+
+            'store each row in the lstItem
+            lstItems.Items.Add(row)
+
+        Next
+
 
     End Function
 
@@ -59,28 +66,12 @@
 
     'Handles Load() of this form
     Private Sub frmPlaceOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'db table adapter and table data
-        Dim movieTableAdapter As New MyMoviesDBDataSetTableAdapters.MovieTableAdapter
-        Dim orderedMovie As MyMoviesDBDataSet.MovieDataTable
-        'Dim movieData As MyMoviesDBDataSet.MovieRow
-
-        'add movies in order to lstItems
-        For Each id As Integer In MoviesInOrder()
-            Dim strOrderItem As String
-            orderedMovie = movieTableAdapter.GetMovieByID(id)
-            Dim strId As String = orderedMovie.Item(0).MovieID.ToString
-            Dim strTitle As String = orderedMovie.Item(0).Title.ToString
-            Dim dblPrice As Double = orderedMovie.Item(0).Price
-
-            strOrderItem = "[" + strId + "]" + " " + strTitle + ", " + dblPrice.ToString("C2")
-            lstItems.Items.Add(strOrderItem)
-        Next
-
+        Me.CustomerTableAdapter.FillByID(Me.MyMoviesDBDataSet.Customer, Program.UserID)
         'Set Card Carrier check box index to 0
         cboCardCarrier.SelectedIndex = 0
 
         setOrderNumber()
-
+        lstItems.DataSource = getMoviesInOrder()
 
     End Sub
 

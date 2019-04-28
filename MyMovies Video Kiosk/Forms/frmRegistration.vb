@@ -59,6 +59,7 @@
             Dim row As DataRow = (From r As DataRow In tblCustomer.Rows Where r(12).ToString().Equals(CreateTime.ToString()) Select r).Single()
             users.Insert(txtUsername.Text.ToUpper, txtPassword.Text, CType(row, MyMoviesDBDataSet.CustomerRow).CustomerID)
 
+            UserID = CType(row, MyMoviesDBDataSet.CustomerRow).CustomerID
             MessageBox.Show("User Added!")
 
             'shows parent
