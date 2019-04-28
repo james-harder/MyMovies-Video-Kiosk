@@ -105,16 +105,24 @@
 
     'Handles btnPlaceOrder Click
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
+        Dim userAdapter As New MyMoviesDBDataSetTableAdapters.UserTableAdapter
+        Dim users As New MyMoviesDBDataSet.UserDataTable
 
+        userAdapter.FillByID(users, UserID)
+        If users.Count = 1 Then
+            'place order here
+        Else
+            'Passes this form to frmRegistration
+            Registration.Show(Me)
+
+            'Hides this form
+            Hide()
+        End If
         'If (Customer.Exists)
         '   Place Order
         'Else
 
-        'Passes this form to frmRegistration
-        Registration.Show(Me)
 
-        'Hides this form
-        Hide()
 
         'End If
     End Sub
