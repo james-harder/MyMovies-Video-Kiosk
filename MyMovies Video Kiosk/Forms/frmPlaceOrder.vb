@@ -2,7 +2,7 @@
 
 #Region "Properties"
 
-    Private _orderNUmber As Integer
+    Private _orderNumber As Integer
     Public Property orderNumber() As Integer
         Get
             Return _orderNUmber
@@ -66,12 +66,12 @@
 
     'Handles Load() of this form
     Private Sub frmPlaceOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.CustomerTableAdapter.FillByID(Me.MyMoviesDBDataSet.Customer, Program.UserID)
         'Set Card Carrier check box index to 0
         cboCardCarrier.SelectedIndex = 0
 
         setOrderNumber()
-
+        lstItems.DataSource = getMoviesInOrder()
 
     End Sub
 
