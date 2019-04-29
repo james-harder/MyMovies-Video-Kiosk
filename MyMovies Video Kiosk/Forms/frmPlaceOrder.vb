@@ -96,8 +96,7 @@
 
                 userAdapter.FillByID(users, UserID)
                 If users.Count = 1 Then
-                    'add each item in lstItems to an orderDetail row
-                    makeOrderItems(MoviesInOrder())
+
 
                     'display confirmation message box
                     Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + _TotalPrice.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
@@ -116,6 +115,8 @@
                             orderTableAdapter.Fill(orderTable)
                             _orderNumber = orderTable.Count
                         End If
+                        'add each item in lstItems to an orderDetail row
+                        makeOrderItems(MoviesInOrder())
                         UserID = Nothing
                         MoviesInOrder = New List(Of Integer)
                         Start.Show()
