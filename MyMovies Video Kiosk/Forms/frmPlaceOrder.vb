@@ -99,45 +99,51 @@
 
         Dim users As New MyMoviesDBDataSet.UserDataTable
 
-        userAdapter.FillByID(users, UserID)
-        If users.Count = 1 Then
-            'add each item in lstItems to an orderDetail row
-            makeOrderItems(MoviesInOrder())
+        Dim dateCheck As DateTime
+        If DateTime.TryParse(txtExpiry.Text, dateCheck) Then
 
-            'sum order total
-            Dim dblOrderTotal As Double = orderDetailAdapter.GetOrderTotal(OrderNumber())
+            userAdapter.FillByID(users, UserID)
+            If users.Count = 1 Then
+                'add each item in lstItems to an orderDetail row
+                makeOrderItems(MoviesInOrder())
 
-            'display confirmation message box
-            Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + dblOrderTotal.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
+                'sum order total
+                Dim dblOrderTotal As Double = orderDetailAdapter.GetOrderTotal(OrderNumber())
 
-            'if confirmed, write order to database and clear page properties so a new order can be made.
-            If drConfimation = 1 Then
-                orderAdapter.CompleteOrder(Date.Now, dblOrderTotal, OrderNumber)
-                UserID = Nothing
-                Start.Show()
-                Close()
-            ElseIf drConfimation = 3 Then
-                'cancel order, go to frmSearch
-                Search.Show()
+                'display confirmation message box
+                Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + dblOrderTotal.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
 
+                'if confirmed, write order to database and clear page properties so a new order can be made.
+                If drConfimation = 1 Then
+                    orderAdapter.CompleteOrder(Date.Now, dblOrderTotal, OrderNumber)
+                    UserID = Nothing
+                    Start.Show()
+                    Close()
+                ElseIf drConfimation = 3 Then
+                    'cancel order, go to frmSearch
+                    Search.Show()
+
+                    Hide()
+                End If
+                'if cancelled, go back to form place order
+
+            Else
+                'Passes this form to frmRegistration
+                Registration.Show(Me)
+
+                'Hides this form
                 Hide()
             End If
-            'if cancelled, go back to form place order
+            'If (Customer.Exists)
+            '   Place Order
+            'Else
 
+
+
+            'End If
         Else
-            'Passes this form to frmRegistration
-            Registration.Show(Me)
-
-            'Hides this form
-            Hide()
+            MessageBox.Show("Expiry date is invalid.")
         End If
-        'If (Customer.Exists)
-        '   Place Order
-        'Else
-
-
-
-        'End If
     End Sub
 
     'Handles keypress event in txtCreditCard and txtSecurityCode
