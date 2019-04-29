@@ -51,9 +51,9 @@ Partial Public Class MyMoviesDBDataSet
     
     Private relationFK_Director_Movie As Global.System.Data.DataRelation
     
-    Private relationFK_Movie_OrderDetail As Global.System.Data.DataRelation
-    
     Private relationFK_Order_OrderDetail As Global.System.Data.DataRelation
+    
+    Private relationFK_Movie_OrderDetail As Global.System.Data.DataRelation
     
     Private relationActor_ActorMovie As Global.System.Data.DataRelation
     
@@ -450,8 +450,8 @@ Partial Public Class MyMoviesDBDataSet
         End If
         Me.relationFK_User_Customer = Me.Relations("FK_User_Customer")
         Me.relationFK_Director_Movie = Me.Relations("FK_Director_Movie")
-        Me.relationFK_Movie_OrderDetail = Me.Relations("FK_Movie_OrderDetail")
         Me.relationFK_Order_OrderDetail = Me.Relations("FK_Order_OrderDetail")
+        Me.relationFK_Movie_OrderDetail = Me.Relations("FK_Movie_OrderDetail")
         Me.relationActor_ActorMovie = Me.Relations("Actor_ActorMovie")
         Me.relationMovie_ActorMovie1 = Me.Relations("Movie_ActorMovie1")
         Me.relationCustomer_Order = Me.Relations("Customer_Order")
@@ -498,12 +498,12 @@ Partial Public Class MyMoviesDBDataSet
         fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
         fkc.DeleteRule = Global.System.Data.Rule.Cascade
         fkc.UpdateRule = Global.System.Data.Rule.Cascade
-        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn})
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn})
         Me.tableOrderDetail.Constraints.Add(fkc)
         fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
         fkc.DeleteRule = Global.System.Data.Rule.Cascade
         fkc.UpdateRule = Global.System.Data.Rule.Cascade
-        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn})
+        fkc = New Global.System.Data.ForeignKeyConstraint("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn})
         Me.tableOrderDetail.Constraints.Add(fkc)
         fkc.AcceptRejectRule = Global.System.Data.AcceptRejectRule.None
         fkc.DeleteRule = Global.System.Data.Rule.Cascade
@@ -512,10 +512,10 @@ Partial Public Class MyMoviesDBDataSet
         Me.Relations.Add(Me.relationFK_User_Customer)
         Me.relationFK_Director_Movie = New Global.System.Data.DataRelation("FK_Director_Movie", New Global.System.Data.DataColumn() {Me.tableDirector.DirectorIDColumn}, New Global.System.Data.DataColumn() {Me.tableMovie.DirectorIDColumn}, false)
         Me.Relations.Add(Me.relationFK_Director_Movie)
-        Me.relationFK_Movie_OrderDetail = New Global.System.Data.DataRelation("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn}, false)
-        Me.Relations.Add(Me.relationFK_Movie_OrderDetail)
         Me.relationFK_Order_OrderDetail = New Global.System.Data.DataRelation("FK_Order_OrderDetail", New Global.System.Data.DataColumn() {Me.tableOrder.OrderIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.OrderIDColumn}, false)
         Me.Relations.Add(Me.relationFK_Order_OrderDetail)
+        Me.relationFK_Movie_OrderDetail = New Global.System.Data.DataRelation("FK_Movie_OrderDetail", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableOrderDetail.MovieIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_Movie_OrderDetail)
         Me.relationActor_ActorMovie = New Global.System.Data.DataRelation("Actor_ActorMovie", New Global.System.Data.DataColumn() {Me.tableActor.ActorIDColumn}, New Global.System.Data.DataColumn() {Me.tableActorMovie.ActorIDColumn}, false)
         Me.Relations.Add(Me.relationActor_ActorMovie)
         Me.relationMovie_ActorMovie1 = New Global.System.Data.DataRelation("Movie_ActorMovie1", New Global.System.Data.DataColumn() {Me.tableMovie.MovieIDColumn}, New Global.System.Data.DataColumn() {Me.tableActorMovie.MovieIDColumn}, false)
@@ -5068,23 +5068,23 @@ Partial Public Class MyMoviesDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property MovieRow() As MovieRow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Movie_OrderDetail")),MovieRow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Movie_OrderDetail"))
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property OrderRow() As OrderRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Order_OrderDetail")),OrderRow)
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_Order_OrderDetail"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property MovieRow() As MovieRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Movie_OrderDetail")),MovieRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Movie_OrderDetail"))
             End Set
         End Property
     End Class

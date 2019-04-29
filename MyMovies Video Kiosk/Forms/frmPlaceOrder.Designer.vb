@@ -35,16 +35,16 @@ Partial Class frmPlaceOrder
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtExpiry = New System.Windows.Forms.MaskedTextBox()
+        Me.CustomerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MyMoviesDBDataSet = New MyMovies_Video_Kiosk.MyMoviesDBDataSet()
         Me.txtCreditCard = New System.Windows.Forms.TextBox()
         Me.txtSecurityCode = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cboCardCarrier = New System.Windows.Forms.ComboBox()
-        Me.MyMoviesDBDataSet = New MyMovies_Video_Kiosk.MyMoviesDBDataSet()
-        Me.CustomerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerTableAdapter = New MyMovies_Video_Kiosk.MyMoviesDBDataSetTableAdapters.CustomerTableAdapter()
         Me.TableAdapterManager = New MyMovies_Video_Kiosk.MyMoviesDBDataSetTableAdapters.TableAdapterManager()
-        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lstItems
@@ -128,7 +128,7 @@ Partial Class frmPlaceOrder
         Me.btnPlaceOrder.Location = New System.Drawing.Point(627, 313)
         Me.btnPlaceOrder.Name = "btnPlaceOrder"
         Me.btnPlaceOrder.Size = New System.Drawing.Size(96, 27)
-        Me.btnPlaceOrder.TabIndex = 7
+        Me.btnPlaceOrder.TabIndex = 5
         Me.btnPlaceOrder.Text = "Place Order"
         Me.btnPlaceOrder.UseVisualStyleBackColor = True
         '
@@ -163,8 +163,19 @@ Partial Class frmPlaceOrder
         Me.txtExpiry.Mask = "00/00"
         Me.txtExpiry.Name = "txtExpiry"
         Me.txtExpiry.Size = New System.Drawing.Size(38, 22)
-        Me.txtExpiry.TabIndex = 15
+        Me.txtExpiry.TabIndex = 3
         Me.txtExpiry.ValidatingType = GetType(Date)
+        '
+        'CustomerBindingSource
+        '
+        Me.CustomerBindingSource.DataMember = "Customer"
+        Me.CustomerBindingSource.DataSource = Me.MyMoviesDBDataSet
+        '
+        'MyMoviesDBDataSet
+        '
+        Me.MyMoviesDBDataSet.DataSetName = "MyMoviesDBDataSet"
+        Me.MyMoviesDBDataSet.EnforceConstraints = False
+        Me.MyMoviesDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'txtCreditCard
         '
@@ -175,7 +186,7 @@ Partial Class frmPlaceOrder
         Me.txtCreditCard.MaxLength = 16
         Me.txtCreditCard.Name = "txtCreditCard"
         Me.txtCreditCard.Size = New System.Drawing.Size(248, 22)
-        Me.txtCreditCard.TabIndex = 16
+        Me.txtCreditCard.TabIndex = 2
         '
         'txtSecurityCode
         '
@@ -185,7 +196,7 @@ Partial Class frmPlaceOrder
         Me.txtSecurityCode.MaxLength = 4
         Me.txtSecurityCode.Name = "txtSecurityCode"
         Me.txtSecurityCode.Size = New System.Drawing.Size(78, 22)
-        Me.txtSecurityCode.TabIndex = 17
+        Me.txtSecurityCode.TabIndex = 4
         '
         'Label8
         '
@@ -207,17 +218,7 @@ Partial Class frmPlaceOrder
         Me.cboCardCarrier.Location = New System.Drawing.Point(475, 170)
         Me.cboCardCarrier.Name = "cboCardCarrier"
         Me.cboCardCarrier.Size = New System.Drawing.Size(115, 21)
-        Me.cboCardCarrier.TabIndex = 19
-        '
-        'MyMoviesDBDataSet
-        '
-        Me.MyMoviesDBDataSet.DataSetName = "MyMoviesDBDataSet"
-        Me.MyMoviesDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'CustomerBindingSource
-        '
-        Me.CustomerBindingSource.DataMember = "Customer"
-        Me.CustomerBindingSource.DataSource = Me.MyMoviesDBDataSet
+        Me.cboCardCarrier.TabIndex = 1
         '
         'CustomerTableAdapter
         '
@@ -268,8 +269,8 @@ Partial Class frmPlaceOrder
         Me.Name = "frmPlaceOrder"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmPlaceOrder"
-        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MyMoviesDBDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

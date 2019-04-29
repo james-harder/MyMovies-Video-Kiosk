@@ -3,42 +3,15 @@
 #Region "Properties"
 
     Private _orderNumber As Integer
-    Public Property orderNumber() As Integer
+    Public ReadOnly Property OrderNumber() As Integer
         Get
-            Return _orderNUmber
+            Return _orderNumber
         End Get
-        Set(ByVal value As Integer)
-            _orderNUmber = value
-        End Set
     End Property
 
 #End Region
 
 #Region "Methods"
-
-    Private Sub setOrderNumber()
-
-        'orderNumebr should be set. If it is not, then check for the highest orderID in the database and add 1
-        If orderNumber() = Nothing Then
-
-            'get highest order number from orders table and increment, then store that as the order number
-            Dim orderTableAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter()
-
-            If orderTableAdapter.MaxOrderID Is Nothing Then
-
-                ' add first row to table
-                orderTableAdapter.AddOrderRow(UserID, Date.Today, 0.0)
-
-                orderNumber = 1
-            Else
-
-                orderNumber = orderTableAdapter.MaxOrderID() + 1
-
-            End If
-
-        End If
-
-    End Sub
 
     Private Function getMoviesInOrder() As List(Of String)
 
@@ -83,11 +56,22 @@
 
     'Handles Load() of this form
     Private Sub frmPlaceOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'make a table adapter to use with ordertable
+        Dim orderTableAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter
+
+        'if _orderNumber is not set, create a new row in dbo.Orders and set_orderNumber to that
+        If OrderNumber() = Nothing Then
+            'create a new blank order
+            orderTableAdapter.AddOrderRow(UserID(), DateTime.Now, 0.0)
+        End If
+
+        ' get customer info based on Program.UserID, fill Customer table
         Me.CustomerTableAdapter.FillByID(Me.MyMoviesDBDataSet.Customer, Program.UserID)
+
         'Set Card Carrier check box index to 0
         cboCardCarrier.SelectedIndex = 0
 
-        setOrderNumber()
+        'Set dataSource for lstItems
         lstItems.DataSource = getMoviesInOrder()
 
     End Sub
@@ -110,7 +94,16 @@
 
         userAdapter.FillByID(users, UserID)
         If users.Count = 1 Then
-            'place order here
+            'add each item in lstItems to an orderDetail row
+
+            'sum order total
+
+            'display confirmation message box
+
+            'if confirmed, write order to database and clear page properties so a new order can be made.
+
+            'if cancelled, go back to form place order
+
         Else
             'Passes this form to frmRegistration
             Registration.Show(Me)
@@ -159,6 +152,7 @@
         End If
 
     End Sub
+
 #End Region
 
 End Class

@@ -76,7 +76,7 @@ Partial Class frmStart
         Me.txtPassword.MaxLength = 20
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.Size = New System.Drawing.Size(100, 22)
-        Me.txtPassword.TabIndex = 4
+        Me.txtPassword.TabIndex = 2
         '
         'Label6
         '
@@ -97,7 +97,7 @@ Partial Class frmStart
         Me.btnSubmit.Location = New System.Drawing.Point(105, 82)
         Me.btnSubmit.Name = "btnSubmit"
         Me.btnSubmit.Size = New System.Drawing.Size(100, 27)
-        Me.btnSubmit.TabIndex = 2
+        Me.btnSubmit.TabIndex = 3
         Me.btnSubmit.Text = "Submit"
         Me.btnSubmit.UseVisualStyleBackColor = True
         '
@@ -167,7 +167,7 @@ Partial Class frmStart
         Me.btnSearch.Location = New System.Drawing.Point(218, 67)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(75, 27)
-        Me.btnSearch.TabIndex = 1
+        Me.btnSearch.TabIndex = 5
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
@@ -179,7 +179,7 @@ Partial Class frmStart
         Me.btnRegister.Location = New System.Drawing.Point(218, 29)
         Me.btnRegister.Name = "btnRegister"
         Me.btnRegister.Size = New System.Drawing.Size(75, 27)
-        Me.btnRegister.TabIndex = 0
+        Me.btnRegister.TabIndex = 4
         Me.btnRegister.Text = "Register"
         Me.btnRegister.UseVisualStyleBackColor = True
         '
@@ -191,7 +191,7 @@ Partial Class frmStart
         Me.btnExit.Location = New System.Drawing.Point(663, 345)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 27)
-        Me.btnExit.TabIndex = 3
+        Me.btnExit.TabIndex = 6
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '

@@ -36,25 +36,6 @@
         End Get
     End Property
 
-    '' Do we need this? Why did I put this here... 
-    'Private _CurrentOrderID As String
-    'Public Property CurrentOrderID() As String
-
-    '    Get
-    '        If String.IsNullOrEmpty(_CurrentOrderID) Then
-    '            ' make new orderID
-    '            ' make sure to add try catch before submiting project
-
-    '            Return UserID.ToString
-    '        Else
-    '            Return _CurrentOrderID
-    '        End If
-    '    End Get
-
-    '    Set(ByVal value As String)
-    '        _CurrentOrderID = value
-    '    End Set
-
     'End Property
 
 #End Region

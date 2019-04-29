@@ -76,7 +76,7 @@ Partial Class frmSearch
         Me.txtSearch.Location = New System.Drawing.Point(115, 175)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(161, 22)
-        Me.txtSearch.TabIndex = 3
+        Me.txtSearch.TabIndex = 1
         '
         'btnSearch
         '
@@ -85,7 +85,7 @@ Partial Class frmSearch
         Me.btnSearch.Location = New System.Drawing.Point(177, 237)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(99, 37)
-        Me.btnSearch.TabIndex = 5
+        Me.btnSearch.TabIndex = 3
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
@@ -121,7 +121,7 @@ Partial Class frmSearch
         Me.cboBrowseBy.Location = New System.Drawing.Point(115, 210)
         Me.cboBrowseBy.Name = "cboBrowseBy"
         Me.cboBrowseBy.Size = New System.Drawing.Size(161, 21)
-        Me.cboBrowseBy.TabIndex = 8
+        Me.cboBrowseBy.TabIndex = 2
         '
         'lstResults
         '
@@ -131,7 +131,7 @@ Partial Class frmSearch
         Me.lstResults.Location = New System.Drawing.Point(319, 179)
         Me.lstResults.Name = "lstResults"
         Me.lstResults.Size = New System.Drawing.Size(393, 121)
-        Me.lstResults.TabIndex = 9
+        Me.lstResults.TabIndex = 4
         '
         'Label4
         '
@@ -151,7 +151,7 @@ Partial Class frmSearch
         Me.btnAddToCart.Location = New System.Drawing.Point(474, 319)
         Me.btnAddToCart.Name = "btnAddToCart"
         Me.btnAddToCart.Size = New System.Drawing.Size(111, 26)
-        Me.btnAddToCart.TabIndex = 11
+        Me.btnAddToCart.TabIndex = 5
         Me.btnAddToCart.Text = "Add To Cart"
         Me.btnAddToCart.UseVisualStyleBackColor = True
         '

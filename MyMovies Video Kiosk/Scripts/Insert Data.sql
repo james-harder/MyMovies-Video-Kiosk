@@ -27,3 +27,7 @@ VALUES
 ('10', 'Action', '1.99', 'Leon: The Professional', '1994')
 
 GO
+
+INSERT INTO dbo.Customer
+VALUES
+(),
