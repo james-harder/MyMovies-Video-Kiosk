@@ -66,7 +66,7 @@
         If OrderNumber = Nothing Then
             'create a new blank order
             Dim createDate = DateTime.Now
-            orderTableAdapter.AddOrderRow(UserID(), createDate, 0.0)
+            orderTableAdapter.AddOrderRow(UserID(), createDate, _TotalPrice)
             orderTableAdapter.Fill(orderTable)
             _orderNumber = orderTable.Count
         End If
