@@ -109,6 +109,9 @@
             'if confirmed, write order to database and clear page properties so a new order can be made.
             If drConfimation = 1 Then
                 orderAdapter.CompleteOrder(Date.Now, dblOrderTotal, OrderNumber)
+                UserID = Nothing
+                Start.Show()
+                Close()
             ElseIf drConfimation = 3 Then
                 'cancel order, go to frmSearch
                 Search.Show()

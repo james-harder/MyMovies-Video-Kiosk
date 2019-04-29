@@ -20,6 +20,8 @@
             If pwd.Equals(checkUser(1).ToString()) Then
                 Search.Show()
                 UserID = checkUser(2)
+                txtPassword.Text = String.Empty
+                txtUsername.Text = String.Empty
                 Hide()
             Else
                 MessageBox.Show("User/Password is incorrect.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -53,6 +55,8 @@
 
         'Shows form, sets its parent to this form
         Registration.Show(Me)
+        txtPassword.Text = String.Empty
+        txtUsername.Text = String.Empty
         Hide()
 
     End Sub
@@ -92,6 +96,8 @@
         'show frmSearch
         Search.Show()
 
+        txtPassword.Text = String.Empty
+        txtUsername.Text = String.Empty
         'Hides this form
         Hide()
 
