@@ -101,45 +101,49 @@
 
         Dim users As New MyMoviesDBDataSet.UserDataTable
 
-        Dim dateCheck As DateTime
-        If DateTime.TryParse(txtExpiry.Text, dateCheck) AndAlso txtSecurityCode.Text.Length >= 3 AndAlso txtCreditCard.Text.Length >= 15 Then
+        If lstItems.Items.Count > 0 Then
+            Dim dateCheck As DateTime
+            If DateTime.TryParse(txtExpiry.Text, dateCheck) AndAlso txtSecurityCode.Text.Length >= 3 AndAlso txtCreditCard.Text.Length >= 15 Then
 
-            userAdapter.FillByID(users, UserID)
-            If users.Count = 1 Then
-                'add each item in lstItems to an orderDetail row
-                makeOrderItems(MoviesInOrder())
+                userAdapter.FillByID(users, UserID)
+                If users.Count = 1 Then
+                    'add each item in lstItems to an orderDetail row
+                    makeOrderItems(MoviesInOrder())
 
-                'display confirmation message box
-                Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + _TotalPrice.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
+                    'display confirmation message box
+                    Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + _TotalPrice.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
 
-                'if confirmed, write order to database and clear page properties so a new order can be made.
-                If drConfimation = 1 Then
-                    orderAdapter.CompleteOrder(Date.Now, _TotalPrice, OrderNumber)
-                    UserID = Nothing
-                    MoviesInOrder = New List(Of Integer)
-                    Start.Show()
+                    'if confirmed, write order to database and clear page properties so a new order can be made.
+                    If drConfimation = 1 Then
+                        orderAdapter.CompleteOrder(Date.Now, _TotalPrice, OrderNumber)
+                        UserID = Nothing
+                        MoviesInOrder = New List(Of Integer)
+                        Start.Show()
+                        Close()
+                    ElseIf drConfimation = 3 Then
+                        'do nothing
+                    End If
+                    'if cancelled, go back to form place order
+
+                Else
+                    'Passes this form to frmRegistration
+                    Registration.Show(Me)
+
+                    'Hides this form
                     Close()
-                ElseIf drConfimation = 3 Then
-                    'do nothing
                 End If
-                'if cancelled, go back to form place order
+                'If (Customer.Exists)
+                '   Place Order
+                'Else
 
+
+
+                'End If
             Else
-                'Passes this form to frmRegistration
-                Registration.Show(Me)
-
-                'Hides this form
-                Close()
+                MessageBox.Show("User input cannot be accepted.")
             End If
-            'If (Customer.Exists)
-            '   Place Order
-            'Else
-
-
-
-            'End If
         Else
-            MessageBox.Show("User input cannot be accepted.")
+            MessageBox.Show("Order is empty.")
         End If
     End Sub
 

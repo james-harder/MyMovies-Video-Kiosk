@@ -110,9 +110,9 @@
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnReturn.Click
         'Returns to frmStart
         Start.Show()
-
+        MoviesInOrder = New List(Of Integer)
         'Hides this form
-        Hide()
+        Close()
 
     End Sub
 
@@ -137,7 +137,8 @@
     End Sub
 
     Private Sub frmSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        SearchResults = SearchDataBase(txtSearch.Text)
+        UpdateListResults()
     End Sub
 
     Private Sub btnAddToCart_Click(sender As Object, e As EventArgs) Handles btnAddToCart.Click
