@@ -3,11 +3,13 @@
 #Region "Properties"
 
     Private _orderNumber As Integer
+    Private _TotalPrice As Integer
     Public ReadOnly Property OrderNumber() As Integer
         Get
             Return _orderNumber
         End Get
     End Property
+
 
 #End Region
 
@@ -26,13 +28,13 @@
             Dim strMovieId As String = movieDataRow.Item(0).MovieID.ToString
             Dim strMovieTitle As String = movieDataRow.Item(0).Title.ToString
             Dim dblMoviePrice As Double = movieDataRow.Item(0).Price
-
+            _TotalPrice += movieDataRow.Item(0).Price
             Dim strItemRow As String = "[" + strMovieId + "]" + " " + strMovieTitle + " (" + dblMoviePrice.ToString("C2") + ")"
             lstMovieList.Add(strItemRow)
         Next
 
+        lblTotal.Text = _TotalPrice.ToString("C2")
         Return lstMovieList
-
     End Function
 
     Private Sub makeOrderItems(ByVal movieIds As List(Of Integer))
@@ -87,7 +89,7 @@
         Search.Show()
 
         'Hides this form
-        Hide()
+        Close()
 
     End Sub
 
@@ -100,23 +102,21 @@
         Dim users As New MyMoviesDBDataSet.UserDataTable
 
         Dim dateCheck As DateTime
-        If DateTime.TryParse(txtExpiry.Text, dateCheck) AndAlso txtSecurityCode.Text.Length >= 3 Then
+        If DateTime.TryParse(txtExpiry.Text, dateCheck) AndAlso txtSecurityCode.Text.Length >= 3 AndAlso txtCreditCard.Text.Length >= 15 Then
 
             userAdapter.FillByID(users, UserID)
             If users.Count = 1 Then
                 'add each item in lstItems to an orderDetail row
                 makeOrderItems(MoviesInOrder())
 
-                'sum order total
-                Dim dblOrderTotal As Double = orderDetailAdapter.GetOrderTotal(OrderNumber())
-
                 'display confirmation message box
-                Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + dblOrderTotal.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
+                Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + _TotalPrice.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
 
                 'if confirmed, write order to database and clear page properties so a new order can be made.
                 If drConfimation = 1 Then
-                    orderAdapter.CompleteOrder(Date.Now, dblOrderTotal, OrderNumber)
+                    orderAdapter.CompleteOrder(Date.Now, _TotalPrice, OrderNumber)
                     UserID = Nothing
+                    MoviesInOrder = New List(Of Integer)
                     Start.Show()
                     Close()
                 ElseIf drConfimation = 3 Then
@@ -132,7 +132,7 @@
                 Registration.Show(Me)
 
                 'Hides this form
-                Hide()
+                Close()
             End If
             'If (Customer.Exists)
             '   Place Order
@@ -142,7 +142,7 @@
 
             'End If
         Else
-            MessageBox.Show("Expiry date or security code.")
+            MessageBox.Show("User input cannot be accepted.")
         End If
     End Sub
 
