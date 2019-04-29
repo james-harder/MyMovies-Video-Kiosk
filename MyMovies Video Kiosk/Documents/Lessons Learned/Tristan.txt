@@ -1,1 +1,6 @@
-﻿
+﻿Lessons Learned:
+	I learned a ton of useful things over the course of this project. Most importantly would be starting and how to use GitHub, it was not a requirement
+	but using it helped me so that I could use it at a real job in the future. I also learned plenty of things within VB. Before this i had never used multiple
+	forms across one program. I also leanred about using Data sources and holding information submitted by users. As with any group project there is always
+	going to be issues with working in groups etc. This project went smoothly mostly due to my amazing teammates. I learned a lot and if i had to do anything different
+	it would probably be just to be a solo project so i could learn every angle. Otherwise it was a amazing experience.
