@@ -58,18 +58,7 @@
 
     'Handles Load() of this form
     Private Sub frmPlaceOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'make a table adapter to use with ordertable
-        Dim orderTableAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter
-        Dim orderTable As New MyMoviesDBDataSet.OrderDataTable
 
-        'if _orderNumber is not set, create a new row in dbo.Orders and set_orderNumber to that
-        If OrderNumber = Nothing Then
-            'create a new blank order
-            Dim createDate = DateTime.Now
-            orderTableAdapter.AddOrderRow(UserID(), createDate, _TotalPrice)
-            orderTableAdapter.Fill(orderTable)
-            _orderNumber = orderTable.Count
-        End If
 
         ' get customer info based on Program.UserID, fill Customer table
         Me.CustomerTableAdapter.FillByID(Me.MyMoviesDBDataSet.Customer, Program.UserID)
@@ -115,7 +104,18 @@
 
                     'if confirmed, write order to database and clear page properties so a new order can be made.
                     If drConfimation = 1 Then
-                        orderAdapter.CompleteOrder(Date.Now, _TotalPrice, OrderNumber)
+                        'make a table adapter to use with ordertable
+                        Dim orderTableAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter
+                        Dim orderTable As New MyMoviesDBDataSet.OrderDataTable
+
+                        'if _orderNumber is not set, create a new row in dbo.Orders and set_orderNumber to that
+                        If OrderNumber = Nothing Then
+                            'create a new blank order
+                            Dim createDate = DateTime.Now
+                            orderTableAdapter.AddOrderRow(UserID(), createDate, _TotalPrice)
+                            orderTableAdapter.Fill(orderTable)
+                            _orderNumber = orderTable.Count
+                        End If
                         UserID = Nothing
                         MoviesInOrder = New List(Of Integer)
                         Start.Show()
