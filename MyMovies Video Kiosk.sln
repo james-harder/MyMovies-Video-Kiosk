@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MyMovies Video Kiosk", "MyMovies Video Kiosk\MyMovies Video Kiosk.vbproj", "{E8D8C6C9-B0BD-46E2-A4FC-56F61B0190A3}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Administrator Module", "Administrator Module\Administrator Module.vbproj", "{58F25458-1F4E-4462-B066-326863F47FCC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{E8D8C6C9-B0BD-46E2-A4FC-56F61B0190A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8D8C6C9-B0BD-46E2-A4FC-56F61B0190A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8D8C6C9-B0BD-46E2-A4FC-56F61B0190A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58F25458-1F4E-4462-B066-326863F47FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58F25458-1F4E-4462-B066-326863F47FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58F25458-1F4E-4462-B066-326863F47FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58F25458-1F4E-4462-B066-326863F47FCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
