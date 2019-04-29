@@ -160,9 +160,8 @@ Partial Class frmPlaceOrder
         Me.txtExpiry.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "Expiration", True))
         Me.txtExpiry.Font = New System.Drawing.Font("Nirmala UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtExpiry.Location = New System.Drawing.Point(475, 246)
-        Me.txtExpiry.Mask = "00/00"
         Me.txtExpiry.Name = "txtExpiry"
-        Me.txtExpiry.Size = New System.Drawing.Size(38, 22)
+        Me.txtExpiry.Size = New System.Drawing.Size(55, 22)
         Me.txtExpiry.TabIndex = 3
         Me.txtExpiry.ValidatingType = GetType(Date)
         '

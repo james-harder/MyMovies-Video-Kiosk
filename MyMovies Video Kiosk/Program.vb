@@ -1,5 +1,5 @@
 ﻿Public Module Program
-#Region "properties"
+#Region "Properties"
     'UserID tracks the current user
     Public Property UserID() As Integer
 
@@ -10,7 +10,13 @@
     Private _MoviesInOrder As List(Of Integer)
     Public Property MoviesInOrder() As List(Of Integer)
         Get
-            Return _MoviesInOrder
+            If _MoviesInOrder IsNot Nothing Then
+                Return _MoviesInOrder
+            Else
+                _MoviesInOrder = New List(Of Integer)
+                Return _MoviesInOrder
+            End If
+
         End Get
         Set(ByVal value As List(Of Integer))
             _MoviesInOrder = value

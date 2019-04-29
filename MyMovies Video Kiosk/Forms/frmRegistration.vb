@@ -34,7 +34,7 @@
         End If
         Dim checkUser As DataRow
         checkUser = tblUser.Select(String.Format("Username = '{0}'", user.ToUpper)).FirstOrDefault()
-        If checkUser Is Nothing Then
+        If checkUser Is Nothing AndAlso txtUsername.TextLength >= 5 AndAlso txtPassword.TextLength >= 5 Then
             'This block can be used to selectively validate inserted fields
             Dim customer As New MyMoviesDBDataSetTableAdapters.CustomerTableAdapter()
             Dim firstName As String = txtFirstName.Text
@@ -72,7 +72,7 @@
             'closes this form
             Close()
         Else
-            MessageBox.Show("Username already taken.")
+            MessageBox.Show("Username already taken or shorter than minimum length.")
         End If
 
 
