@@ -15,21 +15,6 @@
 
     Private Function getMoviesInOrder() As List(Of String)
 
-        ''create a Table adapter and a data table
-        'Dim moviesInOrderTableAdapter As New MyMoviesDBDataSetTableAdapters.MoviesInOrder()
-        'Dim moviesInOrder As New MyMoviesDBDataSet.MoviesByOrderAndUserDataTable()
-
-        ''fill data table 
-        'moviesInOrderTableAdapter.Fill(moviesInOrder, UserID, orderNumber)
-
-        ''each row should be a movie ID (later a movie title)
-        'For Each row As DataRow In moviesInOrder
-
-        '    'store each row in the lstItem
-        '    lstItems.Items.Add(row)
-
-        'Next
-
         Dim lstMovieList As New List(Of String)
 
         'make a data adapter
@@ -49,6 +34,10 @@
         Return lstMovieList
 
     End Function
+
+    Private Sub makeOrderItems()
+
+    End Sub
 
 #End Region
 
@@ -95,6 +84,7 @@
         userAdapter.FillByID(users, UserID)
         If users.Count = 1 Then
             'add each item in lstItems to an orderDetail row
+            makeOrderItems()
 
             'sum order total
 

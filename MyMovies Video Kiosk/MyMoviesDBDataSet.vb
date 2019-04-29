@@ -12,3 +12,7 @@ Namespace MyMoviesDBDataSetTableAdapters
     Partial Public Class MovieTableAdapter
     End Class
 End Namespace
+
+
+Partial Public Class MyMoviesDBDataSet
+End Class
