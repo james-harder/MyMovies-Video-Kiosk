@@ -120,10 +120,7 @@
                     Start.Show()
                     Close()
                 ElseIf drConfimation = 3 Then
-                    'cancel order, go to frmSearch
-                    Search.Show()
-
-                    Hide()
+                    'do nothing
                 End If
                 'if cancelled, go back to form place order
 
