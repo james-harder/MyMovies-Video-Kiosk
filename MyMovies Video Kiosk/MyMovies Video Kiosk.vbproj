@@ -194,6 +194,9 @@
   <ItemGroup>
     <Content Include="Documents\Activity Summaries\3 March Week 1 Summary.txt" />
     <Content Include="Documents\Activity Summaries\2 February Week 4 Summary.txt" />
+    <Content Include="Documents\Activity Summaries\4 April Week 4 Summary.txt" />
+    <Content Include="Documents\Activity Summaries\4 April Week 3 Summary.txt" />
+    <Content Include="Documents\Activity Summaries\4 April Week 2 Summary.txt" />
     <Content Include="Documents\Activity Summaries\4 April Week 1 Summary.txt" />
     <Content Include="Documents\Activity Summaries\3 March Week 3 Summary.txt" />
     <Content Include="Documents\Issues-Questions.txt" />

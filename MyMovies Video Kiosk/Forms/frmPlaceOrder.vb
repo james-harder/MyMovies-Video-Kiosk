@@ -100,7 +100,7 @@
         Dim users As New MyMoviesDBDataSet.UserDataTable
 
         Dim dateCheck As DateTime
-        If DateTime.TryParse(txtExpiry.Text, dateCheck) Then
+        If DateTime.TryParse(txtExpiry.Text, dateCheck) AndAlso txtSecurityCode.Text.Length >= 3 Then
 
             userAdapter.FillByID(users, UserID)
             If users.Count = 1 Then
@@ -142,7 +142,7 @@
 
             'End If
         Else
-            MessageBox.Show("Expiry date is invalid.")
+            MessageBox.Show("Expiry date or security code.")
         End If
     End Sub
 

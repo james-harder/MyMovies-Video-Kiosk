@@ -1,4 +1,4 @@
-﻿4/1/2019
+﻿4/15/2019
 |	Activity	|	Member	|	Hours	|	Total	|
 -----------------------------------------------------
 | UI/UX Design	| Alexis	| 1 Hour	| 1 Hour	|
