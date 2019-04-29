@@ -58,11 +58,15 @@
     Private Sub frmPlaceOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'make a table adapter to use with ordertable
         Dim orderTableAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter
+        Dim orderTable As New MyMoviesDBDataSet.OrderDataTable
 
         'if _orderNumber is not set, create a new row in dbo.Orders and set_orderNumber to that
-        If OrderNumber() = Nothing Then
+        If OrderNumber = Nothing Then
             'create a new blank order
-            orderTableAdapter.AddOrderRow(UserID(), DateTime.Now, 0.0)
+            Dim createDate = DateTime.Now
+            orderTableAdapter.AddOrderRow(UserID(), createDate, 0.0)
+            orderTableAdapter.Fill(orderTable)
+            _orderNumber = orderTable.Count
         End If
 
         ' get customer info based on Program.UserID, fill Customer table
