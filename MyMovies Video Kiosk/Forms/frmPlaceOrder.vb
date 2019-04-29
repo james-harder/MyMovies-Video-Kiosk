@@ -35,7 +35,18 @@
 
     End Function
 
-    Private Sub makeOrderItems()
+    Private Sub makeOrderItems(ByVal movieIds As List(Of Integer))
+        Dim movieAdapter As New MyMoviesDBDataSetTableAdapters.MovieTableAdapter
+        Dim orderDetailAdapter As New MyMoviesDBDataSetTableAdapters.OrderDetailTableAdapter
+
+        Dim intOrder As Integer = OrderNumber()
+        Dim dblPrice As Double
+        Dim intQuantity As Integer = 1
+
+        For Each movieId As Integer In movieIds
+            dblPrice = movieAdapter.GetPriceById(movieId)
+            orderDetailAdapter.AddOrderLine(intOrder, movieId, intQuantity, dblPrice * intQuantity)
+        Next
 
     End Sub
 
@@ -79,19 +90,31 @@
     'Handles btnPlaceOrder Click
     Private Sub btnPlaceOrder_Click(sender As Object, e As EventArgs) Handles btnPlaceOrder.Click
         Dim userAdapter As New MyMoviesDBDataSetTableAdapters.UserTableAdapter
+        Dim orderDetailAdapter As New MyMoviesDBDataSetTableAdapters.OrderDetailTableAdapter
+        Dim orderAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter
+
         Dim users As New MyMoviesDBDataSet.UserDataTable
 
         userAdapter.FillByID(users, UserID)
         If users.Count = 1 Then
             'add each item in lstItems to an orderDetail row
-            makeOrderItems()
+            makeOrderItems(MoviesInOrder())
 
             'sum order total
+            Dim dblOrderTotal As Double = orderDetailAdapter.GetOrderTotal(OrderNumber())
 
             'display confirmation message box
+            Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + dblOrderTotal.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
 
             'if confirmed, write order to database and clear page properties so a new order can be made.
+            If drConfimation = 1 Then
+                orderAdapter.CompleteOrder(Date.Now, dblOrderTotal, OrderNumber)
+            ElseIf drConfimation = 3 Then
+                'cancel order, go to frmSearch
+                Search.Show()
 
+                Hide()
+            End If
             'if cancelled, go back to form place order
 
         Else

@@ -7587,7 +7587,7 @@ Namespace MyMoviesDBDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT MovieID, DirectorID, Genre, Price FROM dbo.Movie"
@@ -7603,6 +7603,11 @@ Namespace MyMoviesDBDataSetTableAdapters
                 "    Movie"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (MovieID = @movieID)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@movieID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "MovieID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT        Price"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Movie"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (MovieID = @movieId)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@movieId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "MovieID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7719,6 +7724,33 @@ Namespace MyMoviesDBDataSetTableAdapters
                     Me.Adapter.InsertCommand.Connection.Close
                 End If
             End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function GetPriceById(ByVal movieId As Integer) As Global.System.Nullable(Of Decimal)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            command.Parameters(0).Value = CType(movieId,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Object
+            Try 
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            If ((returnValue Is Nothing)  _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return New Global.System.Nullable(Of Decimal)()
+            Else
+                Return New Global.System.Nullable(Of Decimal)(CType(returnValue,Decimal))
+            End If
         End Function
     End Class
     
@@ -7890,8 +7922,12 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OrderTotal", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "OrderTotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT MAX(OrderID) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM  [Order]"
+            Me._commandCollection(2).CommandText = "UPDATE       [Order]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                OrderDate = @newDate, OrderTotal = @orde"& _ 
+                "rTotal"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (OrderID = @orderId)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@newDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "OrderDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@orderTotal", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "OrderTotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@orderId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "OrderID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8001,28 +8037,31 @@ Namespace MyMoviesDBDataSetTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function MaxOrderID() As Global.System.Nullable(Of Integer)
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function CompleteOrder(ByVal newDate As String, ByVal orderTotal As Decimal, ByVal orderId As Integer) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            If (newDate Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("newDate")
+            Else
+                command.Parameters(0).Value = CType(newDate,String)
+            End If
+            command.Parameters(1).Value = CType(orderTotal,Decimal)
+            command.Parameters(2).Value = CType(orderId,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
                 command.Connection.Open
             End If
-            Dim returnValue As Object
+            Dim returnValue As Integer
             Try 
-                returnValue = command.ExecuteScalar
+                returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
                     command.Connection.Close
                 End If
             End Try
-            If ((returnValue Is Nothing)  _
-                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
-                Return New Global.System.Nullable(Of Integer)()
-            Else
-                Return New Global.System.Nullable(Of Integer)(CType(returnValue,Integer))
-            End If
+            Return returnValue
         End Function
     End Class
     
@@ -8179,7 +8218,7 @@ Namespace MyMoviesDBDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT OrderID, MovieID, Quantity, LineTotal FROM dbo.OrderDetail"
@@ -8193,6 +8232,12 @@ Namespace MyMoviesDBDataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MovieID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "MovieID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Quantity", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Quantity", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LineTotal", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "LineTotal", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        SUM(LineTotal) AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            OrderDetail"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        "& _ 
+                "(OrderID = @OrderId)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OrderId", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "OrderID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8295,6 +8340,33 @@ Namespace MyMoviesDBDataSetTableAdapters
                 End If
             End Try
             Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function GetOrderTotal(ByVal OrderId As Integer) As Object
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            command.Parameters(0).Value = CType(OrderId,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Object
+            Try 
+                returnValue = command.ExecuteScalar
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            If ((returnValue Is Nothing)  _
+                        OrElse (returnValue.GetType Is GetType(Global.System.DBNull))) Then
+                Return Nothing
+            Else
+                Return CType(returnValue,Object)
+            End If
         End Function
     End Class
     
