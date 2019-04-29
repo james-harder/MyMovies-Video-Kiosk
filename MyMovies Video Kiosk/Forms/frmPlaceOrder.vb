@@ -133,15 +133,9 @@
                     'Hides this form
                     Close()
                 End If
-                'If (Customer.Exists)
-                '   Place Order
-                'Else
 
-
-
-                'End If
             Else
-                MessageBox.Show("User input cannot be accepted.")
+                MessageBox.Show("User input cannot be accepted. Make sure you've entered a orrect security code.")
             End If
         Else
             MessageBox.Show("Order is empty.")

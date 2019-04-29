@@ -126,11 +126,6 @@
         'sets txtPassword to hide characters input by user
         txtPassword.UseSystemPasswordChar = True
 
-        ''initialize _moviesInOrder ????
-        'Dim nada As New List(Of Integer)
-        'MoviesInOrder = nada
-        'OK, I think I figured out how to so this a little more reasonably
-
     End Sub
 #End Region
 

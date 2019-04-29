@@ -72,7 +72,7 @@
             'closes this form
             Close()
         Else
-            MessageBox.Show("Username already taken or shorter than minimum length.")
+            MessageBox.Show("Username already taken or shorter than minimum length (5 characters).")
         End If
 
 
