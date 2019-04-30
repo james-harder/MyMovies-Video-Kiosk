@@ -178,6 +178,8 @@
   <ItemGroup>
     <None Include="Documents\Application Design Documentation\Activity Diagram.vsdx" />
     <None Include="Documents\Application Design Documentation\Flow Chart.vsdx" />
+    <None Include="Documents\Application Design Documentation\MyMovies Video Kiosk.pptx" />
+    <None Include="Documents\Application Design Documentation\System Sequence Diagram.vsdx" />
     <None Include="Documents\Application Design Documentation\UML Class Diagram.vsdx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -198,6 +200,10 @@
     <Content Include="Documents\Activity Summaries\4 April Week 2 Summary.txt" />
     <Content Include="Documents\Activity Summaries\4 April Week 1 Summary.txt" />
     <Content Include="Documents\Activity Summaries\3 March Week 3 Summary.txt" />
+    <Content Include="Documents\Application Design Documentation\Activity Diagram.png" />
+    <Content Include="Documents\Application Design Documentation\DataSet Diagram.PNG" />
+    <Content Include="Documents\Application Design Documentation\Flow Chart.png" />
+    <Content Include="Documents\Application Design Documentation\System Sequence Diagram.png" />
     <Content Include="Documents\Issues-Questions.txt" />
     <Content Include="Documents\Lessons Learned\Alexis.txt" />
     <Content Include="Documents\Lessons Learned\Ernest.txt" />
