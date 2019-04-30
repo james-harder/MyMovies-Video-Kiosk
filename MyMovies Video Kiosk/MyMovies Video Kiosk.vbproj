@@ -210,6 +210,7 @@
     <Content Include="Documents\Lessons Learned\James.txt" />
     <Content Include="Documents\Lessons Learned\Tristan.txt" />
     <Content Include="Documents\Team Charter.txt" />
+    <Content Include="Documents\WorkingOn.txt" />
     <Content Include="Images\favicon.ico" />
     <Content Include="Documents\User Documentation.txt" />
     <Content Include="Images\Film Reel Blue.png" />

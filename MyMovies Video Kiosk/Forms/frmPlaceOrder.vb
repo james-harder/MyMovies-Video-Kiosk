@@ -2,14 +2,43 @@
 
 #Region "Properties"
 
-    Private _orderNumber As Integer
-    Private _TotalPrice As Integer
-    Public ReadOnly Property OrderNumber() As Integer
+    'Private _orderNumber As Integer
+    'Private _TotalPrice As Integer
+    'Public ReadOnly Property OrderNumber() As Integer
+    '    Get
+    '        Return _orderNumber
+    '    End Get
+    'End Property
+
+    Private _OrderNumber As Integer
+    Public Property OrderNumber() As Integer
         Get
-            Return _orderNumber
+            If _OrderNumber = Nothing Then
+                Dim orderTableAdapter As New MyMoviesDBDataSetTableAdapters.OrderTableAdapter
+                If orderTableAdapter.MaxOrderId() Is Nothing Then
+                    _OrderNumber = 1
+                Else
+                    _OrderNumber = orderTableAdapter.MaxOrderId() + 1
+                End If
+            End If
+
+            Return _OrderNumber
+
         End Get
+        Set(ByVal value As Integer)
+            _OrderNumber = value
+        End Set
     End Property
 
+    Private _OrderTotalPrice As Double
+    Public Property OrderTotalPrice() As Double
+        Get
+            Return _OrderTotalPrice
+        End Get
+        Set(ByVal value As Double)
+            _OrderTotalPrice = value
+        End Set
+    End Property
 
 #End Region
 
@@ -28,12 +57,12 @@
             Dim strMovieId As String = movieDataRow.Item(0).MovieID.ToString
             Dim strMovieTitle As String = movieDataRow.Item(0).Title.ToString
             Dim dblMoviePrice As Double = movieDataRow.Item(0).Price
-            _TotalPrice += movieDataRow.Item(0).Price
+            OrderTotalPrice += dblMoviePrice
             Dim strItemRow As String = "[" + strMovieId + "]" + " " + strMovieTitle + " (" + dblMoviePrice.ToString("C2") + ")"
             lstMovieList.Add(strItemRow)
         Next
 
-        lblTotal.Text = _TotalPrice.ToString("C2")
+        lblTotal.Text = OrderTotalPrice().ToString("C2")
         Return lstMovieList
     End Function
 
@@ -99,7 +128,7 @@
 
 
                     'display confirmation message box
-                    Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + _TotalPrice.ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
+                    Dim drConfimation As DialogResult = MessageBox.Show("Your Total is " + OrderTotalPrice().ToString("C2"), "Confirm Order", MessageBoxButtons.OKCancel)
 
                     'if confirmed, write order to database and clear page properties so a new order can be made.
                     If drConfimation = 1 Then
@@ -111,9 +140,9 @@
                         If OrderNumber = Nothing Then
                             'create a new blank order
                             Dim createDate = DateTime.Now
-                            orderTableAdapter.AddOrderRow(UserID(), createDate, _TotalPrice)
+                            orderTableAdapter.AddOrderRow(UserId(), createDate, OrderTotalPrice())
                             orderTableAdapter.Fill(orderTable)
-                            _orderNumber = orderTable.Count
+                            OrderNumber = orderTable.Count
                         End If
                         'add each item in lstItems to an orderDetail row
                         makeOrderItems(MoviesInOrder())

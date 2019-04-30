@@ -1,12 +1,16 @@
 ﻿Public Module Program
 #Region "Properties"
-    'UserID tracks the current user
-    Public Property UserID() As Integer
+    ''UserID tracks the current user
+    'Public Property UserID() As Integer
+
+    'true if user is logged in, false if not
+    Public Property LoggedIn() As Boolean
 
     'System.Windows.Forms.FormWindowState is an enum to track maximized/minimized/normal window state
     Public Property WindowState() As FormWindowState
 
-    '_MoviesInOrder is like a shopping cart...
+    '_MoviesInOrder acts like a shopping cart
+    'it stores movies that will go in to an order
     Private _MoviesInOrder As List(Of Integer)
     Public Property MoviesInOrder() As List(Of Integer)
         Get
@@ -22,8 +26,7 @@
             _MoviesInOrder = value
         End Set
     End Property
-
-    'adds a single movie to Movies in order
+    'AddMovieToOrder() adds a movieId to _MoviesInOrder
     Public WriteOnly Property AddMovieToOrder() As Integer
         Set(ByVal Value As Integer)
             If _MoviesInOrder Is Nothing Then
@@ -35,15 +38,33 @@
             End If
         End Set
     End Property
-
+    'SizeOfOrder() returns the number of movies in _MoviesInOrder
     Public ReadOnly Property SizeOfOrder() As Integer
         Get
             Return _MoviesInOrder.Count()
         End Get
     End Property
 
+    'if _UserId is -1 then user is not logged in
+    Private _UserId As Integer
+    Public Property UserId() As Integer
+        Get
 
-    'Opens new frmStart window
+            If _UserId = Nothing Then
+                _UserId = -1
+            End If
+
+            Return _UserId
+
+        End Get
+
+        Set(value As Integer)
+            _UserId = value
+        End Set
+    End Property
+
+
+    'manages frmStart window
     Public ReadOnly Property Start() As frmStart
         Get
             If (_Start Is Nothing OrElse _Start.IsDisposed) Then
@@ -54,7 +75,7 @@
         End Get
     End Property
 
-    'Opens new frmSearch window
+    'manages frmSearch window
     Public ReadOnly Property Search() As frmSearch
         Get
             If (_Search Is Nothing OrElse _Search.IsDisposed) Then
@@ -65,7 +86,7 @@
         End Get
     End Property
 
-    'Opens new frmRegistration window
+    'manages frmRegistration window
     Public ReadOnly Property Registration() As frmRegistration
         Get
             If (_Registration Is Nothing OrElse _Registration.IsDisposed) Then
@@ -76,7 +97,7 @@
         End Get
     End Property
 
-    'Opens new frmPlaceOrder window
+    'manages frmPlaceOrder window
     Public ReadOnly Property PlaceOrder() As frmPlaceOrder
         Get
             If (_PlaceOrder Is Nothing OrElse _PlaceOrder.IsDisposed) Then
@@ -89,10 +110,7 @@
 
 #End Region
 
-    Private _Start As frmStart = New frmStart
-    Private _Search As frmSearch = New frmSearch
-    Private _Registration As frmRegistration = New frmRegistration
-    Private _PlaceOrder As frmPlaceOrder = New frmPlaceOrder
+#Region "Methods"
 
     'Toggles FormWindowState of all forms between Maximized / Normal
     Public Sub ResizeAllForms()
@@ -118,5 +136,14 @@
         End If
     End Function
 
+#End Region
 
+#Region "Members Variables"
+
+    Private _Start As frmStart = New frmStart
+    Private _Search As frmSearch = New frmSearch
+    Private _Registration As frmRegistration = New frmRegistration
+    Private _PlaceOrder As frmPlaceOrder = New frmPlaceOrder
+
+#End Region
 End Module

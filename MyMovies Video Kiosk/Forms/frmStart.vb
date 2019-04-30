@@ -14,15 +14,19 @@
 
         Dim user As String = If(CheckForSQL(txtUsername.Text), "ERROR USER ATTEMPTED SQL INJECTION", txtUsername.Text)
         Dim pwd As String = If(CheckForSQL(txtPassword.Text), "ERROR USER ATTEMPTED SQL INJECTION", txtPassword.Text)
+
         Dim checkUser As DataRow
+        ' set user to uppercase and get the first row that has that username
         checkUser = tblUsers.Select(String.Format("Username = '{0}'", user.ToUpper)).FirstOrDefault()
+
+        ' if a row is returned, check that password is correct. Otherwise, display error
         If checkUser IsNot Nothing Then
             If pwd.Equals(checkUser(1).ToString()) Then
-                Search.Show()
-                UserID = checkUser(2)
-                txtPassword.Text = String.Empty
-                txtUsername.Text = String.Empty
-                Hide()
+                Search.Show()                       'show search form
+                UserId = checkUser(2)               'set UserId from row
+                txtPassword.Text = String.Empty     'clear txtPassword
+                txtUsername.Text = String.Empty     'clear txtUsername
+                Hide()                              'hide start form
             Else
                 MessageBox.Show("User/Password is incorrect.", "Lookup Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 txtUsername.Text = String.Empty

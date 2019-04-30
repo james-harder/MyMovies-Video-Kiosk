@@ -1,0 +1,13 @@
+﻿Currently 4/29
+
+Move properties to Program.vb
+	-UserId
+
+Clear order at appropriate time
+	-logout
+	-place order
+
+
+In Future
+
+auto load [last used / just created] login
